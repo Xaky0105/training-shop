@@ -1,0 +1,50 @@
+@import './components/footer/footer.scss';
+@import './components/header/header.scss';
+@import './components/social/social.scss';
+@import './components/subscribe/subscribe.scss';
+@import './components/slider/slider.scss';
+@import './components/advantage/advantage.scss';
+@import './components/blognews-top/blognewstop.scss';
+@import './components/blognews-bot/blognewsbot.scss';
+@import './components/rating/rating.scss';
+@import './components/clothes/clothers.scss';
+@import './components/cart/cart.scss';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Spartan;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 12px;
+  color: #121212;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ul,
+ol {
+  list-style: none;
+}
+input {
+  font-family: inherit;
+}
+img {
+  display: block;
+}
+
+.container {
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}

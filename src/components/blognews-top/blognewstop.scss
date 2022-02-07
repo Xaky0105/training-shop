@@ -1,0 +1,15 @@
+.blog_news_top {
+  display: flex;
+  justify-content: space-between;
+  margin: 96px 0;
+  .blog_news_top-item {
+    width: 50%;
+    margin-right: 30px;
+    &:last-child {
+      margin: 0;
+    }
+    img {
+      width: 100%;
+    }
+  }
+}

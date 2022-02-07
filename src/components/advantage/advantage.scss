@@ -1,0 +1,20 @@
+.advantage {
+    display: flex;
+    justify-content: space-between;
+    min-height: 103px;
+    .advantage_item {
+        display: flex;
+        align-items: center;
+        .advantage_item_content {
+            margin-left: 10px;
+            .advantage_item_title {
+                font-weight: 600;
+            }
+            .advantage_item_text {
+                font-weight: 500;
+                line-height: 22px;
+            }
+        }
+        
+    }
+}

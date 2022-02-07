@@ -1,0 +1,18 @@
+.cart {
+  width: 25%;
+
+  padding: 0 15px;
+  margin-bottom: 30px;
+
+  .img_wrap {
+    display: inline-block;
+    margin-bottom: 15px;
+    img {
+      width: 100%;
+    }
+  }
+
+  .cart_title {
+    margin-bottom: 15px;
+  }
+}

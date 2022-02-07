@@ -1,0 +1,23 @@
+.btn {
+    width: 340px;
+    height: 64px;
+    background-color: #121212;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #E5E5E5;
+        color: #121212;
+    }
+
+    &:active {
+        background-color: #9C9C9C;
+        color: #FFFFFF;
+    }
+    @media (max-width: 400px) {
+        width: 320px;
+      }
+}

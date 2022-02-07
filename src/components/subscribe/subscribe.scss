@@ -1,0 +1,67 @@
+@import "../button/btn.scss";
+
+.subscribe {
+    display: flex;
+    align-items: center;
+    background: url(img/BG.png) ;
+    min-height: 580px;
+    text-transform: uppercase;
+    
+    .subscribe_inner {
+        display: flex;
+        flex-basis: 532px;
+        height: 461px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        
+        background-color: #fff;
+        margin: 0 auto;
+        padding: 60px 0;
+        .daco {
+            position: absolute;
+            left: -260px;
+            top: -25px;
+            @media (max-width: 950px) {
+                display: none;
+              }
+        }
+        .man {
+            position: absolute;
+            top: -15px;
+            right: -200px;
+            @media (max-width: 950px) {
+                display: none;
+              }
+        }
+        p {
+            opacity: .4;
+            margin-bottom: 16px;
+        }
+        .title, .subtitle {
+            font-size: 26px;
+            line-height: 36px;
+            font-weight: 600;
+            span {
+                color: #E91E63;
+            }
+        }
+        .mail {
+            width: 340px;
+            height: 64px;
+            background-color: #F8F8F8;
+            color: rgba(18, 18, 18, 0.400);
+            text-align: center;
+            margin: 32px 0 24px 0;
+            @media (max-width: 400px) {
+                width: 320px;
+              }
+        }
+        
+        
+        
+        
+    }
+
+}

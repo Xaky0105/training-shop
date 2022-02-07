@@ -1,0 +1,39 @@
+.clothers {
+  display: flex;
+  flex-direction: column;
+
+  .clothers_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 96px 0 45px 0;
+    .clothers_title {
+      font-size: 22px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .clothers_sort {
+      display: flex;
+      font-size: 12px;
+      opacity: 0.6;
+      a {
+        margin-right: 32px;
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+  .carts {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+  }
+  input {
+    height: 48px;
+    text-transform: uppercase;
+    background-color: #f8f8f8;
+    font-size: 13px;
+    cursor: pointer;
+  }
+}

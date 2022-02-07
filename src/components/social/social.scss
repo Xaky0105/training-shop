@@ -1,0 +1,10 @@
+.social {
+    display: flex;
+    align-items: center;
+    .social_item {
+      margin-right: 10px;
+    }
+    .social_item:last-child {
+      margin: 0;
+    }
+  }
