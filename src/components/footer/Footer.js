@@ -39,41 +39,41 @@ function Footer() {
                     <div className="footer_middle_wrap">
                         <div className="footer_middle_item">
                             <h2>Categories</h2>
-                            <a href="#">Men</a>
-                            <a href="#">Women</a>
-                            <a href="#">Accessories</a>
-                            <a href="#">Beauty</a>
+                            <a href="/#">Men</a>
+                            <a href="/#">Women</a>
+                            <a href="/#">Accessories</a>
+                            <a href="/#">Beauty</a>
                         </div>
                         <div className="footer_middle_item">
                             <h2>Infomation</h2>
-                            <a href="#">About Us</a>
-                            <a href="#">Contact Us</a>
-                            <a href="#">Blog</a>
-                            <a href="#">FAQs</a>
+                            <a href="/#">About Us</a>
+                            <a href="/#">Contact Us</a>
+                            <a href="/#">Blog</a>
+                            <a href="/#">FAQs</a>
                         </div>
                         <div className="footer_middle_item">
                             <h2>Useful links</h2>
-                            <a href="#">Terms &amp; Conditions</a>
-                            <a href="#">Returns &amp; Exchanges</a>
-                            <a href="#">Shipping &amp; Delivery</a>
-                            <a href="#">Privacy Policy</a>
+                            <a href="/#">Terms &amp; Conditions</a>
+                            <a href="/#">Returns &amp; Exchanges</a>
+                            <a href="/#">Shipping &amp; Delivery</a>
+                            <a href="/#">Privacy Policy</a>
                         </div>
                         <div className="footer_middle_item">
                             <h2>CONTACT US</h2>
                             <div className="footer_middle_item-item">
-                                <img src={Location} />
-                                <a href="#">Belarus, Gomel, Lange 17</a>
+                                <img src={Location} alt=''/>
+                                <a href="/#">Belarus, Gomel, Lange 17</a>
                             </div>
                             <div className="footer_middle_item-item">
-                                <img src={Phone} />
+                                <img src={Phone} alt=''/>
                                 <a href="tel:+375291002030">+375 29 100 20 30</a>
                             </div>
                             <div className="footer_middle_item-item">
-                                <img src={Clock} />
-                                <a href="#">All week 24/7</a>
+                                <img src={Clock} alt=''/>
+                                <a href="/#">All week 24/7</a>
                             </div>
                             <div className="footer_middle_item-item">
-                                <img src={Mail} />
+                                <img src={Mail} alt=''/>
                                 <a href="mailto:info@clevertec.ru">info@clevertec.ru</a>
                             </div>
                         </div>
@@ -87,26 +87,26 @@ function Footer() {
                             <span>Copyright © 2032 all rights reserved</span>
                         </div>
                         <div className="footer_bottom_center">
-                            <a className="foot__bot_center_item" href="#">
-                                <img src={Stripe}></img>
+                            <a className="foot__bot_center_item" href="/#">
+                                <img src={Stripe} alt=''></img>
                             </a>
-                            <a className="foot__bot_center_item" href="#">
-                                <img src={Aes}></img>
+                            <a className="foot__bot_center_item" href="/#">
+                                <img src={Aes} alt=''></img>
                             </a>
-                            <a className="foot__bot_center_item" href="#">
-                                <img src={Paypal}></img>
+                            <a className="foot__bot_center_item" href="/#">
+                                <img src={Paypal} alt=''></img>
                             </a>
-                            <a className="foot__bot_center_item" href="#">
-                                <img src={Visa}></img>
+                            <a className="foot__bot_center_item" href="/#">
+                                <img src={Visa} alt=''></img>
                             </a>
-                            <a className="foot__bot_center_item" href="#">
-                                <img src={Mastercard}></img>
+                            <a className="foot__bot_center_item" href="/#">
+                                <img src={Mastercard} alt=''></img>
                             </a>
-                            <a className="foot__bot_center_item" href="#">
-                                <img src={Discover}></img>
+                            <a className="foot__bot_center_item" href="/#">
+                                <img src={Discover} alt=''></img>
                             </a>
-                            <a className="foot__bot_center_item" href="#">
-                                <img src={Aexpress}></img>
+                            <a className="foot__bot_center_item" href="/#">
+                                <img src={Aexpress} alt=''></img>
                             </a>
                         </div>
                         <div className="footer_bottom_right">

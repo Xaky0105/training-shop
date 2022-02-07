@@ -8,31 +8,31 @@ function Blognewsbot() {
             <div className="blog_news_bot">
                 <div className="blog_news_header">
                     <h2>LATEST FROM BLOG</h2>
-                    <a href='#'>SEE ALL</a>
+                    <a href='/#'>SEE ALL</a>
                 </div>
                 <div className="blog_news_content">
                     <div className="blog_news_content-item">
-                        <a href="#"><img src={News1}></img></a>
+                        <a href='/#'><img src={News1} alt=''></img></a>
                         <article className='article'>
                             <h3>The Easiest Way to Break</h3>
                             <p>But I must explain to you how all this mistaken idea of denouncing pleas and praising pain was bor</p>
-                            <a href='#'>Read more</a>
+                            <a href='/#'>Read more</a>
                         </article>
                     </div>
                     <div className="blog_news_content-item">
-                        <a href="#"><img src={News2}></img></a>
+                        <a href="/#"><img src={News2} alt=''></img></a>
                         <article className='article'>
                             <h3>Wedding Season</h3>
                             <p>But I must explain to you how all this mistaken idea of denouncing pleas and praising pain was bor</p>
-                            <a href='#'>Read more</a>
+                            <a href='/#'>Read more</a>
                         </article>
                     </div>
                     <div className="blog_news_content-item">
-                        <a href="#"><img src={News3}></img></a>
+                        <a href="/#"><img src={News3} alt=''></img></a>
                         <article className='article'>
                             <h3>Recent Favorites On Repeat</h3>
                             <p>But I must explain to you how all this mistaken idea of denouncing pleas and praising pain was bor</p>
-                            <a href='#'>Read more</a>
+                            <a href='/#'>Read more</a>
                         </article>
                     </div>
                 </div>

@@ -6,8 +6,8 @@ function Subscribe() {
     return (
         <div className="subscribe">
             <div className="subscribe_inner">
-                <img className="daco" src={Daco}></img>
-                <img className="man" src={Man}></img>
+                <img className="daco" src={Daco} alt=''></img>
+                <img className="man" src={Man} alt=''></img>
                 <p>Special Offer</p>
                 <h2 className="title">Subscribe</h2>
                 <h2 className="subtitle">And <span>Get 10% Off</span></h2>

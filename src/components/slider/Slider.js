@@ -8,19 +8,19 @@ function Slider() {
         <div className="container">
             <div className="slider_wrap">
                 <div className="slider">
-                    <img src={Banner}/>
+                    <img src={Banner} alt=''/>
                 </div>
                 <div className="intro_right">
                     <div className="intro_right_top">
                         <div className="intro_right_top-item">
-                            <img src={Women}></img>
+                            <img src={Women} alt=''></img>
                         </div>
                         <div className="intro_right_top-item">
-                            <img src={Man}></img>
+                            <img src={Man} alt=''></img>
                         </div>
                     </div>
                     <div className="intro_right_bottom">
-                        <img src={Accessories}></img>
+                        <img src={Accessories} alt=''></img>
                     </div>
                 </div>
             </div>

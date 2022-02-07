@@ -20,11 +20,11 @@ function Clothers() {
                     <div className="clothers_header">
                         <h2 className="clothers_title">Title</h2>
                         <ul className="clothers_sort">
-                            <a href="#"><li>NEW ARRIVALS</li></a>
-                            <a href="#"><li>SPECIALS</li></a>
-                            <a href="#"><li>BESTSELLERS</li></a>
-                            <a href="#"><li>MOST VIEWED</li></a>
-                            <a href="#"><li>FEATURED PRODUCTS</li></a>
+                            <a href="/#"><li>NEW ARRIVALS</li></a>
+                            <a href="/#"><li>SPECIALS</li></a>
+                            <a href="/#"><li>BESTSELLERS</li></a>
+                            <a href="/#"><li>MOST VIEWED</li></a>
+                            <a href="/#"><li>FEATURED PRODUCTS</li></a>
                         </ul>
                     </div>
                     <div className="carts">

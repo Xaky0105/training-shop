@@ -16,15 +16,15 @@ function Nav() {
                     <div className='inner_top_bar'>
                         <div className='contacts'>
                             <div className="contacts_item">
-                                <img src={Phone}/>
+                                <img src={Phone} alt=''/>
                                 <a href="tel:+375291002030">+375 29 100 20 30</a>
                             </div>
                             <div className="contacts_item">
-                                <img src={Location} />
+                                <img src={Location} alt=''/>
                                 <span>Belarus, Gomel, Lange 17</span>
                             </div>
                             <div className="contacts_item">
-                                <img src={Clock} />
+                                <img src={Clock} alt=''/>
                                 <span>All week 24/7</span>
                             </div>
                         </div>
@@ -37,31 +37,31 @@ function Nav() {
                 <div className='container'>
                     <div className="nav_wrap">
                         <div className='nav_left'>
-                            <a href="#">CleverShop</a>
+                            <a href="/#">CleverShop</a>
                         </div>
                         <div className='nav_center'>
                             <ul>
-                            <a href="#"><li>About Us</li></a>
-                            <a href="#"><li>Women</li></a>
-                            <a href="#"><li>Men</li></a>
-                            <a href="#"><li>Beauty</li></a>
-                            <a href="#"><li>Accessories</li></a>
-                            <a href="#"><li>Blog</li></a>
-                            <a href="#"><li>Contact</li></a>
+                            <a href="/#"><li>About Us</li></a>
+                            <a href="/#"><li>Women</li></a>
+                            <a href="/#"><li>Men</li></a>
+                            <a href="/#"><li>Beauty</li></a>
+                            <a href="/#"><li>Accessories</li></a>
+                            <a href="/#"><li>Blog</li></a>
+                            <a href="/#"><li>Contact</li></a>
                             </ul>
                         </div>
                         <div className='nav_right'>
-                            <a className='nav_right_item' href='#'>
-                                <img src={Search} />
+                            <a className='nav_right_item' href='/#'>
+                                <img src={Search} alt=''/>
                             </a>
-                            <a className='nav_right_item' href='#'>
-                                <img src={Globe} />
+                            <a className='nav_right_item' href='/#'>
+                                <img src={Globe} alt=''/>
                             </a>
-                            <a className='nav_right_item' href='#'>
-                                <img src={User} />
+                            <a className='nav_right_item' href='/#'>
+                                <img src={User} alt=''/>
                             </a>
-                            <a className='nav_right_item' href='#'>
-                                <img src={Shop} />
+                            <a className='nav_right_item' href='/#'>
+                                <img src={Shop} alt=''/>
                             </a>
                         </div>
                     </div>

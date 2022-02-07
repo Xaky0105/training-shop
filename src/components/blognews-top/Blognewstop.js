@@ -6,10 +6,10 @@ function Blognewstop() {
         <div class="container">
             <div className="blog_news_top">
                 <div className="blog_news_top-item">
-                    <img src={Imgleft}></img>
+                    <img src={Imgleft} alt=''></img>
                 </div>
                 <div className="blog_news_top-item">
-                    <img src={Imgright}></img>
+                    <img src={Imgright} alt=''></img>
                 </div>
             </div>
         </div>
