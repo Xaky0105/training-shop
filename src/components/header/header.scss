@@ -22,6 +22,9 @@
           display: flex;
           align-items: flex-end;
           margin-right: 40px;
+          img {
+            margin-right: 10px;
+          }
           svg {
             margin-right: 10px;
           }
@@ -52,8 +55,9 @@
       }
       .nav_center {
         font-size: 14px;
-        ul {
+        .menu {
           display: flex;
+          align-items: center;
           a {
             margin: 0 16px;
           }
