@@ -1,31 +1,28 @@
 import React from 'react';
-import Header from './components/header/Header';
-import Subscribe from './components/subscribe/Subscribe';
-import Footer from './components/footer/Footer';
-import Slider from './components/slider/Slider';
-import Advantage from './components/advantage/Advantage';
-import Blognewstop from './components/blognews-top/Blognewstop';
-import Blognewsbot from './components/blognews-bot/Blognewsbot';
-import Clothers from './components/clothes/Clothers'
+import {Routes, Route} from 'react-router-dom'
+
+import Home from './pages/Home';
+import Layout from './components/layout/layout';
+import Women from './pages/Women';
+import Men  from './pages/Men'
+import Product from './pages/Product';
+
 
 
 
 
 function App() {
   return (
-        <div className='main'>
-          
-            <Header />
-            <Slider/>
-            <Advantage />
-            <Clothers />
-            <Clothers />
-            <Blognewstop />
-            <Subscribe />
-            <Blognewsbot />
-            <Footer /> 
-          
-        </div>
+    <div className='app' data-test-id='app'>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />} />;
+          <Route path='women' element={<Women />} />;
+          <Route path='men' element={<Men />} />;
+          <Route path='product' element={<Product />} />
+        </Route>
+      </Routes>
+    </div>
   );
 }
 

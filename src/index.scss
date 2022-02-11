@@ -9,6 +9,8 @@
 @import './components/rating/rating.scss';
 @import './components/clothes/clothers.scss';
 @import './components/cart/cart.scss';
+@import './components/cards/cards.scss';
+@import './components/products-header/productsHeader.scss';
 
 *,
 *::before,
@@ -37,6 +39,7 @@ ol {
 }
 input {
   font-family: inherit;
+  outline: none;
 }
 img {
   display: block;
@@ -47,4 +50,9 @@ img {
   width: 100%;
   margin: 0 auto;
   padding: 0 15px;
+}
+.loading {
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 80px;
 }

@@ -15,7 +15,7 @@ import Mail from './img/mail.svg'
 
 function Footer() {
     return (
-        <footer className="footer">
+        <footer className="footer" data-test-id='footer'>
             <div className="footer_top">
                 <div className="container">
                     <div className="footer_top_wrap">
