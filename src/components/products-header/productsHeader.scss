@@ -32,10 +32,12 @@
   }
   .productsHeader-title {
     text-align: center;
-    font-size: 26px;
-    line-height: 36px;
-    text-transform: uppercase;
     padding: 10px 0 24px 0;
+    h1 {
+      font-size: 26px;
+      line-height: 36px;
+      text-transform: uppercase;
+    }
   }
 }
 .filter {

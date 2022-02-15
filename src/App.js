@@ -7,6 +7,8 @@ import Women from './pages/Women';
 import Men  from './pages/Men'
 import Product from './pages/Product';
 
+import { product } from './constants/constant';
+
 
 
 
@@ -19,7 +21,7 @@ function App() {
           <Route index element={<Home />} />;
           <Route path='women' element={<Women />} />;
           <Route path='men' element={<Men />} />;
-          <Route path='product' element={<Product />} />
+          <Route path={`/${product[0].productType}/${product[0].id}`} element={<Product />} />
         </Route>
       </Routes>
     </div>

@@ -1,7 +1,7 @@
 
-function Btn() {
+function Btn(props) {
     return (
-        <input className="btn" type='submit' value='subscribe'></input>
+        <input className="btn" type='submit' value={props.title}></input>
     )
 }
 

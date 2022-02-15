@@ -12,7 +12,9 @@ function Subscribe() {
                 <h2 className="title">Subscribe</h2>
                 <h2 className="subtitle">And <span>Get 10% Off</span></h2>
                 <input className="mail" type='email' placeholder="Enter your email"></input>
-                <Btn />
+                <Btn 
+                    title = 'Subscribe'
+                />
 
             </div>
         </div>

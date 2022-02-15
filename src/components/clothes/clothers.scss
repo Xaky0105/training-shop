@@ -1,4 +1,4 @@
-.clothers {
+.clothes {
   display: flex;
   flex-direction: column;
 
@@ -6,16 +6,25 @@
     display: flex;
     justify-content: space-between;
     margin: 96px 0 45px 0;
+    @media (max-width: 800px) {
+      display: block;
+    }
     .clothers_title {
       font-size: 22px;
       text-transform: uppercase;
       font-weight: 600;
+      @media (max-width: 800px) {
+        text-align: center;
+      }
     }
     .clothers_sort {
       display: flex;
       align-items: flex-end;
       font-size: 12px;
       opacity: 0.6;
+      @media (max-width: 800px) {
+        display: none;
+      }
       a {
         margin-right: 32px;
         &:last-child {

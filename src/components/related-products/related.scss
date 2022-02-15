@@ -1,0 +1,19 @@
+.header_related {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  .header_related-title {
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .header_related-arrow {
+    display: flex;
+    cursor: pointer;
+    .arr_right {
+      transform: rotate(180deg);
+      margin-left: 15px;
+    }
+  }
+}

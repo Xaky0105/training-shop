@@ -14,11 +14,18 @@
     display: flex;
     justify-content: space-between;
     position: relative;
+    @media (max-width: 1140px) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
     .blog_news_content-item {
       width: 33%;
       margin-right: 30px;
       &:last-child {
         margin: 0;
+      }
+      @media (max-width: 1140px) {
+        width: 400px;
       }
       img {
         width: 100%;

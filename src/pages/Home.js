@@ -5,20 +5,18 @@ import Blognewsbot from '../components/blognews-bot/Blognewsbot';
 import Clothers from '../components/clothes/Clothers';
 import Subscribe from '../components/subscribe/Subscribe';
 
-const gender = {
-    women: 'Women`s',
-    men: 'Men`s'
-}
+import { filter } from '../constants/constant';
+
 function Home() {
     return (
         <>
             <Slider/>
             <Advantage />
             <Clothers 
-                title = {gender.women}
+                title = {filter.women}
             />  
             <Clothers 
-                title = {gender.men}
+                title = {filter.men}
             />
             <Blognewstop />
             <Subscribe />

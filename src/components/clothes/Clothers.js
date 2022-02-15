@@ -1,11 +1,15 @@
 import Cards from "../cards/Cards"
 
 
+
+
+
 function Clothers(props) {
+    
     
     return (
             <div className="container">
-                <div className="clothers">
+                <div className="clothes" data-test-id={`clothes-${props.productType}`}>
                     <div className="clothers_header">
                         <h2 className="clothers_title">{props.title}</h2>
                         <ul className="clothers_sort">
@@ -16,7 +20,9 @@ function Clothers(props) {
                             <a href="/#"><li>FEATURED PRODUCTS</li></a>
                         </ul>
                     </div>
-                    <Cards />
+                    <Cards 
+                        productType = {props.title}
+                    />
                     <input type="submit" value="see all"></input>
                 </div>
             </div>

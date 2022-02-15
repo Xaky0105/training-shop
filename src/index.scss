@@ -11,6 +11,10 @@
 @import './components/cart/cart.scss';
 @import './components/cards/cards.scss';
 @import './components/products-header/productsHeader.scss';
+@import './components/product-header/productHeader.scss';
+@import './components/related-products/related.scss';
+@import './components/product-card/productCard.scss';
+@import './components/button-small/btnSmall.scss';
 
 *,
 *::before,
@@ -42,6 +46,7 @@ input {
   outline: none;
 }
 img {
+  max-width: 100%;
   display: block;
 }
 

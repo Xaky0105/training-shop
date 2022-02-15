@@ -1,8 +1,13 @@
-.cart {
+.cards-item {
   width: 25%;
 
   padding: 0 15px;
   margin-bottom: 30px;
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
 
   .img_wrap {
     display: inline-block;
@@ -14,5 +19,10 @@
 
   .cart_title {
     margin-bottom: 15px;
+  }
+  .cart_bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }

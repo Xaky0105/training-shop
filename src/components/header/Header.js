@@ -10,6 +10,17 @@ import User from "./img/user.svg"
 import Shop from "./img/shop-bag.svg"
 
 
+const menu = [
+    {id: 1, path: '/#', name: 'About Us'},
+    {id: 2, path: 'women', name: 'Women'},
+    {id: 3, path: 'men', name: 'Men'},
+    {id: 4, path: '/#', name: 'Beauty'},
+    {id: 5, path: '/#', name: 'Accessories'},
+    {id: 6, path: '/#', name: 'Blog'},
+    {id: 7, path: '/#', name: 'Contact'},
+
+]
+
 function Nav() {
     return (
         <header className='header' data-test-id='header'>
@@ -35,7 +46,7 @@ function Nav() {
                     </div>
                 </div>
             </div>
-            <nav className='menu' data-test-id='menu'>
+            <nav className="nav">
                 <div className='container'>
                     <div className="nav_wrap">
                         <div className='nav_left'>
@@ -44,14 +55,12 @@ function Nav() {
                             </Link>    
                         </div>
                         <div className='nav_center'>
-                            <ul className="menu" data-test-id='menu'>
-                                <a href="/#"><li>About Us</li></a>
-                                <Link to='women'><li>Women</li></Link>
-                                <Link to='men'><li>Men</li></Link>
-                                <a href="/#"><li>Beauty</li></a>
-                                <a href="/#"><li>Accessories</li></a>
-                                <a href="/#"><li>Blog</li></a>
-                                <a href="/#"><li>Contact</li></a>
+                            <ul className='menu' data-test-id='menu'>
+                                {menu.map(({id, path, name}) => (
+                                    <Link key={id} to={`/${path}`} className='menu-item' data-test-id={`menu-link-${path}`}>
+                                        <span>{name}</span>
+                                    </Link>
+                                ))}
                             </ul>
                         </div>
                         <div className='nav_right'>

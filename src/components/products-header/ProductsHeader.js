@@ -17,7 +17,7 @@ function ProductsHeader(props) {
                     <div className="path">
                         <a className='home' href="/#">Home</a>
                         <img width={14} src={arrow} alt=''></img>
-                        <a href="/#">{props.title}</a>
+                        <a href="/#">{props.productType}</a>
                     </div>
                     <a href="/#" className="share">
                         <img src={share} alt=''></img>
@@ -25,7 +25,7 @@ function ProductsHeader(props) {
                     </a>
                 </div>
                 <div className="productsHeader-title">
-                    <h1>{props.title}</h1>
+                    <h1>{props.productType}</h1>
                 </div>
             </div>
         </div>

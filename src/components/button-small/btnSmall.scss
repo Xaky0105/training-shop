@@ -1,0 +1,21 @@
+.btn-sm {
+  display: inline-block;
+  width: 156px;
+  height: 48px;
+  background-color: #121212;
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e5e5e5;
+    color: #121212;
+  }
+
+  &:active {
+    background-color: #9c9c9c;
+    color: #ffffff;
+  }
+}
