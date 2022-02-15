@@ -4,6 +4,8 @@ import Man from "./img/man.png"
 import Accessories from "./img/Accessories.png"
 import arrow from "./img/arrow.svg"
 
+import { Link } from "react-router-dom"
+
 function Slider() {
     return (
         <div className="container">
@@ -22,12 +24,12 @@ function Slider() {
                 <div className="intro_right">
                     <div className="intro_right_top">
                         <div className="intro_right_top-item">
-                            <a href="/#"><img src={Women} alt=''></img></a>
-                            <a href="/#" className="intro_title">Women</a>
+                            <Link to='women'><img src={Women} alt=''></img></Link>
+                            <Link to="women" className="intro_title">Women</Link>
                         </div>
                         <div className="intro_right_top-item">
-                            <a href="/#"><img src={Man} alt=''></img></a>
-                            <a href="/#" className="intro_title">Men</a>
+                            <Link to='men'><img src={Man} alt=''></img></Link>
+                            <Link to='men' className="intro_title">Men</Link>
                         </div>
                     </div>
                     <div className="intro_right_bottom">
