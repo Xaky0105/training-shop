@@ -31,11 +31,11 @@ function ProductHeader(props) {
                         <span>2 Reviews</span>
                     </div>
                     <div className='productHeader-bot_right'>
-                        <div class="sku_wrap">
+                        <div className="sku_wrap">
                             <h4 className='sku_title'>SKU:</h4>
                             <span>777</span>
                         </div>
-                        <div class="availability_wrap">
+                        <div className="availability_wrap">
                             <h4 className='availability_title'>Availability:</h4>
                             <span>In Stock</span>
                         </div>

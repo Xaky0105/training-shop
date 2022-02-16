@@ -7,21 +7,20 @@ import Women from './pages/Women';
 import Men  from './pages/Men'
 import Product from './pages/Product';
 
-import { product } from './constants/constant';
-
-
-
 
 
 function App() {
+  
+  
   return (
     <div className='app' data-test-id='app'>
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />;
-          <Route path='women' element={<Women />} />;
-          <Route path='men' element={<Men />} />;
-          <Route path={`/${product[0].productType}/${product[0].id}`} element={<Product />} />
+          <Route path='Women' element={<Women />} />;
+          <Route path='Men' element={<Men />} />;
+          <Route path={`Women/:id`} element={<Product />} />
+          <Route path={`Men/:id`} element={<Product />} />
         </Route>
       </Routes>
     </div>

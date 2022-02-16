@@ -22,6 +22,7 @@ function Cards(props) {
             ).map((obj) => (
                 
                 <Cart
+                    key = {obj.id}
                     id = {obj.id}
                     productType = {obj.productType}
                     title = {obj.title}

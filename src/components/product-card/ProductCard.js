@@ -134,7 +134,7 @@ function ProductCard() {
                                 <h4 className='info_subtitle'>Size:</h4>
                                 <span>XS, S, M, L</span>
                             </div>
-                            <div class="additional_info_item">
+                            <div className="additional_info_item">
                                 <h4 className='info_subtitle'>Material:</h4>
                                 <span>100% Polyester</span>
                             </div>
@@ -146,24 +146,24 @@ function ProductCard() {
                                     <Rating />
                                     <span>2 Rewiews</span>
                                 </div>
-                                <a href='/#' class="comments_top_right">
+                                <a href='/#' className="comments_top_right">
                                     <img src={write} alt='' />
                                     <span>Write a review</span>
                                 </a>
                             </div>
-                            <div class="comment">
-                                <div class="comment_header">
+                            <div className="comment">
+                                <div className="comment_header">
                                     <div className='comment_name'>Oleh Chabanov</div>
-                                    <div class="wrap_pub_date">
+                                    <div className="wrap_pub_date">
                                         
                                         <time className='pub_date'>3 months ago</time>
                                         <Rating />
                                     </div>
                                 </div>
                                 <div className='comment_text'>On the other hand, we denounce with righteous indignation and like men who are so beguiled and demoralized by the charms of pleasure of the moment</div>
-                                <div class="comment_header">
+                                <div className="comment_header">
                                     <div className='comment_name'>ShAmAn design</div>
-                                    <div class="wrap_pub_date">
+                                    <div className="wrap_pub_date">
                                         <time className='pub_date'>3 months ago</time>
                                         <Rating />
                                     </div>

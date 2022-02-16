@@ -8,7 +8,7 @@ import viewList from './img/view-list.svg'
 
 
 function ProductsHeader(props) {
-    console.log(props)
+    
     return (
         <>
         <div className="productsHeader-wrapper">

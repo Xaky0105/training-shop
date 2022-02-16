@@ -6,10 +6,10 @@ import Cards from "../cards/Cards"
 
 function Clothers(props) {
     
-    
+    console.log(props)
     return (
             <div className="container">
-                <div className="clothes" data-test-id={`clothes-${props.productType}`}>
+                <div className="clothes" data-test-id={`clothes-${props.title}`}>
                     <div className="clothers_header">
                         <h2 className="clothers_title">{props.title}</h2>
                         <ul className="clothers_sort">

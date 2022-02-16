@@ -10,7 +10,7 @@ import User from "./img/user.svg"
 import Shop from "./img/shop-bag.svg"
 
 
-const menu = [
+export const menu = [
     {id: 1, path: '/#', name: 'About Us'},
     {id: 2, path: 'women', name: 'Women'},
     {id: 3, path: 'men', name: 'Men'},
@@ -20,6 +20,16 @@ const menu = [
     {id: 7, path: '/#', name: 'Contact'},
 
 ]
+export const Menu = () => (
+    <ul className='menu' data-test-id='menu'>
+    {menu.map(({id, path, name}) => (
+        <Link key={id} to={`/${path}`} className='menu-item' data-test-id={`menu-link-${path}`}>
+            <span>{name}</span>
+        </Link>
+    ))}
+</ul>
+)
+
 
 function Nav() {
     return (
@@ -55,13 +65,7 @@ function Nav() {
                             </Link>    
                         </div>
                         <div className='nav_center'>
-                            <ul className='menu' data-test-id='menu'>
-                                {menu.map(({id, path, name}) => (
-                                    <Link key={id} to={`/${path}`} className='menu-item' data-test-id={`menu-link-${path}`}>
-                                        <span>{name}</span>
-                                    </Link>
-                                ))}
-                            </ul>
+                            {Menu()}
                         </div>
                         <div className='nav_right'>
                             <a className='nav_right_item' href='/#'>

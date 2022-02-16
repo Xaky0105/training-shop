@@ -13,7 +13,7 @@ function Slider() {
                 <div className="slider">
                     <img src={Banner} alt=''/>
                     
-                    <div class="title_slider">
+                    <div className="title_slider">
                         <img className="arr_left" src={arrow} alt=''/>
                         <img className="arr_right" src={arrow} alt=''/>
                         <p>Banner</p>

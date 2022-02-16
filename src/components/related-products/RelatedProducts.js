@@ -7,7 +7,7 @@ import { filter } from '../../constants/constant'
 function RelatedProducts() {
     return (
         <>
-        <div class="container">
+        <div className="container">
             <div className="header_related">
                 <h4 className='header_related-title'>RELATED PRODUCTS</h4>
                 <div className='header_related-arrow'>

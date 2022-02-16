@@ -3,7 +3,7 @@ import Imgright from './img/rightsidenews.jpg'
 
 function Blognewstop() {
     return (
-        <div class="container">
+        <div className="container">
             <div className="blog_news_top">
                 <a href='/#' className="blog_news_top-item">
                     <div className='blog_news_top-title'>

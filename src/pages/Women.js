@@ -4,27 +4,24 @@ import ProductsHeader from "../components/products-header/ProductsHeader"
 import loading from '../components/products-header/img/Square-Loading.svg'
 
 import { filter } from "../constants/constant"
+import { productType } from "./Product"
 
 
 
 function Women() {
     return (
-        <>
-        <ProductsHeader 
-            productType = {filter.women}
-        />
-        <div className="container">
-            <Cards 
+        <div className="products-page" data-test-id={`products-page-${productType}`}>
+            <ProductsHeader 
                 productType = {filter.women}
             />
-        </div>
-        <img className="loading" src={loading} alt=''></img>
-
-        
-           
-               
+            <div className="container">
+                <Cards 
+                    productType = {filter.women}
+                />
+            </div>
+            <img className="loading" src={loading} alt=''></img>  
             
-        </>
+        </div>
     )
 }
 
