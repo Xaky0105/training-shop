@@ -8,16 +8,21 @@ import Subscribe from '../components/subscribe/Subscribe';
 import { filter } from '../constants/constant';
 
 function Home() {
+    
     return (
         <>
             <Slider/>
             <Advantage />
-            <Clothers 
-                title = {filter.women}
-            />  
-            <Clothers 
-                title = {filter.men}
-            />
+            <div className='clothes' data-test-id={`clothes-${filter.women}`}>
+                <Clothers 
+                    title = {filter.women}
+                />  
+            </div>
+            <div className='clothes' data-test-id={`clothes-${filter.men}`}>
+                <Clothers 
+                    title = {filter.men}
+                />
+            </div>
             <Blognewstop />
             <Subscribe />
             <Blognewsbot />

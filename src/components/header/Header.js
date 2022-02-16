@@ -11,13 +11,13 @@ import Shop from "./img/shop-bag.svg"
 
 
 export const menu = [
-    {id: 1, path: '/#', name: 'About Us'},
+    {id: 1, path: '#', name: 'About Us'},
     {id: 2, path: 'women', name: 'Women'},
     {id: 3, path: 'men', name: 'Men'},
-    {id: 4, path: '/#', name: 'Beauty'},
-    {id: 5, path: '/#', name: 'Accessories'},
-    {id: 6, path: '/#', name: 'Blog'},
-    {id: 7, path: '/#', name: 'Contact'},
+    {id: 4, path: '#', name: 'Beauty'},
+    {id: 5, path: '#', name: 'Accessories'},
+    {id: 6, path: '#', name: 'Blog'},
+    {id: 7, path: '#', name: 'Contact'},
 
 ]
 export const Menu = () => (
