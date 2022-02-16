@@ -7,7 +7,6 @@ import { product } from '../../constants/constant'
 
 
 function Cards(props) {
-    
     return (
         <>
         <div className="carts">

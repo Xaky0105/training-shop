@@ -4,11 +4,12 @@ import ProductsHeader from "../components/products-header/ProductsHeader"
 import loading from '../components/products-header/img/Square-Loading.svg'
 
 import { filter } from "../constants/constant"
-import { productType } from "./Product"
+import {useParams} from 'react-router-dom'
 
 
 
 function Women() {
+    const {productType} = useParams();
     return (
         <div className="products-page" data-test-id={`products-page-${productType}`}>
             <ProductsHeader 

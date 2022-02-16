@@ -8,13 +8,9 @@ import { product } from "../constants/constant"
 
 import {useParams} from 'react-router-dom'
 
-export const productType = product.map((obj) => {
-    return obj.productType
-  })
 
 function Product() {
-    const params = useParams();
-    console.log(params)
+    const {productType} = useParams();
     return (
         <div className="page-product" data-test-id={`product-page-${productType}`}>  
             

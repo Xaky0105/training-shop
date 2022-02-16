@@ -19,8 +19,8 @@ function App() {
           <Route index element={<Home />} />;
           <Route path='Women' element={<Women />} />;
           <Route path='Men' element={<Men />} />;
-          <Route path={`Women/:id`} element={<Product />} />
-          <Route path={`Men/:id`} element={<Product />} />
+          <Route path={`:productType/:id`} element={<Product />} />
+          <Route path={`:productType/:id`} element={<Product />} />
         </Route>
       </Routes>
     </div>
