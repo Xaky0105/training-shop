@@ -8,6 +8,7 @@ import { product } from '../../constants/constant'
 
 function Cards(props) {
     let targetProduct
+    
     if(props.productType === "men") {
 
         targetProduct = product.men
@@ -21,6 +22,7 @@ function Cards(props) {
     } else {
         targetProduct = product.men.concat(product.women)
     }
+    console.log(targetProduct)
     return (
         <>
         <div className="carts">
@@ -38,8 +40,8 @@ function Cards(props) {
         ))}
         </div>
         </>
-        
     )
+    
 }
 
 export default Cards

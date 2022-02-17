@@ -10,11 +10,11 @@ function ProductHeader(props) {
     let targetProduct
     if(props.productType === "men") {
 
-        targetProduct = product.men[props.id]
+        targetProduct = product.men[props.id - 1]
 
     } else if (props.productType === "women") {
 
-        targetProduct = product.women[props.id]
+        targetProduct = product.women[props.id - 1]
 
     }
     console.log(targetProduct)
