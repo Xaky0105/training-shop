@@ -5,7 +5,11 @@ import Blognewsbot from '../components/blognews-bot/Blognewsbot';
 import Clothers from '../components/clothes/Clothers';
 import Subscribe from '../components/subscribe/Subscribe';
 
-import { filter } from '../constants/constant';
+
+export const gender = {
+    men: 'men',
+    women: 'women'
+}
 
 function Home() {
     
@@ -13,14 +17,14 @@ function Home() {
         <>
             <Slider/>
             <Advantage />
-            <div className='clothes' data-test-id={`clothes-${filter.women}`}>
+            <div className='clothes' data-test-id={`clothes-${gender.women}`}>
                 <Clothers 
-                    title = {filter.women}
+                    title = {gender.women}
                 />  
             </div>
-            <div className='clothes' data-test-id={`clothes-${filter.men}`}>
+            <div className='clothes' data-test-id={`clothes-${gender.men}`}>
                 <Clothers 
-                    title = {filter.men}
+                    title = {gender.men}
                 />
             </div>
             <Blognewstop />

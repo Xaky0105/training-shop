@@ -3,8 +3,7 @@ import {Routes, Route} from 'react-router-dom'
 
 import Home from './pages/Home';
 import Layout from './components/layout/layout';
-import Women from './pages/Women';
-import Men  from './pages/Men'
+import Products from './pages/Products';
 import Product from './pages/Product';
 
 
@@ -19,8 +18,7 @@ function App() {
         <Route path='/' element={<Layout />}>
           
             <Route index element={<Home />} />;
-            <Route path='/women' element={<Women />} />;
-            <Route path='/men' element={<Men />} />;
+            <Route path=':productType' element={<Products />} />;
             <Route path=':productType/:id' element={<Product />} />
           
         </Route>

@@ -21,34 +21,37 @@ import related4 from '../components/related-products/img/Rectangle4.jpg'
 
 
 
-export const filter = {
-    women: 'women',
-    men: 'men',
-    related: 'related',
-}
 
-export const product = [
-    { id: 1, productType: filter.women , title: 'Womens tracksuit Q109', price: 30, imageUrl: img1, rating: 4},
-    { id: 2, productType: filter.women , title: 'Womens tracksuit Q109', price: 30, imageUrl: img2, rating: 4},
-    { id: 3, productType: filter.women , title: 'Womens tracksuit Q109', price: 30, imageUrl: img3, rating: 4},
-    { id: 4, productType: filter.women , title: 'Womens tracksuit Q109', price: 30, imageUrl: img4, rating: 4},
-    { id: 5, productType: filter.women, title: 'Womens tracksuit Q109', price: 30, imageUrl: img5, rating: 4},
-    { id: 6, productType: filter.women, title: 'Womens tracksuit Q109', price: 30, imageUrl: img6, rating: 4},
-    { id: 7, productType: filter.women, title: 'Womens tracksuit Q109', price: 30, imageUrl: img7, rating: 4},
-    { id: 8, productType: filter.women, title: 'Womens tracksuit Q109', price: 30, imageUrl: img8, rating: 4},
-    { id: 9, productType: filter.men, title: 'Womens tracksuit Q109', price: 30, imageUrl: img9, rating: 4},
-    { id: 10, productType: filter.men, title: 'Womens tracksuit Q109', price: 30, imageUrl: img10, rating: 4},
-    { id: 11, productType: filter.men, title: 'Womens tracksuit Q109', price: 30, imageUrl: img11, rating: 4},
-    { id: 12, productType: filter.men, title: 'Womens tracksuit Q109', price: 30, imageUrl: img12, rating: 4},
-    { id: 13, productType: filter.men, title: 'Womens tracksuit Q109', price: 30, imageUrl: img13, rating: 4},
-    { id: 14, productType: filter.men, title: 'Womens tracksuit Q109', price: 30, imageUrl: img14, rating: 4},
-    { id: 15, productType: filter.men, title: 'Womens tracksuit Q109', price: 30, imageUrl: img15, rating: 4},
-    { id: 16, productType: filter.men, title: 'Womens tracksuit Q109', price: 30, imageUrl: img16, rating: 4},
-    { id: 17, productType: filter.related, title: 'Womens tracksuit Q109', price: 30, imageUrl: related1, rating: 4},
-    { id: 18, productType: filter.related, title: 'Womens tracksuit Q109', price: 30, imageUrl: related2, rating: 4},
-    { id: 19, productType: filter.related, title: 'Womens tracksuit Q109', price: 30, imageUrl: related3, rating: 4},
-    { id: 20, productType: filter.related, title: 'Womens tracksuit Q109', price: 30, imageUrl: related4, rating: 4},
-]
+
+export const product = {
+    women: [
+        { id: 1, productType: "women" , title: 'Womens tracksuit Q109', price: 30, imageUrl: img1, rating: 4},
+        { id: 2, productType: "women" , title: 'Womens tracksuit Q109', price: 30, imageUrl: img2, rating: 4},
+        { id: 3, productType: "women" , title: 'Womens tracksuit Q109', price: 30, imageUrl: img3, rating: 4},
+        { id: 4, productType: 'women' , title: 'Womens tracksuit Q109', price: 30, imageUrl: img4, rating: 4},
+        { id: 5, productType: 'women', title: 'Womens tracksuit Q109', price: 30, imageUrl: img5, rating: 4},
+        { id: 6, productType: 'women', title: 'Womens tracksuit Q109', price: 30, imageUrl: img6, rating: 4},
+        { id: 7, productType: 'women', title: 'Womens tracksuit Q109', price: 30, imageUrl: img7, rating: 4},
+        { id: 8, productType: 'women', title: 'Womens tracksuit Q109', price: 30, imageUrl: img8, rating: 4},
+    ],
+    men: [
+        { id: 1, productType: 'men', title: 'Womens tracksuit Q109', price: 30, imageUrl: img9, rating: 4},
+        { id: 2, productType: 'men', title: 'Womens tracksuit Q109', price: 30, imageUrl: img10, rating: 4},
+        { id: 3, productType: 'men', title: 'Womens tracksuit Q109', price: 30, imageUrl: img11, rating: 4},
+        { id: 4, productType: 'men', title: 'Womens tracksuit Q109', price: 30, imageUrl: img12, rating: 4},
+        { id: 5, productType: 'men', title: 'Womens tracksuit Q109', price: 30, imageUrl: img13, rating: 4},
+        { id: 6, productType: 'men', title: 'Womens tracksuit Q109', price: 30, imageUrl: img14, rating: 4},
+        { id: 7, productType: 'men', title: 'Womens tracksuit Q109', price: 30, imageUrl: img15, rating: 4},
+        { id: 8, productType: 'men', title: 'Womens tracksuit Q109', price: 30, imageUrl: img16, rating: 4},
+    ],
+    related: [
+        { id: 1, productType: 'related', title: 'Womens tracksuit Q109', price: 30, imageUrl: related1, rating: 4},
+        { id: 2, productType: 'related', title: 'Womens tracksuit Q109', price: 30, imageUrl: related2, rating: 4},
+        { id: 3, productType: 'related', title: 'Womens tracksuit Q109', price: 30, imageUrl: related3, rating: 4},
+        { id: 4, productType: 'related', title: 'Womens tracksuit Q109', price: 30, imageUrl: related4, rating: 4},
+    ]
+
+}
 
 
 

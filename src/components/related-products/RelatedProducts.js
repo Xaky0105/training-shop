@@ -1,7 +1,7 @@
 import arrow from '../slider/img/arrow.svg'
 import Cards from '../cards/Cards'
 
-import { filter } from '../../constants/constant'
+
 
 
 function RelatedProducts() {
@@ -16,7 +16,7 @@ function RelatedProducts() {
                 </div>
             </div>
             <Cards 
-                productType = {filter.related}
+                productType = 'related'
             />
         </div>
         </>

@@ -4,7 +4,6 @@ import ProductHeader from "../components/product-header/ProductHeader"
 import RelatedProducts from "../components/related-products/RelatedProducts"
 import ProductCard from '../components/product-card/ProductCard'
 
-import { product } from "../constants/constant"
 
 import {useParams} from 'react-router-dom'
 
@@ -17,7 +16,8 @@ function Product() {
         <div className="page-product" data-test-id={`product-page-${productType}`}>  
             
             <ProductHeader 
-                title = {product.title}
+                id = {id}
+                productType = {productType}
             />
             <ProductCard />
             <RelatedProducts />

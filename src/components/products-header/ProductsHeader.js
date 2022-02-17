@@ -5,6 +5,8 @@ import chevron from './img/chevron-right.svg'
 import viewGrid from './img/view-grid.svg'
 import viewList from './img/view-list.svg'
 
+import {Link} from 'react-router-dom'
+
 
 
 function ProductsHeader(props) {
@@ -17,7 +19,7 @@ function ProductsHeader(props) {
                     <div className="path">
                         <a className='home' href="/#">Home</a>
                         <img width={14} src={arrow} alt=''></img>
-                        <a href="/#">{props.productType}</a>
+                        <Link to='#'>{props.productType}</Link>
                     </div>
                     <a href="/#" className="share">
                         <img src={share} alt=''></img>

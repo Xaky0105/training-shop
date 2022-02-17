@@ -1,21 +1,33 @@
 import share from '../products-header/img/share.svg'
+import arr from '../products-header/img/arrow1.svg'
+import { Link } from 'react-router-dom'
 
 
 import { product } from "../../constants/constant"
 import Rating from '../rating/Rating'
 
 function ProductHeader(props) {
-    
-    
+    let targetProduct
+    if(props.productType === "men") {
+
+        targetProduct = product.men[props.id]
+
+    } else if (props.productType === "women") {
+
+        targetProduct = product.women[props.id]
+
+    }
+    console.log(targetProduct)
     return (
+        
         <>
         <div className="productHeader-wrapper">
             <div className="container">
                 <div className="productHeader-top">
                     <div className="path">
                         <a className='home' href="/#">Home</a>
-                        <img width={14} src='' alt=''></img>
-                        <a href="/#">{props.title}</a>
+                        <img width={14} src={arr} alt=''></img>
+                        <Link to='#'>{targetProduct.title}</Link>
                     </div>
                     <a href="/#" className="share">
                         <img src={share} alt=''></img>
@@ -23,7 +35,7 @@ function ProductHeader(props) {
                     </a>
                 </div>
                 <div className="productHeader-title">
-                    <h1>{product[0].title}</h1>
+                    <h1>{targetProduct.title}</h1>
                 </div>
                 <div className='productHeader-bot'>
                     <div className='productHeader-bot-rating'>
