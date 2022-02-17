@@ -17,9 +17,9 @@ function ProductsHeader(props) {
             <div className="container">
                 <div className="productsHeader-top">
                     <div className="path">
-                        <a className='home' href="/#">Home</a>
+                        <Link to='/' className='home'>Home</Link>
                         <img width={14} src={arrow} alt=''></img>
-                        <Link to='#'>{props.productType}</Link>
+                        <Link to={`/${props.productType}`}>{props.productType}</Link>
                     </div>
                     <a href="/#" className="share">
                         <img src={share} alt=''></img>

@@ -25,7 +25,9 @@ function ProductHeader(props) {
             <div className="container">
                 <div className="productHeader-top">
                     <div className="path">
-                        <a className='home' href="/#">Home</a>
+                        <Link to='/' className='home'>Home</Link>
+                        <img width={14} src={arr} alt=''></img>
+                        <Link to={`/${targetProduct.productType}`} className='home'>{targetProduct.productType}</Link>
                         <img width={14} src={arr} alt=''></img>
                         <Link to='#'>{targetProduct.title}</Link>
                     </div>
