@@ -22,8 +22,8 @@ import related4 from '../components/related-products/img/Rectangle4.jpg'
 
 
 export const filter = {
-    women: 'Women',
-    men: 'Men',
+    women: 'women',
+    men: 'men',
     related: 'related',
 }
 
