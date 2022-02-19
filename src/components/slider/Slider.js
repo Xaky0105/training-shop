@@ -11,7 +11,6 @@ import Banner from "./img/banner.png"
 import Women from "./img/women.png"
 import Man from "./img/man.png"
 import Accessories from "./img/Accessories.png"
-import arrow from "./img/arrow.svg"
 
 
 import { Link } from "react-router-dom"
