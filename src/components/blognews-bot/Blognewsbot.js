@@ -16,7 +16,10 @@ function Blognewsbot() {
                         <article className='article'>
                             <h3>The Easiest Way to Break</h3>
                             <p>But I must explain to you how all this mistaken idea of denouncing pleas and praising pain was bor</p>
-                            <a href='/#'>Read more</a>
+                            <div className='article_footer'>
+                                <time className='article_footer_time' dateTime='2032-04-06'>April 06, 2032</time>
+                                <a className='read_more' href='/#'>Read more</a>
+                            </div>
                         </article>
                     </div>
                     <div className="blog_news_content-item">
@@ -24,7 +27,10 @@ function Blognewsbot() {
                         <article className='article'>
                             <h3>Wedding Season</h3>
                             <p>But I must explain to you how all this mistaken idea of denouncing pleas and praising pain was bor</p>
-                            <a href='/#'>Read more</a>
+                            <div className='article_footer'>
+                                <time className='article_footer_time' dateTime='2032-04-06'>April 06, 2032</time>
+                                <a className='read_more' href='/#'>Read more</a>
+                            </div>
                         </article>
                     </div>
                     <div className="blog_news_content-item">
@@ -32,7 +38,10 @@ function Blognewsbot() {
                         <article className='article'>
                             <h3>Recent Favorites On Repeat</h3>
                             <p>But I must explain to you how all this mistaken idea of denouncing pleas and praising pain was bor</p>
-                            <a href='/#'>Read more</a>
+                            <div className='article_footer'>
+                                <time className='article_footer_time' dateTime='2032-04-06'>April 06, 2032</time>
+                                <a className='read_more' href='/#'>Read more</a>
+                            </div>
                         </article>
                     </div>
                 </div>

@@ -1,4 +1,10 @@
 import { Link } from "react-router-dom";
+import { useState } from "react"
+import classNames from "classnames";
+
+
+
+import { menu } from "../../constants/constant";
 
 import Social from "../social/Social";
 import Phone from "./img/phone.svg"
@@ -10,28 +16,16 @@ import User from "./img/user.svg"
 import Shop from "./img/shop-bag.svg"
 
 
-export const menu = [
-    {id: 1, path: '#', name: 'About Us'},
-    {id: 2, path: 'women', name: 'Women'},
-    {id: 3, path: 'men', name: 'Men'},
-    {id: 4, path: '#', name: 'Beauty'},
-    {id: 5, path: '#', name: 'Accessories'},
-    {id: 6, path: '#', name: 'Blog'},
-    {id: 7, path: '#', name: 'Contact'},
 
-]
-export const Menu = () => (
-    <ul className='menu' data-test-id='menu'>
-    {menu.map(({id, path, name}) => (
-        <Link key={id} to={`/${path}`} className='menu-item' data-test-id={`menu-link-${path}`}>
-            <span>{name}</span>
-        </Link>
-    ))}
-</ul>
-)
-
-
-function Nav() {
+function Header() {
+    const [isMobileMenuOpen, setMobileMenu] = useState(false)
+    const[isMenuOpen, toggleMenu] = useState(false);
+    
+    
+    function onClickCross() {
+        toggleMenu(!isMenuOpen)
+        setMobileMenu(!isMenuOpen) 
+    }
     return (
         <header className='header' data-test-id='header'>
             <div className='top_bar'>
@@ -64,8 +58,26 @@ function Nav() {
                                 CleverShop
                             </Link>    
                         </div>
-                        <div className='nav_center'>
-                            {Menu()}
+                        <ul className={classNames('menu', {visible: isMobileMenuOpen})} data-test-id='menu'>
+                            {menu.map(({id, path, name}) => (
+                                <Link   
+                                    key={id} 
+                                    to={`/${path}`} 
+                                    className='menu-item' 
+                                    data-test-id={`menu-link-${path}`}
+                                    onClick={onClickCross}
+                                >
+                                    <span>{name}</span>
+                                </Link>
+                            ))}
+                        </ul>
+                        <div 
+                            aria-hidden='true' 
+                            className={classNames("mask", {visible: isMobileMenuOpen})}
+                            onClick={onClickCross}
+                        >
+
+
                         </div>
                         <div className='nav_right'>
                             <a className='nav_right_item' href='/#'>
@@ -80,6 +92,15 @@ function Nav() {
                             <a className='nav_right_item' href='/#'>
                                 <img src={Shop} alt=''/>
                             </a>
+                            <div className="nav_right_item">
+                                <button 
+                                    className={classNames('burger', {visible: isMenuOpen})}
+                                    type="button"
+                                    onClick={onClickCross}
+                                >
+                                    <span className="burger_item"></span>
+                                </button> 
+                            </div> 
                         </div>
                     </div>
                 </div>
@@ -88,5 +109,5 @@ function Nav() {
     )
 }
 
-export default Nav;
+export default Header;
 

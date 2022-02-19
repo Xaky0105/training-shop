@@ -20,7 +20,16 @@ import related3 from '../components/related-products/img/Rectangle3.jpg'
 import related4 from '../components/related-products/img/Rectangle4.jpg'
 
 
+export const menu = [
+    {id: 1, path: '#', name: 'About Us'},
+    {id: 2, path: 'women', name: 'Women'},
+    {id: 3, path: 'men', name: 'Men'},
+    {id: 4, path: '#', name: 'Beauty'},
+    {id: 5, path: '#', name: 'Accessories'},
+    {id: 6, path: '#', name: 'Blog'},
+    {id: 7, path: '#', name: 'Contact'},
 
+]
 
 
 export const product = {

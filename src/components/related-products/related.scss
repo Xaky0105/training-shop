@@ -11,6 +11,14 @@
   .header_related-arrow {
     display: flex;
     cursor: pointer;
+    .arr_left,
+    .arr_right {
+      transition: 0.2s linear;
+      border-radius: 50%;
+      &:hover {
+        background-color: #e5e5e5;
+      }
+    }
     .arr_right {
       transform: rotate(180deg);
       margin-left: 15px;

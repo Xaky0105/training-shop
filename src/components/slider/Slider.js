@@ -1,24 +1,58 @@
+import { Navigation} from "swiper"
+import {Swiper, SwiperSlide} from "swiper/react"
+
+import 'swiper/css'
+import 'swiper/css/navigation'
+
+
+
+
 import Banner from "./img/banner.png"
 import Women from "./img/women.png"
 import Man from "./img/man.png"
 import Accessories from "./img/Accessories.png"
 import arrow from "./img/arrow.svg"
 
-import { Link } from "react-router-dom"
 
+import { Link } from "react-router-dom"
 function Slider() {
+    
     return (
         <div className="container">
             <div className="slider_wrap">
                 <div className="slider">
-                    <img src={Banner} alt=''/>
+                    <Swiper 
+                        navigation={true} 
+                        modules={[Navigation]} 
+                        >
+                        <SwiperSlide>
+                            <img src={Banner} alt=''/>
+                            <div className="title_slider">
+                                <p>Banner</p>
+                                <h1>your Title text </h1>
+                                {/* <img className="arr_left" src={arrow} alt=''/>
+                                <img className="arr_right" src={arrow} alt=''/> */}
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src={Banner} alt=''/>
+                            <div className="title_slider">
+                                <p>Banner</p>
+                                <h1>your Title text </h1>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src={Banner} alt=''/>
+                            <div className="title_slider">
+                                <p>Banner</p>
+                                <h1>your Title text </h1>
+                            </div>
+                        </SwiperSlide>
+                        
+                    </Swiper>
                     
-                    <div className="title_slider">
-                        <img className="arr_left" src={arrow} alt=''/>
-                        <img className="arr_right" src={arrow} alt=''/>
-                        <p>Banner</p>
-                        <h1>your Title text </h1>
-                    </div>
+                   
+                    
                     
                 </div>
                 <div className="intro_right">

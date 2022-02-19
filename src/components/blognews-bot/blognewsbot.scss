@@ -37,6 +37,12 @@
         padding: 24px 15px;
         bottom: 50px;
         background-color: #fff;
+        cursor: pointer;
+        &:hover {
+          .article_footer {
+            visibility: visible;
+          }
+        }
 
         h3 {
           font-size: 14px;
@@ -47,14 +53,20 @@
         p {
           font-size: 14px;
           line-height: 22px;
-          margin-bottom: 12px;
+          margin-bottom: 24px;
         }
-        a {
-          position: absolute;
-          bottom: 5px;
-          right: 10px;
-          text-transform: uppercase;
-          font-weight: 600;
+        .article_footer {
+          visibility: hidden;
+          display: flex;
+          justify-content: space-between;
+          .article_footer_time {
+            opacity: 0.6;
+            font-weight: 400;
+          }
+          .read_more {
+            text-transform: uppercase;
+            font-weight: 600;
+          }
         }
       }
     }

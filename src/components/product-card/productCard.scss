@@ -26,31 +26,42 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        .slider_left_arr_left,
+        .slider_left_arr_right {
+          cursor: pointer;
+          border-radius: 50%;
+          transition: 0.2s linear;
+          &:hover {
+            background-color: #e5e5e5;
+          }
+        }
         .slider_left_arr_left {
           transform: rotate(90deg);
-          cursor: pointer;
         }
         .slider_left_arr_right {
           transform: rotate(270deg);
-          cursor: pointer;
         }
       }
     }
     .slider_right {
       position: relative;
-      .slider_right_arr_left {
-        position: absolute;
-        top: 50%;
-        left: 5%;
-        transform: translateY(-50%);
-        cursor: pointer;
-      }
+      .slider_right_arr_left,
       .slider_right_arr_right {
         position: absolute;
         top: 50%;
-        left: 87%;
+        border-radius: 50%;
+        transition: 0.2s linear;
         transform: translateY(-50%);
         cursor: pointer;
+        &:hover {
+          background-color: #e5e5e5;
+        }
+      }
+      .slider_right_arr_left {
+        left: 5%;
+      }
+      .slider_right_arr_right {
+        left: 87%;
       }
     }
   }
