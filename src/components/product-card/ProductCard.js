@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import classNames from 'classnames'
-import { Navigation, Controller} from "swiper"
+import { Navigation} from "swiper"
 import { Thumbs } from 'swiper'
 import {Swiper, SwiperSlide} from "swiper/react"
 
@@ -89,7 +89,7 @@ function ProductCard() {
     // console.log(gallerySwiper)
     // console.log(thumbnailSwiper)
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
-    const [mainSwiper, setMainSwiper] = useState(null);
+    // const [mainSwiper, setMainSwiper] = useState(null);
 
     const [activeSlide, setActiveSlide] = useState(0);
     return (
