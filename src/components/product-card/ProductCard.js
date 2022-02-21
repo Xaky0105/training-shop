@@ -1,8 +1,13 @@
+import React, {useState} from 'react'
+import classNames from 'classnames'
+import { Navigation, Controller} from "swiper"
+import { Thumbs } from 'swiper'
+import {Swiper, SwiperSlide} from "swiper/react"
+
+import 'swiper/css'
+import 'swiper/css/navigation'
 
 import mini1 from './img/mini1.jpg'
-import mini2 from './img/mini2.jpg'
-import mini3 from './img/mini3.jpg'
-import mini4 from './img/mini4.jpg'
 import arr from './img/Arr.svg'
 import arrRight from './img/Arr_right.svg'
 import thing1 from './img/Rectangle1.jpg'
@@ -31,6 +36,8 @@ import { Link } from 'react-router-dom'
 import Rating from '../rating/Rating'
 
 
+
+
 const safeLinks = [
     {id: 1, path: '#', img: stripe},
     {id: 2, path: '#', img: aes},
@@ -40,28 +47,100 @@ const safeLinks = [
     {id: 6, path: '#', img: discover},
     {id: 7, path: '#', img: americanExp},
 ]
+const miniImg = [
+    {id: 1, imgMini: mini1},
+    {id: 2, imgMini: mini1},
+    {id: 3, imgMini: mini1},
+    {id: 4, imgMini: mini1},
+    {id: 5, imgMini: mini1},
+    {id: 6, imgMini: mini1}
+]
+const sliderImg = [
+    {id: 1, imgSlider: thing1},
+    {id: 2, imgSlider: thing1},
+    {id: 3, imgSlider: thing1},
+    {id: 4, imgSlider: thing1},
+    {id: 5, imgSlider: thing1},
+    {id: 6, imgSlider: thing1},
+]
+console.log(miniImg)
 
 function ProductCard() {
+    // const [gallerySwiper, getGallerySwiper] = useState(null);
+    // const [thumbnailSwiper, getThumbnailSwiper] = useState(null);
+    const gallerySwiperParams = {
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.slider_right_arr_right',
+        prevEl: '.slider_right_arr_left',
+        
+      },
+      
+    };
+    const thumbnailSwiperParams = {
+      slidesPerView: 4,
+      direction: 'vertical',
+      navigation: {
+        nextEl: '.slider_left_arr_right',
+        prevEl: '.slider_left_arr_left'
+      },
+      
+    };
+    // console.log(gallerySwiper)
+    // console.log(thumbnailSwiper)
+    const [thumbsSwiper, setThumbsSwiper] = useState(null);
+    const [mainSwiper, setMainSwiper] = useState(null);
+
+    const [activeSlide, setActiveSlide] = useState(0);
     return (
         <>
             <div className="container">
                 <div className="product_card">
-                    <div className="slider_card">
+                    <div className="slider_card" data-test-id='product-slider'>
                         <div className='slider_left'>
                             <div className='slider_left_arr'>
                                 <img className='slider_left_arr_left' src={arr} alt=''/>
                                 <img className='slider_left_arr_right' src={arr} alt=''/>
                             </div>
-                            <img className='mini_img' src={mini1} alt=''/>
-                            <img className='mini_img' src={mini2} alt=''/>
-                            <img className='mini_img' src={mini3} alt=''/>
-                            <img className='mini_img' src={mini4} alt=''/>
+                            <Swiper
+                                navigation={true} 
+                                modules={[Thumbs, Navigation]}
+                                
+                                watchSlidesProgress
+                                onSwiper={setThumbsSwiper}
+                                // centeredSlides={true}
+                                {...thumbnailSwiperParams}
+                            >
+                                {miniImg.map((obj) => (
+                                    <SwiperSlide>
+                                        <img 
+                                            className={classNames('mini_img', {active: activeSlide !== obj.id})} 
+                                            src={obj.imgMini} 
+                                            onClick={() => setActiveSlide(obj.id)} 
+                                            alt=''/>
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper> 
                         </div>
-                        <div className="slider_right">
-                            <img className='slider_right_arr_left' src={arr} alt=''/>
-                            <img className='slider_right_arr_right' src={arrRight} alt=''/>
-                            <img src={thing1} alt='' />
-                        </div>
+                            <div className="slider_right">
+                                <Swiper
+                                    navigation={true} 
+                                    modules={[Thumbs, Navigation]}
+                                    thumbs={{swiper: thumbsSwiper}}
+                                    
+                                    
+                                    
+                                    {...gallerySwiperParams}
+                                >
+                                    <img className='slider_right_arr_left' src={arr} alt=''/>
+                                    <img className='slider_right_arr_right' src={arrRight} alt=''/>
+                                    {sliderImg.map((obj) => (
+                                        <SwiperSlide>
+                                            <img className={classNames('main_slider', activeSlide !== obj.id)} src={obj.imgSlider} alt='' />
+                                        </SwiperSlide>
+                                    ))}
+                                </Swiper>
+                            </div>
                     </div>
                     <div className="about_card">
                         <div className='change_color'>

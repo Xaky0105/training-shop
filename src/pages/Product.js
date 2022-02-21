@@ -20,7 +20,9 @@ function Product() {
                 productType = {productType}
             />
             <ProductCard />
-            <RelatedProducts />
+            <RelatedProducts 
+                
+            />
         </div>
     )
 }

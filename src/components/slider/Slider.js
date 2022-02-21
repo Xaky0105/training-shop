@@ -11,26 +11,35 @@ import Banner from "./img/banner.png"
 import Women from "./img/women.png"
 import Man from "./img/man.png"
 import Accessories from "./img/Accessories.png"
+import arrow from './img/arrow.svg'
 
 
 import { Link } from "react-router-dom"
 function Slider() {
-    
+    const params = {
+        navigation: {
+          nextEl: '.arr_left',
+          prevEl: '.arr_right'
+        }
+      }
     return (
         <div className="container">
             <div className="slider_wrap">
-                <div className="slider">
+                <div className="slider" data-test-id='main-slider'>
                     <Swiper 
                         navigation={true} 
-                        modules={[Navigation]} 
+                        modules={[Navigation]}
+                        {...params} 
+                        
                         >
+                        <img className="arr_left" src={arrow} alt=''/>
+                        <img className="arr_right" src={arrow} alt=''/>
                         <SwiperSlide>
                             <img src={Banner} alt=''/>
                             <div className="title_slider">
                                 <p>Banner</p>
                                 <h1>your Title text </h1>
-                                {/* <img className="arr_left" src={arrow} alt=''/>
-                                <img className="arr_right" src={arrow} alt=''/> */}
+                                
                             </div>
                         </SwiperSlide>
                         <SwiperSlide>

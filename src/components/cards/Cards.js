@@ -22,12 +22,17 @@ function Cards(props) {
     } else {
         targetProduct = product.men.concat(product.women)
     }
-    console.log(targetProduct)
+    console.log(props)
     return (
         <>
         <div className="carts">
-            {targetProduct.map((obj) => (
-            
+            {targetProduct.filter((obj) => {
+                if(obj.id <= 8) {
+                    return true
+                } else {
+                    return false
+                }
+            }).map((obj) => (
             <Cart
                 key = {obj.id}
                 id = {obj.id}

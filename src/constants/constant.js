@@ -42,6 +42,8 @@ export const product = {
         { id: 6, productType: 'women', title: 'Womens tracksuit Q109', price: 350, imageUrl: img6, rating: 4},
         { id: 7, productType: 'women', title: 'Womens tracksuit Q109', price: 360, imageUrl: img7, rating: 4},
         { id: 8, productType: 'women', title: 'Womens tracksuit Q109', price: 370, imageUrl: img8, rating: 4},
+        { id: 9, productType: 'women', title: 'Womens tracksuit Q109', price: 360, imageUrl: img7, rating: 4},
+        { id: 10, productType: 'women', title: 'Womens tracksuit Q109', price: 370, imageUrl: img8, rating: 4}
     ],
     men: [
         { id: 1, productType: 'men', title: 'Womens tracksuit Q109', price: 300, imageUrl: img9, rating: 4},

@@ -5,7 +5,7 @@ import Rating from "../rating/Rating";
 
 
 function Cart(props) {
-    
+    console.log(props)
     return (
         
         <Link to={`/${props.productType}/${props.id}`} className="cards-item" data-test-id={`clothes-card-${props.productType}`}>

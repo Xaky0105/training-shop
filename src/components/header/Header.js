@@ -58,7 +58,7 @@ function Header() {
                                 CleverShop
                             </Link>    
                         </div>
-                        <ul className={classNames('menu', {visible: isMobileMenuOpen})} data-test-id='menu'>
+                        <ul className={classNames('menu', {visible: isMobileMenuOpen})} data-test-id={classNames('menu', {'burger-menu': isMenuOpen})}>
                             {menu.map(({id, path, name}) => (
                                 <Link   
                                     key={id} 
@@ -97,6 +97,7 @@ function Header() {
                                     className={classNames('burger', {visible: isMenuOpen})}
                                     type="button"
                                     onClick={onClickCross}
+                                    data-test-id='burger-menu-btn'
                                 >
                                     <span className="burger_item"></span>
                                 </button> 
