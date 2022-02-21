@@ -22,6 +22,7 @@ function Header() {
     const[isMenuOpen, toggleMenu] = useState(false);
     
     
+    
     function onClickCross() {
         toggleMenu(!isMenuOpen)
         setMobileMenu(!isMenuOpen) 
@@ -58,7 +59,7 @@ function Header() {
                                 CleverShop
                             </Link>    
                         </div>
-                        <ul className={classNames('menu', {visible: isMobileMenuOpen})} data-test-id={classNames('menu', {'burger-menu': isMenuOpen})}>
+                        <ul className={classNames('menu', {visible: isMobileMenuOpen})} data-test-id='burger-menu'>
                             {menu.map(({id, path, name}) => (
                                 <Link   
                                     key={id} 
