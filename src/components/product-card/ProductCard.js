@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import classNames from 'classnames'
 import { Navigation} from "swiper"
 import { Thumbs } from 'swiper'
 import {Swiper, SwiperSlide} from "swiper/react"
@@ -66,16 +65,13 @@ const sliderImg = [
 console.log(miniImg)
 
 function ProductCard() {
-    // const [gallerySwiper, getGallerySwiper] = useState(null);
-    // const [thumbnailSwiper, getThumbnailSwiper] = useState(null);
+    const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const gallerySwiperParams = {
       spaceBetween: 10,
       navigation: {
         nextEl: '.slider_right_arr_right',
         prevEl: '.slider_right_arr_left',
-        
-      },
-      
+      }
     };
     const thumbnailSwiperParams = {
       slidesPerView: 4,
@@ -83,15 +79,9 @@ function ProductCard() {
       navigation: {
         nextEl: '.slider_left_arr_right',
         prevEl: '.slider_left_arr_left'
-      },
-      
+      }
     };
-    // console.log(gallerySwiper)
-    // console.log(thumbnailSwiper)
-    const [thumbsSwiper, setThumbsSwiper] = useState(null);
-    // const [mainSwiper, setMainSwiper] = useState(null);
-
-    const [activeSlide, setActiveSlide] = useState(0);
+    
     return (
         <>
             <div className="container">
@@ -105,18 +95,15 @@ function ProductCard() {
                             <Swiper
                                 navigation={true} 
                                 modules={[Thumbs, Navigation]}
-                                
-                                watchSlidesProgress
                                 onSwiper={setThumbsSwiper}
-                                // centeredSlides={true}
                                 {...thumbnailSwiperParams}
                             >
                                 {miniImg.map((obj) => (
                                     <SwiperSlide>
                                         <img 
-                                            className={classNames('mini_img', {active: activeSlide !== obj.id})} 
+                                            className='mini_img' 
                                             src={obj.imgMini} 
-                                            onClick={() => setActiveSlide(obj.id)} 
+                                            
                                             alt=''/>
                                     </SwiperSlide>
                                 ))}
@@ -127,16 +114,13 @@ function ProductCard() {
                                     navigation={true} 
                                     modules={[Thumbs, Navigation]}
                                     thumbs={{swiper: thumbsSwiper}}
-                                    
-                                    
-                                    
                                     {...gallerySwiperParams}
                                 >
                                     <img className='slider_right_arr_left' src={arr} alt=''/>
                                     <img className='slider_right_arr_right' src={arrRight} alt=''/>
                                     {sliderImg.map((obj) => (
                                         <SwiperSlide>
-                                            <img className={classNames('main_slider', activeSlide !== obj.id)} src={obj.imgSlider} alt='' />
+                                            <img className='main_slider' src={obj.imgSlider} alt='' />
                                         </SwiperSlide>
                                     ))}
                                 </Swiper>
