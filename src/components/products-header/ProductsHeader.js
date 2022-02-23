@@ -7,10 +7,18 @@ import viewList from './img/view-list.svg'
 
 import {Link} from 'react-router-dom'
 
+import Filter from '../filter/Filter'
+
+import { useState } from 'react'
+import classNames from 'classnames'
+
 
 
 function ProductsHeader(props) {
-    
+    const [filterOpen, setFilterOpen] = useState(false);
+    function onClickCross() {
+        setFilterOpen(!filterOpen)
+    }
     return (
         <>
         <div className="productsHeader-wrapper">
@@ -32,21 +40,26 @@ function ProductsHeader(props) {
             </div>
         </div>
         <div className='container'>
-            <div className='filter'>
-                <div className='left_filter'>
+            <div className='filter_nav'>
+                <div className='left_filter_nav' onClick={onClickCross}>
                     <img src={adjustments} alt=''></img>
                     <p>Filter</p>
 
                 </div>
-                <div className='middle_filter'>
+                <div className='middle_filter_nav'>
                     <img src={viewList} alt=''></img>
                     <img src={viewGrid} alt=''></img>
                 </div>
-                <div className='right_filter'>
+                <div className='right_filter_nav'>
                     <p>Bestsellers</p>
                     <img src={chevron} alt=""></img>
                 </div>
             </div>
+        </div>
+        <div className='container'>
+            <Filter 
+                className={classNames('filter', {visible: filterOpen})}
+            />
         </div>
         </>
     )

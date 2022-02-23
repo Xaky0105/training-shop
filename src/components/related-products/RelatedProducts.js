@@ -54,7 +54,7 @@ function RelatedProducts(props) {
         
         <>
         <div className="container">
-            <div class="related_slider" data-test-id='related-slider'>
+            <div className="related_slider" data-test-id='related-slider'>
                 <div className="header_related">
                     <h4 className='header_related-title'>RELATED PRODUCTS</h4>
                     <div className='header_related-arrow'>
