@@ -1,48 +1,37 @@
 import Cart from '../cart/Cart'
 
 
-import { product } from '../../constants/constant'
+import { PRODUCTS } from '../../constants/constant'
 
 
 
 
-function Cards(props) {
+export const Cards = ({filtered: particularName, productType}) => {
     let targetProduct
-    
-    if(props.productType === "men") {
-
-        targetProduct = product.men
-
-    } else if (props.productType === "women") {
-
-        targetProduct = product.women
-
-    } else if (props.productType === "related") {
-        targetProduct = product.related
+    if(productType === "men") {
+        targetProduct = PRODUCTS.men
+    } else if (productType === "women") {
+        targetProduct = PRODUCTS.women
     } else {
-        targetProduct = product.men.concat(product.women)
+        targetProduct = PRODUCTS.men.concat(PRODUCTS.women)
     }
-    console.log(props)
+    console.log(targetProduct)
+
+    // let parcticularsItems = targetProduct[0]
+    
+
+    console.log(particularName)
     return (
         <>
         <div className="carts">
-            {targetProduct.filter((obj) => {
-                if(obj.id <= 8) {
-                    return true
-                } else {
-                    return false
-                }
-            }).map((obj) => (
-            <Cart
-                key = {obj.id}
-                id = {obj.id}
-                productType = {obj.productType}
-                title = {obj.title}
-                price = {obj.price}
-                imageUrl = {obj.imageUrl}
-                rating = {obj.rating}
-            />
-        ))}
+            {targetProduct.map((item) => (
+                <Cart
+                    card={item}
+                    productType={item.category}
+                    key={item.id}
+                    sale={String(item.discount).slice(1,3)}
+                />
+            ))}
         </div>
         </>
     )

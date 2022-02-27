@@ -1,21 +1,28 @@
 import { Link} from "react-router-dom";
+// import { useEffect, useState } from "react";
 
 
 import Rating from "../rating/Rating";
 
 
-function Cart(props) {
-    console.log(props)
+export const Cart = ({card: {name, price, images, rating, id, discount}, productType, sale}) => {
+    const calculatedPrice = price + ((sale/ 100) * price);
+    
+    console.log(sale)
+    
     return (
         
-        <Link to={`/${props.productType}/${props.id}`} className="cards-item" data-test-id={`clothes-card-${props.productType}`}>
-            
-            <div className="img_wrap"><img  src={props.imageUrl} alt=''/></div>
-            <h3 className='cart_title'>{props.title}</h3>
+        <Link key={id} to={`/${productType}/${id}`} className="cards-item" data-test-id={`clothes-card-${productType}`}>
+            <div className="discount">{discount}</div>
+            <div className="img_wrap"><img src={`https://training.cleverland.by/shop${images[0]?.url}`} alt=''/></div>
+            <h3 className='cart_title'>{name}</h3>
             <div className="cart_bottom">
-                <p className='cart_price'>$ {props.price}</p>
+                <div className='cart_price'>
+                    <span className="price" >{Math.round(price)} BYN </span>
+                    {discount && <span className="price_before"> {Math.round(calculatedPrice)} BYN </span>}
+                </div>
                 <Rating 
-                    rating = {props.rating}
+                    rating = {rating}
                 />
             </div>
         </Link>

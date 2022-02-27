@@ -1,7 +1,6 @@
 import share from './img/share.svg'
 import arrow from './img/arrow1.svg'
 import adjustments from './img/adjustments.svg'
-import chevron from './img/chevron-right.svg'
 import viewGrid from './img/view-grid.svg'
 import viewList from './img/view-list.svg'
 
@@ -19,6 +18,7 @@ function ProductsHeader(props) {
     function onClickCross() {
         setFilterOpen(!filterOpen)
     }
+    console.log(props)
     return (
         <>
         <div className="productsHeader-wrapper">
@@ -46,13 +46,9 @@ function ProductsHeader(props) {
                     <p>Filter</p>
 
                 </div>
-                <div className='middle_filter_nav'>
-                    <img src={viewList} alt=''></img>
-                    <img src={viewGrid} alt=''></img>
-                </div>
                 <div className='right_filter_nav'>
-                    <p>Bestsellers</p>
-                    <img src={chevron} alt=""></img>
+                <img src={viewList} alt=''></img>
+                    <img src={viewGrid} alt=''></img>
                 </div>
             </div>
         </div>

@@ -2,17 +2,13 @@ import React, {useState} from 'react'
 import { Navigation} from "swiper"
 import { Thumbs } from 'swiper'
 import {Swiper, SwiperSlide} from "swiper/react"
+import { Link } from 'react-router-dom'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
 
-import mini1 from './img/mini1.jpg'
 import arr from './img/Arr.svg'
 import arrRight from './img/Arr_right.svg'
-import thing1 from './img/Rectangle1.jpg'
-import thing4 from '../clothes/img/thing4.jpg'
-import thing6 from '../clothes/img/thing6.png'
-import thing7 from '../clothes/img/thing7.jpg'
 import sizeGuide from './img/size-guide.png'
 import heart from './img/heart.svg'
 import scale from './img/scale.svg'
@@ -30,8 +26,6 @@ import stripe from './img/Stripe.svg'
 import paypal from './img/paypal.svg'
 
 import BtnSmall from '../button-small/BtnSmall'
-
-import { Link } from 'react-router-dom'
 import Rating from '../rating/Rating'
 
 
@@ -46,25 +40,22 @@ const safeLinks = [
     {id: 6, path: '#', img: discover},
     {id: 7, path: '#', img: americanExp},
 ]
-const miniImg = [
-    {id: 1, imgMini: mini1},
-    {id: 2, imgMini: mini1},
-    {id: 3, imgMini: mini1},
-    {id: 4, imgMini: mini1},
-    {id: 5, imgMini: mini1},
-    {id: 6, imgMini: mini1}
-]
-const sliderImg = [
-    {id: 1, imgSlider: thing1},
-    {id: 2, imgSlider: thing1},
-    {id: 3, imgSlider: thing1},
-    {id: 4, imgSlider: thing1},
-    {id: 5, imgSlider: thing1},
-    {id: 6, imgSlider: thing1},
-]
-console.log(miniImg)
 
-function ProductCard() {
+export const ProductCard = ({product: {brand, category, id, images, material, price, name, rating, sizes, reviews}}) => {
+    // Сортирую цвета по уникальности
+    const colors = images.map((obj) => {
+        return obj.color
+    })
+    const uniqueColor = [...new Set(colors)]
+    // Изображения по уникальности
+
+    // const uniqueImg = images.filter(function(item, index, array) {
+    //     if (item[index + 1].color !== item[index].color) {
+    //         return item.url
+    //     }
+    // })
+    console.log(colors)
+
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const gallerySwiperParams = {
       spaceBetween: 10,
@@ -75,6 +66,7 @@ function ProductCard() {
     };
     const thumbnailSwiperParams = {
       slidesPerView: 4,
+      spaceBetween: 0,
       direction: 'vertical',
       navigation: {
         nextEl: '.slider_left_arr_right',
@@ -98,11 +90,11 @@ function ProductCard() {
                                 onSwiper={setThumbsSwiper}
                                 {...thumbnailSwiperParams}
                             >
-                                {miniImg.map((obj) => (
+                                {images.map((obj) => (
                                     <SwiperSlide>
                                         <img 
                                             className='mini_img' 
-                                            src={obj.imgMini} 
+                                            src={`https://training.cleverland.by/shop${obj?.url}`} 
                                             
                                             alt=''/>
                                     </SwiperSlide>
@@ -118,9 +110,9 @@ function ProductCard() {
                                 >
                                     <img className='slider_right_arr_left' src={arr} alt=''/>
                                     <img className='slider_right_arr_right' src={arrRight} alt=''/>
-                                    {sliderImg.map((obj) => (
+                                    {images.map((obj) => (
                                         <SwiperSlide>
-                                            <img className='main_slider' src={obj.imgSlider} alt='' />
+                                            <img className='main_slider' src={`https://training.cleverland.by/shop${obj?.url}`} alt='' />
                                         </SwiperSlide>
                                     ))}
                                 </Swiper>
@@ -133,10 +125,10 @@ function ProductCard() {
                                 <span>Blue</span>
                             </div>
                             <div className='color_img'>
-                                <a href="/#"><img width={64} height={64} src={thing1} alt='' /></a>
-                                <a href="/#"><img width={64} height={64} src={thing4} alt='' /></a>
-                                <a href="/#"><img width={64} height={64} src={thing6} alt='' /></a>
-                                <a href="/#"><img width={64} height={64} src={thing7} alt='' /></a>
+                                {images.map((item) => (
+                                    <a href="/#"><img  src={`https://training.cleverland.by/shop${item?.url}`} alt='' /></a>
+                                ))}
+                                
                             </div>
                         </div>
                         <div className='size'>
@@ -145,15 +137,16 @@ function ProductCard() {
                                 <span>S</span>
                             </div>
                             <div className='size_link'>
-                                <a href='/#'>XS</a>
-                                <a href='/#'>S</a>
-                                <a href='/#'>M</a>
-                                <a href='/#'>L</a>
+                                {sizes.map((size) => (
+                                    <a href='/#'>{size}</a>
+                                ))}
+                                
+                                
                             </div>
                             <a className='size_guide' href="/#"><img src={sizeGuide} alt=''></img></a>
                         </div>
                         <div className='buy'>
-                            <span className='price'>$ 379,99</span>
+                            <span className='price'>{Math.round(price)} BYN</span>
                             <BtnSmall 
                                 title = 'Add to card'
                             />
@@ -191,23 +184,30 @@ function ProductCard() {
                             <h3 className='info_title'>ADDITIONAL INFORMATION</h3>
                             <div className="additional_info_item">
                                 <h4 className='info_subtitle'>Color:</h4>
-                                <span>Blue, White, Black, Grey</span>
+                                {uniqueColor.map((item) => (
+                                    <span>{item},</span>
+                                ))}
                             </div>
                             <div className="additional_info_item">
                                 <h4 className='info_subtitle'>Size:</h4>
-                                <span>XS, S, M, L</span>
+                                {sizes.map((item) => (
+                                    <span>{item},</span>
+                                ))}
+                                
                             </div>
                             <div className="additional_info_item">
                                 <h4 className='info_subtitle'>Material:</h4>
-                                <span>100% Polyester</span>
+                                <span>{material}</span>
                             </div>
                         </div>
                         <div className='comments'>
                             <h3 className='comments_title'>Reviews</h3>
                             <div className="comments_top">
                                 <div className='comments_top_left'>
-                                    <Rating />
-                                    <span>2 Rewiews</span>
+                                    <Rating 
+                                        rating={rating}
+                                    />
+                                    <span>{reviews.length} Rewiews</span>
                                 </div>
                                 <a href='/#' className="comments_top_right">
                                     <img src={write} alt='' />
@@ -215,23 +215,22 @@ function ProductCard() {
                                 </a>
                             </div>
                             <div className="comment">
-                                <div className="comment_header">
-                                    <div className='comment_name'>Oleh Chabanov</div>
-                                    <div className="wrap_pub_date">
-                                        
-                                        <time className='pub_date'>3 months ago</time>
-                                        <Rating />
-                                    </div>
-                                </div>
-                                <div className='comment_text'>On the other hand, we denounce with righteous indignation and like men who are so beguiled and demoralized by the charms of pleasure of the moment</div>
-                                <div className="comment_header">
-                                    <div className='comment_name'>ShAmAn design</div>
-                                    <div className="wrap_pub_date">
-                                        <time className='pub_date'>3 months ago</time>
-                                        <Rating />
-                                    </div>
-                                </div>
-                                <div className='comment_text'>On the other hand, we denounce with righteous indignation and like men who are so beguiled and demoralized by the charms of pleasure of the moment</div>
+                                {reviews.map((item) => (
+                                    <>
+                                        <div className="comment_header">
+                                            <div className='comment_name'>{item.name}</div>
+                                            <div className="wrap_pub_date">
+                                                <time className='pub_date'>3 months ago</time>
+                                                <Rating 
+                                                    rating={item.rating}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className='comment_text'>{item.text}</div>
+                                    </>
+                                ))}
+                                
+                                
                             </div>
                         </div>
                     </div>

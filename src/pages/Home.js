@@ -6,26 +6,24 @@ import Clothers from '../components/clothes/Clothers';
 import Subscribe from '../components/subscribe/Subscribe';
 
 
-
-export const gender = {
-    men: 'men',
-    women: 'women'
-}
-
 function Home() {
     
     return (
         <>
             <Slider/>
             <Advantage />
-            <div className='clothes' data-test-id={`clothes-${gender.women}`}>
+            <div className='clothes' data-test-id={`clothes-women`}>
                 <Clothers 
-                    title = {gender.women}
+                    title = 'women`s'
+                    productType = 'women'
+                    
                 />  
             </div>
-            <div className='clothes' data-test-id={`clothes-${gender.men}`}>
+            <div className='clothes' data-test-id={`clothes-men`}>
                 <Clothers 
-                    title = {gender.men}
+                    title = 'men`s'
+                    productType = 'men'
+                    
                 />
             </div>
             <Blognewstop />

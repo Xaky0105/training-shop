@@ -3,23 +3,12 @@ import arr from '../products-header/img/arrow1.svg'
 import { Link } from 'react-router-dom'
 
 
-import { product } from "../../constants/constant"
+
 import Rating from '../rating/Rating'
 
-function ProductHeader(props) {
-    let targetProduct
-    if(props.productType === "men") {
+export const ProductHeader = ({product: {category, name, rating, reviews}}) => {
 
-        targetProduct = product.men[props.id - 1]
-
-    } else if (props.productType === "women") {
-
-        targetProduct = product.women[props.id - 1]
-
-    }
-    console.log(targetProduct)
     return (
-        
         <>
         <div className="productHeader-wrapper">
             <div className="container">
@@ -27,9 +16,9 @@ function ProductHeader(props) {
                     <div className="path">
                         <Link to='/' className='home'>Home</Link>
                         <img width={14} src={arr} alt=''></img>
-                        <Link to={`/${targetProduct.productType}`} className='home'>{targetProduct.productType}</Link>
+                        <Link to={`/${category}`} className='home'>{category}</Link>
                         <img width={14} src={arr} alt=''></img>
-                        <Link to='#'>{targetProduct.title}</Link>
+                        <Link to='#'>{name}</Link>
                     </div>
                     <a href="/#" className="share">
                         <img src={share} alt=''></img>
@@ -37,12 +26,14 @@ function ProductHeader(props) {
                     </a>
                 </div>
                 <div className="productHeader-title">
-                    <h1>{targetProduct.title}</h1>
+                    <h1>{name}</h1>
                 </div>
                 <div className='productHeader-bot'>
                     <div className='productHeader-bot-rating'>
-                        <Rating />
-                        <span>2 Reviews</span>
+                        <Rating 
+                            rating={rating}
+                        />
+                        <span>{reviews.length} Reviews</span>
                     </div>
                     <div className='productHeader-bot_right'>
                         <div className="sku_wrap">

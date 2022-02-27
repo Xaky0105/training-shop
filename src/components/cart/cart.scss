@@ -1,6 +1,8 @@
 .cards-item {
   width: 25%;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 0 15px;
   margin-bottom: 30px;
   @media (max-width: 800px) {
@@ -8,7 +10,16 @@
     flex-direction: column;
     width: 50%;
   }
-
+  .discount {
+    position: absolute;
+    z-index: 20;
+    background-color: #e91e63;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 35px;
+    padding: 0 10px;
+  }
   .img_wrap {
     display: inline-block;
     margin-bottom: 15px;
@@ -20,10 +31,29 @@
 
   .cart_title {
     margin-bottom: 15px;
+    line-height: 24px;
+    opacity: 0.6;
   }
   .cart_bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    .cart_price {
+      .price {
+        font-size: 14px;
+        font-weight: 700;
+        margin-right: 10px;
+        @media (max-width: 900px) {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+      .price_before {
+        font-size: 12px;
+        font-weight: 700;
+        opacity: 0.4;
+        text-decoration: line-through;
+      }
+    }
   }
 }

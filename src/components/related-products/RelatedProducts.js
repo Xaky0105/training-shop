@@ -1,5 +1,5 @@
 import arrow from '../slider/img/arrow.svg'
-// import Cards from '../cards/Cards'
+
 
 import { Navigation} from "swiper"
 import {Swiper, SwiperSlide} from "swiper/react"
@@ -7,7 +7,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 
 import Cart from '../cart/Cart'
-import { product } from '../../constants/constant'
+import { PRODUCTS } from '../../constants/constant'
 
 import {useParams} from 'react-router-dom'
 
@@ -22,14 +22,14 @@ function RelatedProducts(props) {
     
     if(productType === "men") {
 
-        targetProduct = product.men
+        targetProduct = PRODUCTS.men
 
     } else if (productType === "women") {
 
-        targetProduct = product.women
+        targetProduct = PRODUCTS.women
 
     } else {
-        targetProduct = product.men.concat(product.women)
+        targetProduct = PRODUCTS.men.concat(PRODUCTS.women)
     }
 
     const params = {
@@ -38,10 +38,10 @@ function RelatedProducts(props) {
           prevEl: '.arr_left'
         },
         breakpoints: {
-            300: {
+            360: {
                 slidesPerView: 2,
             },
-            450: {
+            550: {
                 slidesPerView: 3,
             },
             800: {
@@ -69,16 +69,13 @@ function RelatedProducts(props) {
                         modules={[Navigation]}
                         {...params}
                     >
-                        {targetProduct.map((obj) => (
+                        {targetProduct.map((item) => (
                             <SwiperSlide>
                                 <Cart
-                                    key = {obj.id}
-                                    id = {obj.id}
-                                    productType = {productType}
-                                    title = {obj.title}
-                                    price = {obj.price}
-                                    imageUrl = {obj.imageUrl}
-                                    rating = {obj.rating}
+                                    sale={String(item.discount).slice(1,3)}
+                                    card={item}
+                                    productType={item.category}
+                                    key={item.id}
                                 />
                             </SwiperSlide>
                         ))}
