@@ -45,11 +45,20 @@
     }
   }
 
-  input {
+  .see_all {
     height: 48px;
     text-transform: uppercase;
     background-color: #f8f8f8;
     font-size: 13px;
+    font-weight: 500;
+    opacity: 0.8;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    &:hover {
+      background-color: #e6e6e6;
+    }
   }
 }

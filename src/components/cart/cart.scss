@@ -37,7 +37,7 @@
   .cart_bottom {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     .cart_price {
       .price {
         font-size: 14px;

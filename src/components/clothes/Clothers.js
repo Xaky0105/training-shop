@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import classNames from "classnames"
 import Cards from "../home-cards/HomeCards"
 
@@ -63,7 +64,7 @@ function Clothers(props) {
                         filtered = {filtered}
                         
                     />
-                    <input type="submit" value="see all"></input>
+                    <Link to={props.productType} className='see_all' >See all</Link>
                 </div>
             </div>
     )

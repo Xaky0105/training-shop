@@ -81,18 +81,18 @@ function Header() {
 
                         </div>
                         <div className='nav_right'>
-                            <a className='nav_right_item' href='/#'>
+                            <Link to='/#' className='nav_right_item'>
                                 <img src={Search} alt=''/>
-                            </a>
-                            <a className='nav_right_item' href='/#'>
+                            </Link>
+                            <Link to='/#' className='nav_right_item'>
                                 <img src={Globe} alt=''/>
-                            </a>
-                            <a className='nav_right_item' href='/#'>
+                            </Link>
+                            <Link to='/#' className='nav_right_item'>
                                 <img src={User} alt=''/>
-                            </a>
-                            <a className='nav_right_item' href='/#'>
+                            </Link>
+                            <Link to='/#' className='nav_right_item'>
                                 <img src={Shop} alt=''/>
-                            </a>
+                            </Link>
                             <div className="nav_right_item">
                                 <button 
                                     className={classNames('burger', {visible: isMenuOpen})}

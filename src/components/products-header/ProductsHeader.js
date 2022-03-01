@@ -29,10 +29,10 @@ function ProductsHeader(props) {
                         <img width={14} src={arrow} alt=''></img>
                         <Link to={`/${props.productType}`}>{props.productType}</Link>
                     </div>
-                    <a href="/#" className="share">
+                    <Link to='/#' className="share">
                         <img src={share} alt=''></img>
                         <p>Share</p>
-                    </a>
+                    </Link>
                 </div>
                 <div className="productsHeader-title">
                     <h1>{props.productType}</h1>

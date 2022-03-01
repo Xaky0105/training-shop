@@ -51,7 +51,7 @@ export const ProductCard = ({product: {category, id, images, material, price, na
     const uniqueColor = [...new Set(colors)]
     console.log(uniqueColor)
     // Сортирую изображения по цветовой уникальности
-    
+    // const uniqueImg = 
    
 
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -167,30 +167,30 @@ export const ProductCard = ({product: {category, id, images, material, price, na
                                 
                                 
                             </div>
-                            <a className='size_guide' href="/#"><img src={sizeGuide} alt=''></img></a>
+                            <Link to='/#' className='size_guide'><img src={sizeGuide} alt=''></img></Link>
                         </div>
                         <div className='buy'>
                             <span className='price'>{Math.round(price)} BYN</span>
                             <BtnSmall 
                                 title = 'Add to card'
                             />
-                            <a href="/#"><img src={heart} alt=''/></a>
-                            <a href="/#"><img src={scale} alt=''/></a>
+                            <Link to='/#'><img src={heart} alt=''/></Link>
+                            <Link to='/#'><img src={scale} alt=''/></Link>
                         </div>
                         <div className="support_wrapper">
                             <div className='support'>
-                                <a href='/#'>
+                                <Link to='/#'>
                                     <img src={truck} alt=''/>
                                     <span>Shipping &amp; Delivery</span>
-                                </a>
-                                <a href='/#'>
+                                </Link>
+                                <Link to='/#'>
                                     <img src={refresh} alt=''/>
                                     <span>Returns &amp; Exchanges</span>
-                                </a>
-                                <a href='/#'>
+                                </Link>
+                                <Link to='/#'>
                                     <img src={mail} alt=''/>
                                     <span>Ask a question</span>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                         <div className='safe'>
@@ -233,10 +233,10 @@ export const ProductCard = ({product: {category, id, images, material, price, na
                                     />
                                     <span>{reviews.length} Rewiews</span>
                                 </div>
-                                <a href='/#' className="comments_top_right">
+                                <Link to='/#' className="comments_top_right">
                                     <img src={write} alt='' />
                                     <span>Write a review</span>
-                                </a>
+                                </Link>
                             </div>
                             <div className="comment">
                                 {reviews.map((item, index) => (

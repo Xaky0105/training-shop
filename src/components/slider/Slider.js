@@ -75,8 +75,8 @@ function Slider() {
                         </div>
                     </div>
                     <div className="intro_right_bottom">
-                        <a href="/#"><img src={Accessories} alt=''></img></a>
-                        <a href="/#" className="intro_title">Accessories</a>
+                        <Link to='/#'><img src={Accessories} alt=''></img></Link>
+                        <Link to='/#' className="intro_title">Accessories</Link>
                     </div>
                 </div>
             </div>

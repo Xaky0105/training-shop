@@ -20,10 +20,10 @@ export const ProductHeader = ({product: {category, name, rating, reviews}}) => {
                         <img width={14} src={arr} alt=''></img>
                         <Link to='#'>{name}</Link>
                     </div>
-                    <a href="/#" className="share">
+                    <Link to='/#' className="share">
                         <img src={share} alt=''></img>
                         <p>Share</p>
-                    </a>
+                    </Link>
                 </div>
                 <div className="productHeader-title">
                     <h1>{name}</h1>

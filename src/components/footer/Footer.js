@@ -33,9 +33,9 @@ const usefulLinks = [
 ]
 const contacts = [
     {id: 1, path: '#', name: 'Belarus, Gomel, Lange 17', img: Location},
-    {id: 2, path: 'tel:+375291002030', name: '+375 29 100 20 30', img: Phone},
+    {id: 2, path: '#', name: '+375 29 100 20 30', img: Phone},
     {id: 3, path: '#', name: 'All week 24/7', img: Clock},
-    {id: 4, path: 'mailto:info@clevertec.ru', name: 'info@clevertec.ru', img: Mail},
+    {id: 4, path: '#', name: 'info@clevertec.ru', img: Mail},
 ]
 
 const payLinks = [
@@ -124,7 +124,7 @@ function Footer() {
                             ))}
                         </div>
                         <div className="footer_bottom_right">
-                            <a href="https://clevertec.ru/study/frontend.html" target='blank'>Clevertec.ru/training</a>
+                            <a href="https://drive.google.com/file/d/1dYY-yFzTIE05fHs33KABG9FNi9J3CYuU/view?usp=sharing" target='blank'>Ссылка на макет</a>
                         </div>
                     </div>
                 </div>
