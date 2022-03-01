@@ -1,0 +1,15 @@
+.carts {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  margin-bottom: 50px;
+}
+.carts_related {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  margin-bottom: 50px;
+  .cards-item {
+    width: 100%;
+  }
+}

@@ -62,7 +62,7 @@ function RelatedProducts(props) {
                         <img className='arr_right' src={arrow} alt=""></img>
                     </div>
                 </div>
-                <div className="carts_related">
+                <ul className="carts_related">
                     <Swiper
                         slidesPerView={4}
                         navigation={true}
@@ -72,7 +72,7 @@ function RelatedProducts(props) {
                         {targetProduct.map((item) => (
                             <SwiperSlide>
                                 <Cart
-                                    sale={String(item.discount).slice(1,3)}
+                                    sale={String(item.discount).replace(/\D/g, '')}
                                     card={item}
                                     productType={item.category}
                                     key={item.id}
@@ -80,7 +80,7 @@ function RelatedProducts(props) {
                             </SwiperSlide>
                         ))}
                     </Swiper>
-                </div>
+                </ul>
             </div>    
         </div>
         </>

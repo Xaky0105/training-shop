@@ -41,7 +41,7 @@ function ProductsHeader(props) {
         </div>
         <div className='container'>
             <div className='filter_nav'>
-                <div className='left_filter_nav' onClick={onClickCross}>
+                <div className='left_filter_nav' onClick={onClickCross} data-test-id='filter-button'>
                     <img src={adjustments} alt=''></img>
                     <p>Filter</p>
 
@@ -55,6 +55,7 @@ function ProductsHeader(props) {
         <div className='container'>
             <Filter 
                 className={classNames('filter', {visible: filterOpen})}
+                productType={props.productType}
             />
         </div>
         </>

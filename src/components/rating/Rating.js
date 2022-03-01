@@ -2,7 +2,7 @@
 function Rating(props) {
     
    return (
-       <div className="rating" data-total-value={props.rating}>
+       <div key={props.key} className="rating" data-total-value={props.rating}>
             <div className="rating_item" data-item-value='5'>★</div>
             <div className="rating_item" data-item-value='4'>★</div>
             <div className="rating_item" data-item-value='3'>★</div>

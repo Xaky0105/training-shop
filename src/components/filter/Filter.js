@@ -5,8 +5,8 @@ function Filter(props) {
     
     return (
         <>
-        <div className={classNames(props.className)}>
-            <div className="filter_col">
+        <div className={classNames(props.className)} data-test-id={`filters-${props.productType}`}>
+            <div className="filter_col" data-test-id='filters-color'>
                 <h3 className="filter_col_title">Color</h3>
                 <div className="filter_col_list">
                     <label className="checkbox">
@@ -56,7 +56,7 @@ function Filter(props) {
                     </label>
                 </div>
             </div>
-            <div className="filter_col">
+            <div className="filter_col" data-test-id='filters-size'>
                 <h3 className="filter_col_title">Size</h3>
                 <div className="filter_col_list">
                     <label className="checkbox">
@@ -86,7 +86,7 @@ function Filter(props) {
                     </label>
                 </div>
             </div>
-            <div className="filter_col">
+            <div className="filter_col" data-test-id='filters-brand'>
                 <h3 className="filter_col_title">Brand</h3>
                 <div className="filter_col_list">
                     <label className="checkbox">

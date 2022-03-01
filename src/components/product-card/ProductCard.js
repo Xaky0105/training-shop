@@ -3,6 +3,7 @@ import { Navigation} from "swiper"
 import { Thumbs } from 'swiper'
 import {Swiper, SwiperSlide} from "swiper/react"
 import { Link } from 'react-router-dom'
+import classNames from 'classnames'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -41,20 +42,17 @@ const safeLinks = [
     {id: 7, path: '#', img: americanExp},
 ]
 
-export const ProductCard = ({product: {brand, category, id, images, material, price, name, rating, sizes, reviews}}) => {
-    // Сортирую цвета по уникальности
+export const ProductCard = ({product: {category, id, images, material, price, name, rating, sizes, reviews}}) => {
+    
     const colors = images.map((obj) => {
         return obj.color
     })
+    // Сортирую цвета по уникальности
     const uniqueColor = [...new Set(colors)]
-    // Изображения по уникальности
-
-    // const uniqueImg = images.filter(function(item, index, array) {
-    //     if (item[index + 1].color !== item[index].color) {
-    //         return item.url
-    //     }
-    // })
-    console.log(colors)
+    console.log(uniqueColor)
+    // Сортирую изображения по цветовой уникальности
+    
+   
 
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const gallerySwiperParams = {
@@ -73,6 +71,19 @@ export const ProductCard = ({product: {brand, category, id, images, material, pr
         prevEl: '.slider_left_arr_left'
       }
     };
+
+    const [isActiveImg, setIsActiveImg] = useState(images[0].color);
+    function addActiveImg(color) {
+        let newColor = [...images].filter( item => item.color === color) 
+        setIsActiveImg(newColor[0].color)  
+    }
+    console.log(isActiveImg)
+
+    const [isActiveSize, setIsActiveSize] = useState(sizes[0]);
+    function addActiveSize(size) {
+        let newSize = [...sizes].filter( item => item === size)
+        setIsActiveSize(newSize[0])  
+    }
     
     return (
         <>
@@ -90,9 +101,10 @@ export const ProductCard = ({product: {brand, category, id, images, material, pr
                                 onSwiper={setThumbsSwiper}
                                 {...thumbnailSwiperParams}
                             >
-                                {images.map((obj) => (
+                                {images.map((obj, index) => (
                                     <SwiperSlide>
                                         <img 
+                                            key={obj[index]}
                                             className='mini_img' 
                                             src={`https://training.cleverland.by/shop${obj?.url}`} 
                                             
@@ -110,9 +122,9 @@ export const ProductCard = ({product: {brand, category, id, images, material, pr
                                 >
                                     <img className='slider_right_arr_left' src={arr} alt=''/>
                                     <img className='slider_right_arr_right' src={arrRight} alt=''/>
-                                    {images.map((obj) => (
+                                    {images.map((obj, index) => (
                                         <SwiperSlide>
-                                            <img className='main_slider' src={`https://training.cleverland.by/shop${obj?.url}`} alt='' />
+                                            <img key={obj[index]} className='main_slider' src={`https://training.cleverland.by/shop${obj?.url}`} alt='' />
                                         </SwiperSlide>
                                     ))}
                                 </Swiper>
@@ -122,11 +134,17 @@ export const ProductCard = ({product: {brand, category, id, images, material, pr
                         <div className='change_color'>
                             <div className='color_title'>
                                 <h4>Color:</h4>
-                                <span>Blue</span>
+                                <span>{isActiveImg}</span>
                             </div>
                             <div className='color_img'>
-                                {images.map((item) => (
-                                    <a href="/#"><img  src={`https://training.cleverland.by/shop${item?.url}`} alt='' /></a>
+                                {images.map((item, index) => (
+                                    <span 
+                                        key={item[index]} 
+                                        onClick={() => addActiveImg(item.color)} 
+                                        className={classNames('color_img_wrap', {active: item.color === isActiveImg})}
+                                    >
+                                        <img  src={`https://training.cleverland.by/shop${item?.url}`} alt='' />
+                                    </span>
                                 ))}
                                 
                             </div>
@@ -134,11 +152,17 @@ export const ProductCard = ({product: {brand, category, id, images, material, pr
                         <div className='size'>
                             <div className='size_title'>
                                 <h4>Size:</h4>
-                                <span>S</span>
+                                <span>{isActiveSize}</span>
                             </div>
                             <div className='size_link'>
-                                {sizes.map((size) => (
-                                    <a href='/#'>{size}</a>
+                                {sizes.map((item, index) => (
+                                    <span 
+                                        className={classNames('size_item', {active: item === isActiveSize})} 
+                                        key={item[index]}
+                                        onClick={() => addActiveSize(item)} 
+                                    >
+                                        {item}
+                                    </span>
                                 ))}
                                 
                                 
@@ -184,14 +208,14 @@ export const ProductCard = ({product: {brand, category, id, images, material, pr
                             <h3 className='info_title'>ADDITIONAL INFORMATION</h3>
                             <div className="additional_info_item">
                                 <h4 className='info_subtitle'>Color:</h4>
-                                {uniqueColor.map((item) => (
-                                    <span>{item},</span>
+                                {uniqueColor.map((item, index) => (
+                                    <span key={item[index]}>{item},</span>
                                 ))}
                             </div>
                             <div className="additional_info_item">
                                 <h4 className='info_subtitle'>Size:</h4>
-                                {sizes.map((item) => (
-                                    <span>{item},</span>
+                                {sizes.map((item, index) => (
+                                    <span key={item[index]}>{item},</span>
                                 ))}
                                 
                             </div>
@@ -215,13 +239,14 @@ export const ProductCard = ({product: {brand, category, id, images, material, pr
                                 </a>
                             </div>
                             <div className="comment">
-                                {reviews.map((item) => (
+                                {reviews.map((item, index) => (
                                     <>
                                         <div className="comment_header">
                                             <div className='comment_name'>{item.name}</div>
                                             <div className="wrap_pub_date">
                                                 <time className='pub_date'>3 months ago</time>
                                                 <Rating 
+                                                    key={item[index]}
                                                     rating={item.rating}
                                                 />
                                             </div>

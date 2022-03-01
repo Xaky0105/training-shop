@@ -1,12 +1,7 @@
 import Cart from '../cart/Cart'
-
-
 import { PRODUCTS } from '../../constants/constant'
 
-
-
-
-export const Cards = ({filtered: particularName, productType}) => {
+export const Cards = ({ productType}) => {
     let targetProduct
     if(productType === "men") {
         targetProduct = PRODUCTS.men
@@ -16,14 +11,8 @@ export const Cards = ({filtered: particularName, productType}) => {
         targetProduct = PRODUCTS.men.concat(PRODUCTS.women)
     }
     console.log(targetProduct)
-
-    // let parcticularsItems = targetProduct[0]
-    
-
-    console.log(particularName)
     return (
-        <>
-        <div className="carts">
+        <ul className="carts">
             {targetProduct.map((item) => (
                 <Cart
                     card={item}
@@ -32,8 +21,7 @@ export const Cards = ({filtered: particularName, productType}) => {
                     sale={String(item.discount).slice(1,3)}
                 />
             ))}
-        </div>
-        </>
+        </ul>
     )
     
 }

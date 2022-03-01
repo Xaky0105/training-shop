@@ -105,12 +105,14 @@
       .color_img {
         display: flex;
         margin-bottom: 32px;
-        a {
+        .color_img_wrap {
           margin-right: 16px;
           position: relative;
           overflow: hidden;
           width: 64px;
           height: 64px;
+          cursor: pointer;
+          border: 2px solid transparent;
 
           img {
             min-width: 100%;
@@ -120,6 +122,9 @@
             -webkit-transform: translate3d(-50%, -50%, 0);
             transform: translate3d(-50%, -50%, 0);
           }
+        }
+        .active {
+          border: 2px solid #000;
         }
       }
     }
@@ -135,7 +140,7 @@
       .size_link {
         margin-bottom: 12px;
         display: flex;
-        a {
+        .size_item {
           display: flex;
           align-items: center;
           justify-content: center;
@@ -149,6 +154,11 @@
           opacity: 0.7;
           margin-right: 16px;
           padding: 7px 0;
+          cursor: pointer;
+        }
+        .active {
+          border: 2px solid #000;
+          background-color: #fff;
         }
       }
       .size_guide:after {
@@ -160,6 +170,7 @@
         background-color: #e5e5e5;
       }
     }
+
     .buy {
       display: flex;
       align-items: center;
