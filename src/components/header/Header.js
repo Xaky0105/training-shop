@@ -14,6 +14,7 @@ import Search from "./img/search.svg"
 import Globe from "./img/globe.svg"
 import User from "./img/user.svg"
 import Shop from "./img/shop-bag.svg"
+import CLShop from './img/CleverShop.png'
 
 
 
@@ -56,20 +57,22 @@ function Header() {
                     <div className="nav_wrap">
                         <div className='nav_left'>
                             <Link to='/' className="header-nav-logo" data-test-id='header-logo-link'>
-                                CleverShop
+                                <img src={CLShop} alt='logo'></img>
                             </Link>    
                         </div>
                         <ul className={classNames('menu', {visible: isMobileMenuOpen})} data-test-id='burger-menu'>
                             {menu.map(({id, path, name}) => (
-                                <Link   
-                                    key={id} 
-                                    to={`/${path}`} 
-                                    className='menu-item' 
-                                    data-test-id={`menu-link-${path}`}
-                                    onClick={onClickCross}
-                                >
-                                    <span>{name}</span>
-                                </Link>
+                                <li>
+                                    <Link
+                                        key={id}
+                                        to={`/${path}`}
+                                        className='menu-item'
+                                        data-test-id={`menu-link-${path}`}
+                                        onClick={onClickCross}
+                                    >
+                                        <span>{name}</span>
+                                    </Link>
+                                </li>
                             ))}
                         </ul>
                         <div 
@@ -92,6 +95,7 @@ function Header() {
                             </Link>
                             <Link to='/#' className='nav_right_item'>
                                 <img src={Shop} alt=''/>
+                                <span className="number_goods">0</span>
                             </Link>
                             <div className="nav_right_item">
                                 <button 

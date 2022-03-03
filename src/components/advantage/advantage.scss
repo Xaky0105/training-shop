@@ -1,25 +1,28 @@
-.advantage {
-  display: flex;
-  justify-content: space-between;
-  min-height: 103px;
-  @media (max-width: 800px) {
-    flex-direction: column;
-    justify-content: space-around;
-  }
-  .advantage_item {
+.advantage_wrap {
+  border-bottom: 2px solid #f8f8f8;
+  .advantage {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+    min-height: 103px;
     @media (max-width: 800px) {
-      margin: 20px 0;
+      flex-direction: column;
+      justify-content: space-around;
     }
-    .advantage_item_content {
-      margin-left: 10px;
-      .advantage_item_title {
-        font-weight: 600;
+    .advantage_item {
+      display: flex;
+      align-items: center;
+      @media (max-width: 800px) {
+        margin: 20px 0;
       }
-      .advantage_item_text {
-        font-weight: 500;
-        line-height: 22px;
+      .advantage_item_content {
+        margin-left: 10px;
+        .advantage_item_title {
+          font-weight: 600;
+        }
+        .advantage_item_text {
+          font-weight: 500;
+          line-height: 22px;
+        }
       }
     }
   }

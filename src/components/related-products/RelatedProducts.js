@@ -64,7 +64,7 @@ function RelatedProducts(props) {
                 </div>
                 <ul className="carts_related">
                     <Swiper
-                        slidesPerView={4}
+                        slidesPerView={2}
                         navigation={true}
                         modules={[Navigation]}
                         {...params}

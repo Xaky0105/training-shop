@@ -4,9 +4,13 @@
   padding: 24px 27px;
   margin-bottom: 32px;
   position: relative;
+  flex-wrap: wrap;
   .filter_col {
     width: 25%;
     padding: 0 15px;
+    @media (max-width: 660px) {
+      width: 50%;
+    }
     .filter_col_title {
       font-size: 14px;
       line-height: 22px;
@@ -19,6 +23,9 @@
       flex-direction: column;
       max-height: 238px;
       overflow-y: auto;
+      @media (max-width: 660px) {
+        max-height: 130px;
+      }
       .checkbox {
         display: flex;
         align-items: baseline;
