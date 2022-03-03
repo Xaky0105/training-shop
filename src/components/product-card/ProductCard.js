@@ -49,11 +49,13 @@ export const ProductCard = ({product: {category, id, images, material, price, na
     })
     // Сортирую цвета по уникальности
     const uniqueColor = [...new Set(colors)]
-    console.log(uniqueColor)
+    console.log(images)
     // Сортирую изображения по цветовой уникальности
-    // const uniqueImg = 
-   
-
+    function getUniqueImg(arr) {
+        let uniq = {}
+        return arr.filter(obj => !uniq[obj.color] && (uniq[obj.color] = true))
+        
+    }
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const gallerySwiperParams = {
       spaceBetween: 10,
@@ -137,7 +139,7 @@ export const ProductCard = ({product: {category, id, images, material, price, na
                                 <span>{isActiveImg}</span>
                             </div>
                             <div className='color_img'>
-                                {images.map((item, index) => (
+                                {getUniqueImg(images).map((item, index) => (
                                     <span 
                                         key={item[index]} 
                                         onClick={() => addActiveImg(item.color)} 

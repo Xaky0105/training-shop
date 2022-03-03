@@ -1,7 +1,8 @@
 import Cart from '../cart/Cart'
 import { PRODUCTS } from '../../constants/constant'
+import { useState } from 'react'
 
-export const Cards = ({ productType}) => {
+export const Cards = ({ productType, productsType, onChange, uniqueColor, uniqSize, getUniqueBrand}) => {
     let targetProduct
     if(productType === "men") {
         targetProduct = PRODUCTS.men

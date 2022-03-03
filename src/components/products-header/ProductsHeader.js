@@ -13,12 +13,15 @@ import classNames from 'classnames'
 
 
 
-function ProductsHeader(props) {
+function ProductsHeader({productType, productsType, onChange, uniqueColor, uniqSize, getUniqueBrand}) {
     const [filterOpen, setFilterOpen] = useState(false);
     function onClickCross() {
         setFilterOpen(!filterOpen)
     }
-    console.log(props)
+
+    
+    
+    console.log(productType)
     return (
         <>
         <div className="productsHeader-wrapper">
@@ -27,7 +30,7 @@ function ProductsHeader(props) {
                     <div className="path">
                         <Link to='/' className='home'>Home</Link>
                         <img width={14} src={arrow} alt=''></img>
-                        <Link to={`/${props.productType}`}>{props.productType}</Link>
+                        <Link to={`/${productType}`}>{productType}</Link>
                     </div>
                     <Link to='/#' className="share">
                         <img src={share} alt=''></img>
@@ -35,7 +38,7 @@ function ProductsHeader(props) {
                     </Link>
                 </div>
                 <div className="productsHeader-title">
-                    <h1>{props.productType}</h1>
+                    <h1>{productType}</h1>
                 </div>
             </div>
         </div>
@@ -54,9 +57,17 @@ function ProductsHeader(props) {
         </div>
         <div className='container'>
             <Filter 
-                className={classNames('filter', {visible: filterOpen})}
-                productType={props.productType}
+                className = {classNames('filter', {visible: filterOpen})}
+                productType = {productType}
+                productsType = {productsType}
+                onChange = {onChange}
+                uniqueColor = {uniqueColor}
+                uniqSize = {uniqSize}
+                getUniqueBrand = {getUniqueBrand}
             />
+            <ul className='filterd'>
+                
+            </ul>
         </div>
         </>
     )

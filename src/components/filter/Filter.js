@@ -1,161 +1,62 @@
 import classNames from "classnames"
 
-function Filter(props) {
-    console.log(props)
-    
+function Filter({productType, productsType, className, onChange, uniqueColor, uniqSize, getUniqueBrand}) {
     return (
         <>
-        <div className={classNames(props.className)} data-test-id={`filters-${props.productType}`}>
+        <div className={classNames(className)} data-test-id={`filters-${productType}`}>
             <div className="filter_col" data-test-id='filters-color'>
                 <h3 className="filter_col_title">Color</h3>
-                <div className="filter_col_list">
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        Black
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        Cyan
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        Green
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        Grey
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        PinkWhiteBlue
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        White
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        Blue
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        Blue
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        Blue
-                    </label>
-                </div>
+                <ul className="filter_col_list">
+                    {uniqueColor.map((item) => (
+                        <li>
+                            <label className="checkbox">
+                                <input onChange={() => onChange(item)} className="checkbox_input" type='checkbox' name="size" />
+                                <div className="checkbox_box"></div>
+                                {item}
+                            </label>
+                        </li>
+                    ))}
+                </ul>
             </div>
             <div className="filter_col" data-test-id='filters-size'>
                 <h3 className="filter_col_title">Size</h3>
-                <div className="filter_col_list">
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        XL
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        L
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        M
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        S
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        Xs
-                    </label>
-                </div>
+                <ul className="filter_col_list">
+                    {uniqSize.filter(item => item !== '').map((item) => (
+                        <li>
+                            <label className="checkbox">
+                                <input onChange={() => onChange(item)} className="checkbox_input" type='checkbox' name="size" />
+                                <div className="checkbox_box"></div>
+                                {item}
+                            </label>
+                        </li>
+                    ))}
+                </ul>
             </div>
             <div className="filter_col" data-test-id='filters-brand'>
                 <h3 className="filter_col_title">Brand</h3>
-                <div className="filter_col_list">
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        Ck
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        H&amp;M
-
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        Kalles
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        Levi's
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        Monki
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        Nike
-                    </label>
-                </div>
+                <ul className="filter_col_list">
+                    {getUniqueBrand(productsType).map((item) => (
+                        <li>
+                            <label className="checkbox">
+                                <input onChange={() => onChange(item.brand)} className="checkbox_input" type='checkbox' name="size" />
+                                <div className="checkbox_box"></div>
+                                {item.brand}
+                            </label>
+                        </li>
+                    ))}
+                </ul>
             </div>
             <div className="filter_col">
                 <h3 className="filter_col_title">Price</h3>
-                <div className="filter_col_list">
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        $1200+
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        $600-$1200
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        $300-$600
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        $150-$300
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        $50-$150
-                    </label>
-                    <label className="checkbox">
-                        <input className="checkbox_input" type='checkbox' name="size" />
-                        <div className="checkbox_box"></div>
-                        $7-$50
-                    </label>
-                </div>
+                <ul className="filter_col_list">
+                    <li>
+                        <label className="checkbox">
+                            <input className="checkbox_input" type='checkbox' name="size" />
+                            <div className="checkbox_box"></div>
+                            $1200+
+                        </label>
+                    </li>
+                </ul>
             </div>
            
             
