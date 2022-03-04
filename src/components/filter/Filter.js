@@ -53,7 +53,35 @@ function Filter({productType, productsType, className, onChange, uniqueColor, un
                         <label className="checkbox">
                             <input className="checkbox_input" type='checkbox' name="size" />
                             <div className="checkbox_box"></div>
-                            $1200+
+                            250-300 BYN
+                        </label>
+                    </li>
+                    <li>
+                        <label className="checkbox">
+                            <input className="checkbox_input" type='checkbox' name="size" />
+                            <div className="checkbox_box"></div>
+                            200-250 BYN
+                        </label>
+                    </li>
+                    <li>
+                        <label className="checkbox">
+                            <input className="checkbox_input" type='checkbox' name="size" />
+                            <div className="checkbox_box"></div>
+                            100-200 BYN
+                        </label>
+                    </li>
+                    <li>
+                        <label className="checkbox">
+                            <input className="checkbox_input" type='checkbox' name="size" />
+                            <div className="checkbox_box"></div>
+                            50-100 BYN
+                        </label>
+                    </li>
+                    <li>
+                        <label className="checkbox">
+                            <input className="checkbox_input" type='checkbox' name="size" />
+                            <div className="checkbox_box"></div>
+                            0-50 BYN
                         </label>
                     </li>
                 </ul>
