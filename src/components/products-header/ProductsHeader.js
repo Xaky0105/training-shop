@@ -13,12 +13,12 @@ import classNames from 'classnames'
 
 
 
-function ProductsHeader({productType, productsType, uniqueColor, uniqSize, getUniqueBrand, handleCheckSize, handleCheckColor, handleCheckBrand, handleCheckPrice, colorArr, sizeArr, brandArr, filteredProducts, checkLength, arrayPrice}) {
+function ProductsHeader({productType, productsType, uniqueColor, uniqSize, getUniqueBrand, handleCheckSize, handleCheckColor, handleCheckBrand, handleCheckPrice, colorArr, sizeArr, brandArr, priceArr, filteredProducts, checkLength, arrayPrice}) {
     const [filterOpen, setFilterOpen] = useState(false);
     function onClickCross() {
         setFilterOpen(!filterOpen)
     }
-
+    console.log(priceArr)
     return (
         <>
         <div className="productsHeader-wrapper">
@@ -70,9 +70,18 @@ function ProductsHeader({productType, productsType, uniqueColor, uniqSize, getUn
                 {checkLength() ? (
                     <>
                         <span className='length'>{`${filteredProducts.length} item found`}</span>
-                        <span className='filtred_category'>{colorArr}</span>
-                        <span className='filtred_category'>{sizeArr}</span>
-                        <span className='filtred_category'>{brandArr}</span> 
+                        {colorArr.map((obj) => (
+                            <span className='filtred_category'>{`Color: ${obj}`}</span>
+                        ))}
+                        {sizeArr.map((obj) => (
+                            <span className='filtred_category'>{`Size: ${obj}`}</span>
+                        ))}
+                        {brandArr.map((obj) => (
+                            <span className='filtred_category'>{`Brand: ${obj}`}</span>
+                        ))}
+                        {priceArr.map((obj) => (
+                            <span className='filtred_category'>{`Price: ${obj}`}</span> 
+                        ))}
                     </>
                 ) : ""} 
             

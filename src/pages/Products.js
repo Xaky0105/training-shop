@@ -98,7 +98,6 @@ function Products() {
             const getPrice = (productsType) => {
                 return priceArr.some((item) => {
                   let minMax = item.replaceAll(/[BYN]/g, '').split('-');
-                  console.log(minMax)
                   let [min, max] = minMax;
                   if (max) {
                     return productsType.price <= Number(max) && productsType.price >= Number(min);
@@ -156,6 +155,7 @@ function Products() {
                 colorArr = {colorArr}
                 sizeArr = {sizeArr}
                 brandArr = {brandArr}
+                priceArr = {priceArr}
                 filteredProducts = {filteredProducts}
                 checkLength = {checkLength}
                 arrayPrice = {arrayPrice}
