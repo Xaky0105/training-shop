@@ -1,16 +1,16 @@
 import classNames from "classnames"
 
-function Filter({productType, productsType, className, onChange, uniqueColor, uniqSize, getUniqueBrand}) {
+function Filter({productType, productsType, className, handleCheckSize, handleCheckColor, handleCheckBrand, handleCheckPrice, uniqueColor, uniqSize, getUniqueBrand, arrayPrice}) {
     return (
         <>
         <div className={classNames(className)} data-test-id={`filters-${productType}`}>
-            <div className="filter_col" data-test-id='filters-color'>
+            <div className="filter_col" >
                 <h3 className="filter_col_title">Color</h3>
-                <ul className="filter_col_list">
+                <ul className="filter_col_list" data-test-id='filters-color'>
                     {uniqueColor.map((item) => (
-                        <li>
+                        <li data-test-id={`filters-color-${item}`}>
                             <label className="checkbox">
-                                <input onChange={() => onChange(item)} className="checkbox_input" type='checkbox' name="size" />
+                                <input onChange={(e) => handleCheckColor(item, e)} className="checkbox_input" type='checkbox' name="size" />
                                 <div className="checkbox_box"></div>
                                 {item}
                             </label>
@@ -18,13 +18,13 @@ function Filter({productType, productsType, className, onChange, uniqueColor, un
                     ))}
                 </ul>
             </div>
-            <div className="filter_col" data-test-id='filters-size'>
+            <div className="filter_col" >
                 <h3 className="filter_col_title">Size</h3>
-                <ul className="filter_col_list">
+                <ul className="filter_col_list" data-test-id='filters-size'>
                     {uniqSize.filter(item => item !== '').map((item) => (
-                        <li>
+                        <li data-test-id={`filters-size-${item}`}>
                             <label className="checkbox">
-                                <input onChange={() => onChange(item)} className="checkbox_input" type='checkbox' name="size" />
+                                <input onChange={(e) => handleCheckSize(item, e)} className="checkbox_input" type='checkbox' name="size" />
                                 <div className="checkbox_box"></div>
                                 {item}
                             </label>
@@ -32,13 +32,13 @@ function Filter({productType, productsType, className, onChange, uniqueColor, un
                     ))}
                 </ul>
             </div>
-            <div className="filter_col" data-test-id='filters-brand'>
+            <div className="filter_col" >
                 <h3 className="filter_col_title">Brand</h3>
-                <ul className="filter_col_list">
+                <ul className="filter_col_list" data-test-id='filters-brand'>
                     {getUniqueBrand(productsType).map((item) => (
-                        <li>
+                        <li data-test-id={`filters-brand-${item.brand}`}>
                             <label className="checkbox">
-                                <input onChange={() => onChange(item.brand)} className="checkbox_input" type='checkbox' name="size" />
+                                <input onChange={(e) => handleCheckBrand(item.brand, e)} className="checkbox_input" type='checkbox' name="size" />
                                 <div className="checkbox_box"></div>
                                 {item.brand}
                             </label>
@@ -49,41 +49,16 @@ function Filter({productType, productsType, className, onChange, uniqueColor, un
             <div className="filter_col">
                 <h3 className="filter_col_title">Price</h3>
                 <ul className="filter_col_list">
-                    <li>
-                        <label className="checkbox">
-                            <input className="checkbox_input" type='checkbox' name="size" />
-                            <div className="checkbox_box"></div>
-                            250-300 BYN
-                        </label>
-                    </li>
-                    <li>
-                        <label className="checkbox">
-                            <input className="checkbox_input" type='checkbox' name="size" />
-                            <div className="checkbox_box"></div>
-                            200-250 BYN
-                        </label>
-                    </li>
-                    <li>
-                        <label className="checkbox">
-                            <input className="checkbox_input" type='checkbox' name="size" />
-                            <div className="checkbox_box"></div>
-                            100-200 BYN
-                        </label>
-                    </li>
-                    <li>
-                        <label className="checkbox">
-                            <input className="checkbox_input" type='checkbox' name="size" />
-                            <div className="checkbox_box"></div>
-                            50-100 BYN
-                        </label>
-                    </li>
-                    <li>
-                        <label className="checkbox">
-                            <input className="checkbox_input" type='checkbox' name="size" />
-                            <div className="checkbox_box"></div>
-                            0-50 BYN
-                        </label>
-                    </li>
+                    {arrayPrice.map((item) => (
+                        <li>
+                            <label className="checkbox">
+                                <input onChange={(e) => handleCheckPrice(item, e)} className="checkbox_input" type='checkbox' name="size" />
+                                <div className="checkbox_box"></div>
+                                {item}
+                            </label>
+                        </li>
+                    ))}
+                    
                 </ul>
             </div>
            

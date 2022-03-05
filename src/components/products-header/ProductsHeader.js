@@ -8,20 +8,17 @@ import {Link} from 'react-router-dom'
 
 import Filter from '../filter/Filter'
 
-import { useState } from 'react'
+import { useState} from 'react'
 import classNames from 'classnames'
 
 
 
-function ProductsHeader({productType, productsType, onChange, uniqueColor, uniqSize, getUniqueBrand}) {
+function ProductsHeader({productType, productsType, uniqueColor, uniqSize, getUniqueBrand, handleCheckSize, handleCheckColor, handleCheckBrand, handleCheckPrice, colorArr, sizeArr, brandArr, filteredProducts, checkLength, arrayPrice}) {
     const [filterOpen, setFilterOpen] = useState(false);
     function onClickCross() {
         setFilterOpen(!filterOpen)
     }
 
-    
-    
-    console.log(productType)
     return (
         <>
         <div className="productsHeader-wrapper">
@@ -60,13 +57,25 @@ function ProductsHeader({productType, productsType, onChange, uniqueColor, uniqS
                 className = {classNames('filter', {visible: filterOpen})}
                 productType = {productType}
                 productsType = {productsType}
-                onChange = {onChange}
                 uniqueColor = {uniqueColor}
                 uniqSize = {uniqSize}
+                handleCheckSize = {handleCheckSize}
+                handleCheckColor = {handleCheckColor}
+                handleCheckBrand = {handleCheckBrand}
+                handleCheckPrice = {handleCheckPrice}
                 getUniqueBrand = {getUniqueBrand}
+                arrayPrice = {arrayPrice}
             />
-            <ul className='filterd'>
-                
+            <ul className='filtred'>
+                {checkLength() ? (
+                    <>
+                        <span className='length'>{`${filteredProducts.length} item found`}</span>
+                        <span className='filtred_category'>{colorArr}</span>
+                        <span className='filtred_category'>{sizeArr}</span>
+                        <span className='filtred_category'>{brandArr}</span> 
+                    </>
+                ) : ""} 
+            
             </ul>
         </div>
         </>

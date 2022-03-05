@@ -1,19 +1,10 @@
 import Cart from '../cart/Cart'
-import { PRODUCTS } from '../../constants/constant'
 
-export const Cards = ({ productType, productsType, onChange, uniqueColor, uniqSize, getUniqueBrand}) => {
-    let targetProduct
-    if(productType === "men") {
-        targetProduct = PRODUCTS.men
-    } else if (productType === "women") {
-        targetProduct = PRODUCTS.women
-    } else {
-        targetProduct = PRODUCTS.men.concat(PRODUCTS.women)
-    }
-    console.log(targetProduct)
+export const ProductsCards = ({ productsType, filteredProducts, uniqueColor, uniqSize, getUniqueBrand, colorArr, sizeArr, brandArr}) => {
+    
     return (
         <ul className="carts">
-            {targetProduct.map((item) => (
+            {filteredProducts.map((item) => (
                 <Cart
                     card={item}
                     productType={item.category}
@@ -26,4 +17,4 @@ export const Cards = ({ productType, productsType, onChange, uniqueColor, uniqSi
     
 }
 
-export default Cards
+export default ProductsCards
