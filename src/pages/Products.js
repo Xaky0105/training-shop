@@ -44,18 +44,7 @@ function Products() {
         '150 BYN - 200 BYN',
         '200 BYN - 300 BYN',
     ]
-    const getPrice = (productsType) => {
-        return priceArr.some((item) => {
-          let minMax = item.replaceAll(/[BYN]/g, '').split('-');
-          console.log(minMax)
-          let [min, max] = minMax;
-          if (max) {
-            return productsType.price <= Number(max) && productsType.price >= Number(min);
-          } else {
-            return productsType.price >= Number(min);
-          }
-        });
-      };
+    
     
     let [sizeArr, setSizeArr] = useState([])
     let [colorArr, setColorArr] = useState([])
@@ -104,9 +93,20 @@ function Products() {
     useEffect(() => {
         console.log('render')
         setFilteredProducts(() => {
-            let filtered = [...productsType]
+            let filteredProduct = [...productsType];
 
-            getPrice(productsType)
+            const getPrice = (productsType) => {
+                return priceArr.some((item) => {
+                  let minMax = item.replaceAll(/[BYN]/g, '').split('-');
+                  console.log(minMax)
+                  let [min, max] = minMax;
+                  if (max) {
+                    return productsType.price <= Number(max) && productsType.price >= Number(min);
+                  } else {
+                    return productsType.price >= Number(min);
+                  }
+                });
+              };
         
             const filterAllFunction = (productsType) => {
                 if (brandArr.length !== 0 && !brandArr.includes(productsType.brand)) {
@@ -121,15 +121,12 @@ function Products() {
                 if (priceArr.length !== 0 && !getPrice(productsType)) {
                     return false
                 }
-                
-        
                 return true;
             };
-            filtered = productsType.filter(filterAllFunction);
-        return [...filtered];
-        
-      
+            filteredProduct = productsType.filter(filterAllFunction);
+            return [...filteredProduct];
         });
+        // eslint-disable-next-line
     }, [sizeArr, brandArr, colorArr, priceArr])
 
     useEffect(() => {
