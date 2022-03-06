@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom'
 
 import Filter from '../filter/Filter'
 
-import { useState, useEffect} from 'react'
+import { useState} from 'react'
 import classNames from 'classnames'
 
 
