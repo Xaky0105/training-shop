@@ -62,9 +62,8 @@ function Header() {
                         </div>
                         <ul className={classNames('menu', {visible: isMobileMenuOpen})} data-test-id='burger-menu'>
                             {menu.map(({id, path, name}) => (
-                                <li>
+                                <li key={id}>
                                     <Link
-                                        key={id}
                                         to={`/${path}`}
                                         className='menu-item'
                                         data-test-id={`menu-link-${path}`}

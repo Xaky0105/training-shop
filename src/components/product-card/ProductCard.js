@@ -124,9 +124,9 @@ export const ProductCard = ({product: {category, id, images, material, price, na
                                 >
                                     <img className='slider_right_arr_left' src={arr} alt=''/>
                                     <img className='slider_right_arr_right' src={arrRight} alt=''/>
-                                    {images.map((obj, index) => (
+                                    {images.map((obj) => (
                                         <SwiperSlide>
-                                            <img key={obj[index]} className='main_slider' src={`https://training.cleverland.by/shop${obj?.url}`} alt='' />
+                                            <img key={obj.id} className='main_slider' src={`https://training.cleverland.by/shop${obj?.url}`} alt='' />
                                         </SwiperSlide>
                                     ))}
                                 </Swiper>

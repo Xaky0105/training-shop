@@ -9,7 +9,8 @@ export const ProductsCards = ({ productsType, filteredProducts, uniqueColor, uni
                     card={item}
                     productType={item.category}
                     key={item.id}
-                    sale={String(item.discount).slice(1,3)}
+                    sale={String(item.discount).replace(/\D/g, '')}
+                    
                 />
             ))}
         </ul>

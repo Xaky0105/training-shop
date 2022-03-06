@@ -38,9 +38,11 @@
         bottom: 50px;
         background-color: #fff;
         cursor: pointer;
+
         &:hover {
           .article_footer {
-            visibility: visible;
+            opacity: 1;
+            transition: all 0.4s;
           }
         }
 
@@ -56,9 +58,10 @@
           margin-bottom: 24px;
         }
         .article_footer {
-          visibility: hidden;
+          opacity: 0;
           display: flex;
           justify-content: space-between;
+          transition: all 0.4s;
           .article_footer_time {
             opacity: 0.6;
             font-weight: 400;

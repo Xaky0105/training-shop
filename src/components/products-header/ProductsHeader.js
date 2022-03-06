@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom'
 
 import Filter from '../filter/Filter'
 
-import { useState} from 'react'
+import { useState, useEffect} from 'react'
 import classNames from 'classnames'
 
 
@@ -18,7 +18,7 @@ function ProductsHeader({productType, productsType, uniqueColor, uniqSize, getUn
     function onClickCross() {
         setFilterOpen(!filterOpen)
     }
-    console.log(priceArr)
+
     return (
         <>
         <div className="productsHeader-wrapper">

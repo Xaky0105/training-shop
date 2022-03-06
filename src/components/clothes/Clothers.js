@@ -39,16 +39,15 @@ function Clothers(props) {
         setFiltered(newClothesParticular[0])
     }
     console.log(filtered)
-    
     return (
             <div className="container">
                 <div className="clothers">
                     <div className="clothers_header">
                         <h2 className="clothers_title">{props.title}</h2>
                         <ul className="clothers_sort">
-                            {MAIN_CLOTHES_BLOCK_MENU.map((item, index) => (
+                            {MAIN_CLOTHES_BLOCK_MENU.map((item) => (
                                 <li 
-                                    key={item[index]} 
+                                    key={item.name} 
                                     onClick={() => filterClothes(item.particularName)}
                                     className={classNames('clothers_sort_item', {active: item.particularName === filtered.particularName})} 
                                     data-test-id={`clothes-${props.productType}-${item.particularName}`}

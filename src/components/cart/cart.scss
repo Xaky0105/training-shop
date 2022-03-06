@@ -10,50 +10,60 @@
     flex-direction: column;
     width: 50%;
   }
-  .discount {
-    position: absolute;
-    z-index: 20;
-    background-color: #e91e63;
-    color: #fff;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 35px;
-    padding: 0 10px;
-  }
-  .img_wrap {
-    display: inline-block;
-    margin-bottom: 15px;
-    width: 100%;
-    img {
-      width: 100%;
-    }
-  }
-
-  .cart_title {
-    margin-bottom: 15px;
-    line-height: 24px;
-    opacity: 0.6;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
-  .cart_bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    .cart_price {
-      .price {
-        font-size: 14px;
-        font-weight: 700;
-        margin-right: 10px;
-        @media (max-width: 900px) {
-          display: flex;
-          flex-direction: column;
-        }
+  .cards_link {
+    &:hover {
+      img {
+        transition: all 0.7s;
+        transform: scale(1.05);
       }
-      .price_before {
-        font-size: 12px;
-        font-weight: 700;
-        opacity: 0.4;
-        text-decoration: line-through;
+    }
+    .discount {
+      position: absolute;
+      z-index: 20;
+      background-color: #e91e63;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 35px;
+      padding: 0 10px;
+    }
+    .img_wrap {
+      display: inline-block;
+      margin-bottom: 15px;
+      width: 100%;
+      overflow: hidden;
+      img {
+        transition: all 0.7s;
+        width: 100%;
+      }
+    }
+
+    .cart_title {
+      margin-bottom: 15px;
+      line-height: 24px;
+      opacity: 0.6;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    .cart_bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      .cart_price {
+        .price {
+          font-size: 14px;
+          font-weight: 700;
+          margin-right: 10px;
+          @media (max-width: 900px) {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+        .price_before {
+          font-size: 12px;
+          font-weight: 700;
+          opacity: 0.4;
+          text-decoration: line-through;
+        }
       }
     }
   }

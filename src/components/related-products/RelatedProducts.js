@@ -69,13 +69,13 @@ function RelatedProducts(props) {
                         modules={[Navigation]}
                         {...params}
                     >
-                        {targetProduct.map((item) => (
+                        {targetProduct.map((item, index) => (
                             <SwiperSlide>
                                 <Cart
                                     sale={String(item.discount).replace(/\D/g, '')}
                                     card={item}
                                     productType={item.category}
-                                    key={item.id}
+                                    key={item[index]}
                                 />
                             </SwiperSlide>
                         ))}

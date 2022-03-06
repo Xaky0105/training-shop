@@ -10,7 +10,7 @@ export const Cart = ({card: {name, price, images, rating, id, discount}, product
     return (
         
         <li className="cards-item" data-test-id={`clothes-card-${productType}`}>
-            <Link key={id} to={`/${productType}/${id}`} >
+            <Link className="cards_link" key={id} to={`/${productType}/${id}`} >
                 <div className="discount">{discount}</div>
                 <div className="img_wrap"><img src={`https://training.cleverland.by/shop${images[0].url}`} alt=''/></div>
                 <h3 className='cart_title'>{name}</h3>

@@ -8,7 +8,7 @@ function Filter({productType, productsType, className, handleCheckSize, handleCh
                 <h3 className="filter_col_title">Color</h3>
                 <ul className="filter_col_list" data-test-id='filters-color'>
                     {uniqueColor.map((item) => (
-                        <li>
+                        <li key={item}>
                             <label className="checkbox">
                                 <input data-test-id={`filters-color-${item}`} onChange={(e) => handleCheckColor(item, e)} className="checkbox_input" type='checkbox' name="size" />
                                 <div className="checkbox_box"></div>
@@ -22,7 +22,7 @@ function Filter({productType, productsType, className, handleCheckSize, handleCh
                 <h3 className="filter_col_title">Size</h3>
                 <ul className="filter_col_list" data-test-id='filters-size'>
                     {uniqSize.filter(item => item !== '').map((item) => (
-                        <li>
+                        <li key={item}>
                             <label className="checkbox">
                                 <input data-test-id={`filters-size-${item}`} onChange={(e) => handleCheckSize(item, e)} className="checkbox_input" type='checkbox' name="size" />
                                 <div className="checkbox_box"></div>
@@ -36,7 +36,7 @@ function Filter({productType, productsType, className, handleCheckSize, handleCh
                 <h3 className="filter_col_title">Brand</h3>
                 <ul className="filter_col_list" data-test-id='filters-brand'>
                     {getUniqueBrand(productsType).map((item) => (
-                        <li >
+                        <li key={item.brand}>
                             <label className="checkbox">
                                 <input data-test-id={`filters-brand-${item.brand}`} onChange={(e) => handleCheckBrand(item.brand, e)} className="checkbox_input" type='checkbox' name="size" />
                                 <div className="checkbox_box"></div>
@@ -50,7 +50,7 @@ function Filter({productType, productsType, className, handleCheckSize, handleCh
                 <h3 className="filter_col_title">Price</h3>
                 <ul className="filter_col_list">
                     {arrayPrice.map((item) => (
-                        <li>
+                        <li key={item}>
                             <label className="checkbox">
                                 <input onChange={(e) => handleCheckPrice(item, e)} className="checkbox_input" type='checkbox' name="size" />
                                 <div className="checkbox_box"></div>
