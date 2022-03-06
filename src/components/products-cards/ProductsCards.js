@@ -1,6 +1,6 @@
 import Cart from '../cart/Cart'
 
-export const ProductsCards = ({ productsType, filteredProducts, uniqueColor, uniqSize, getUniqueBrand, colorArr, sizeArr, brandArr}) => {
+export const ProductsCards = ({ filteredProducts}) => {
     
     return (
         <ul className="carts">
