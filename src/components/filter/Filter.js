@@ -10,7 +10,7 @@ function Filter({productType, productsType, className, handleCheckSize, handleCh
                     {uniqueColor.map((item) => (
                         <li key={item}>
                             <label className="checkbox">
-                                <input data-test-id={`filters-color-${item}`} onChange={(e) => handleCheckColor(item, e)} className="checkbox_input" type='checkbox' name="size" />
+                                <input data-test-id={`filter-color-${item}`} onChange={(e) => handleCheckColor(item, e)} className="checkbox_input" type='checkbox' name="size" />
                                 <div className="checkbox_box"></div>
                                 {item}
                             </label>
@@ -24,7 +24,7 @@ function Filter({productType, productsType, className, handleCheckSize, handleCh
                     {uniqSize.filter(item => item !== '').map((item) => (
                         <li key={item}>
                             <label className="checkbox">
-                                <input data-test-id={`filters-size-${item}`} onChange={(e) => handleCheckSize(item, e)} className="checkbox_input" type='checkbox' name="size" />
+                                <input data-test-id={`filter-size-${item}`} onChange={(e) => handleCheckSize(item, e)} className="checkbox_input" type='checkbox' name="size" />
                                 <div className="checkbox_box"></div>
                                 {item}
                             </label>
@@ -38,7 +38,7 @@ function Filter({productType, productsType, className, handleCheckSize, handleCh
                     {getUniqueBrand(productsType).map((item) => (
                         <li key={item.brand}>
                             <label className="checkbox">
-                                <input data-test-id={`filters-brand-${item.brand}`} onChange={(e) => handleCheckBrand(item.brand, e)} className="checkbox_input" type='checkbox' name="size" />
+                                <input data-test-id={`filter-brand-${item.brand}`} onChange={(e) => handleCheckBrand(item.brand, e)} className="checkbox_input" type='checkbox' name="size" />
                                 <div className="checkbox_box"></div>
                                 {item.brand}
                             </label>
