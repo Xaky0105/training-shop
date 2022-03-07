@@ -89,6 +89,7 @@ export const ProductCard = ({product: {category, id, images, material, price, na
     
     return (
         <>
+           
             <div className="container">
                 <div className="product_card">
                     <div className="slider_card" data-test-id='product-slider'>

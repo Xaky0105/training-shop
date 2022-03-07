@@ -26,7 +26,9 @@
   border: 0;
   box-sizing: border-box;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   font-family: Spartan, Arial, Helvetica, sans-serif;
@@ -51,7 +53,6 @@ img {
   max-width: 100%;
   display: block;
 }
-
 .container {
   max-width: 1140px;
   width: 100%;

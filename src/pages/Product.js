@@ -8,6 +8,9 @@ import ProductCard from '../components/product-card/ProductCard'
 import {useParams} from 'react-router-dom'
 import { PRODUCTS } from "../constants/constant"
 
+
+
+
 function Product() {
     const {id, productType} = useParams();
     console.log(productType)
