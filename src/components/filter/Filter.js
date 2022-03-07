@@ -1,6 +1,6 @@
 import classNames from "classnames"
 
-function Filter({productType, productsType, className, handleCheckSize, handleCheckColor, handleCheckBrand, handleCheckPrice, uniqueColor, uniqSize, getUniqueBrand, arrayPrice}) {
+function Filter({productType, productsType, className, handleCheckSize, handleCheckColor, handleCheckBrand, handleCheckPrice, uniqueColor, uniqSize, getUniqueBrand, priceRanges}) {
     return (
         <>
         <div className={classNames(className)} data-test-id={`filters-${productType}`}>
@@ -49,7 +49,7 @@ function Filter({productType, productsType, className, handleCheckSize, handleCh
             <div className="filter_col">
                 <h3 className="filter_col_title">Price</h3>
                 <ul className="filter_col_list">
-                    {arrayPrice.map((item) => (
+                    {priceRanges.map((item) => (
                         <li key={item}>
                             <label className="checkbox">
                                 <input onChange={(e) => handleCheckPrice(item, e)} className="checkbox_input" type='checkbox' name="size" />

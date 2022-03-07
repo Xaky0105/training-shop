@@ -3,22 +3,19 @@ import arrow from './img/arrow1.svg'
 import adjustments from './img/adjustments.svg'
 import viewGrid from './img/view-grid.svg'
 import viewList from './img/view-list.svg'
+import cross from './img/crossfilter.png'
 
 import {Link} from 'react-router-dom'
 
 import Filter from '../filter/Filter'
 
-import { useState} from 'react'
+
 import classNames from 'classnames'
 
 
 
-function ProductsHeader({productType, productsType, uniqueColor, uniqSize, getUniqueBrand, handleCheckSize, handleCheckColor, handleCheckBrand, handleCheckPrice, colorArr, sizeArr, brandArr, priceArr, filteredProducts, checkLength, arrayPrice}) {
-    const [filterOpen, setFilterOpen] = useState(false);
-    function onClickCross() {
-        setFilterOpen(!filterOpen)
-    }
-
+function ProductsHeader({productType, productsType, uniqueColor, uniqSize, getUniqueBrand, handleCheckSize, handleCheckColor, handleCheckBrand, handleCheckPrice, colorArr, sizeArr, brandArr, priceArr, filteredProducts, checkLength, priceRanges,onClickCross,filterOpen}) {
+   
     return (
         <>
         <div className="productsHeader-wrapper">
@@ -42,7 +39,8 @@ function ProductsHeader({productType, productsType, uniqueColor, uniqSize, getUn
         <div className='container'>
             <div className='filter_nav'>
                 <div className='left_filter_nav' onClick={onClickCross} data-test-id='filter-button'>
-                    <img src={adjustments} alt=''></img>
+                    <img className = {classNames('filter_img', {active: filterOpen })} src={adjustments} alt=''></img>
+                    <img className = {classNames('cross_img', {active: !filterOpen })} src={cross}  alt=''></img>
                     <p>Filter</p>
 
                 </div>
@@ -64,7 +62,7 @@ function ProductsHeader({productType, productsType, uniqueColor, uniqSize, getUn
                 handleCheckBrand = {handleCheckBrand}
                 handleCheckPrice = {handleCheckPrice}
                 getUniqueBrand = {getUniqueBrand}
-                arrayPrice = {arrayPrice}
+                priceRanges = {priceRanges}
             />
             <ul className='filtred'>
                 {checkLength() ? (
