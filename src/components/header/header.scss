@@ -76,7 +76,7 @@
         .menu-item {
           display: block;
           margin: 0 16px;
-          transition: all 0.3s linear;
+          transition: all 0.15s linear;
           border-bottom: 1px solid transparent;
           &:hover {
             border-bottom: 1px solid #000;
@@ -85,6 +85,10 @@
           @media (max-width: 980px) {
             margin: 12px 0;
             font-size: 25px;
+            border-bottom: none;
+            &:hover {
+              border-bottom: none;
+            }
           }
         }
         @media (max-width: 650px) {
