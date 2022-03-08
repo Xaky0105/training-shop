@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import classNames from "classnames"
-import Cards from "../home-cards/HomeCards"
+import HomeCards from "../home-cards/HomeCards"
 
 
 export const MAIN_CLOTHES_BLOCK_MENU = [
@@ -58,7 +58,7 @@ function Clothers(props) {
                         </ul>
                     </div>
                     
-                    <Cards 
+                    <HomeCards 
                         productType = {props.productType}
                         filtered = {filtered}
                         

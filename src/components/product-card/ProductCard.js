@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Navigation} from "swiper"
 import { Thumbs } from 'swiper'
 import {Swiper, SwiperSlide} from "swiper/react"
@@ -86,6 +86,14 @@ export const ProductCard = ({product: {category, id, images, material, price, na
         let newSize = [...sizes].filter( item => item === size)
         setIsActiveSize(newSize[0])  
     }
+    console.log(isActiveSize)
+    useEffect(() => {
+        console.log('render')
+        setIsActiveImg(images[0].color)
+        setIsActiveSize(sizes[0])
+        
+        // eslint-disable-next-line
+    }, [id])
     
     return (
         <>

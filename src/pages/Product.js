@@ -9,8 +9,6 @@ import {useParams} from 'react-router-dom'
 import { PRODUCTS } from "../constants/constant"
 
 
-
-
 function Product() {
     const {id, productType} = useParams();
     console.log(productType)
@@ -28,6 +26,7 @@ function Product() {
 
     }
     console.log(targetProduct)
+   
     return (
         <div className="page-product" data-test-id={`product-page-${productType}`}>  
             

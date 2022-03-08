@@ -44,11 +44,11 @@ function Products() {
     }
 
     let priceRanges = [
-        '0 BYN - 50 BYN',
-        '51 BYN - 100 BYN',
-        '101 BYN - 150 BYN',
-        '151 BYN - 200 BYN',
-        '201 BYN - 300 BYN',
+        '0 BYN - 49 BYN',
+        '50 BYN - 99 BYN',
+        '100 BYN - 149 BYN',
+        '150 BYN - 199 BYN',
+        '200 BYN - 299 BYN',
     ]
     
     
@@ -58,7 +58,7 @@ function Products() {
     let [priceArr, setPriceArr] = useState([])
     let [filteredProducts, setFilteredProducts] = useState([])
 
-    console.log(priceArr)
+    console.log(filteredProducts)
     function handleCheckSize(item, e) {
         if (e.target.checked) {
             sizeArr = [...sizeArr, item]
@@ -103,15 +103,17 @@ function Products() {
 
             const getPrice = (productsType) => {
                 return priceArr.some((item) => {
+                    let price = productsType.price
                   let minMax = item.replaceAll(/[BYN]/g, '').split('-');
                   let [min, max] = minMax;
                   if (max) {
-                    return productsType.price <= Number(max) && productsType.price >= Number(min);
+                    return Math.round(price) <= Number(max) && Math.round(price) >= Number(min);
                   } else {
-                    return productsType.price >= Number(min);
+                    return Math.round(price) >= Number(min);
                   }
                 });
               };
+              
         
             const filterAll = (productsType) => {
                 if (colorArr.length !== 0 && !productsType.images.some((image) => colorArr.includes(image.color))) {
