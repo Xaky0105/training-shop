@@ -7,8 +7,8 @@ function Filter({productType, productsType, className, handleCheckSize, handleCh
             <div className="filter_col" >
                 <h3 className="filter_col_title">Color</h3>
                 <ul className="filter_col_list" data-test-id='filters-color'>
-                    {uniqueColor.map((item) => (
-                        <li key={item}>
+                    {uniqueColor.map((item, index) => (
+                        <li key={item[index]}>
                             <label className="checkbox">
                                 <input data-test-id={`filter-color-${item}`} onChange={(e) => handleCheckColor(item, e)} className="checkbox_input" type='checkbox' name="size" />
                                 <div className="checkbox_box"></div>

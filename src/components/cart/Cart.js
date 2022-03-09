@@ -20,6 +20,7 @@ export const Cart = ({card: {name, price, images, rating, id, discount}, product
                         {discount && <span className="price_before"> {Math.round(calculatedPrice)} BYN </span>}
                     </div>
                     <Rating
+                    
                         rating = {rating}
                     />
                 </div>

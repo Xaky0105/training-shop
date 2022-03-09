@@ -69,16 +69,16 @@ function ProductsHeader({productType, productsType, uniqueColor, uniqSize, getUn
                     <>
                         <span className='length'>{`${filteredProducts.length} item found`}</span>
                         {colorArr.map((obj) => (
-                            <span className='filtred_category'>{`Color: ${obj}`}</span>
+                            <span key={obj} className='filtred_category'>{`Color: ${obj}`}</span>
                         ))}
                         {sizeArr.map((obj) => (
-                            <span className='filtred_category'>{`Size: ${obj}`}</span>
+                            <span key={obj} className='filtred_category'>{`Size: ${obj}`}</span>
                         ))}
                         {brandArr.map((obj) => (
-                            <span className='filtred_category'>{`Brand: ${obj}`}</span>
+                            <span key={obj} className='filtred_category'>{`Brand: ${obj}`}</span>
                         ))}
                         {priceArr.map((obj) => (
-                            <span className='filtred_category'>{`Price: ${obj}`}</span> 
+                            <span key={obj} className='filtred_category'>{`Price: ${obj}`}</span> 
                         ))}
                     </>
                 ) : ""} 

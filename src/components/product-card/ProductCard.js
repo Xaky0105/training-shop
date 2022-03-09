@@ -169,7 +169,7 @@ export const ProductCard = ({product: {category, id, images, material, price, na
                                 {sizes.map((item, index) => (
                                     <span 
                                         className={classNames('size_item', {active: item === isActiveSize})} 
-                                        key={item[index]}
+                                        key={index}
                                         onClick={() => addActiveSize(item)} 
                                     >
                                         {item}
@@ -250,14 +250,14 @@ export const ProductCard = ({product: {category, id, images, material, price, na
                                 </Link>
                             </div>
                             <div className="comment">
-                                {reviews.map((item, index) => (
+                                {reviews.map((item, id) => (
                                     <>
                                         <div className="comment_header">
                                             <div className='comment_name'>{item.name}</div>
                                             <div className="wrap_pub_date">
                                                 <time className='pub_date'>3 months ago</time>
                                                 <Rating 
-                                                    key={item[index]}
+                                                    key={id}
                                                     rating={item.rating}
                                                 />
                                             </div>
