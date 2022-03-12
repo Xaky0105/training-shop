@@ -1,5 +1,5 @@
-import Imgleft from './img/leftsidenews.jpg'
-import Imgright from './img/rightsidenews.jpg'
+import Imgleft from "../assets/img/leftsidenews.jpg"
+import Imgright from "../assets/img/rightsidenews.jpg"
 import { Link } from 'react-router-dom'
 
 function Blognewstop() {

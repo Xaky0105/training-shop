@@ -41,6 +41,7 @@ function Product() {
             <RelatedProducts 
                 
             />
+            
         </div>
     )
 }

@@ -8,23 +8,23 @@ import classNames from 'classnames'
 import 'swiper/css'
 import 'swiper/css/navigation'
 
-import arr from './img/Arr.svg'
-import arrRight from './img/Arr_right.svg'
-import sizeGuide from './img/size-guide.png'
-import heart from './img/heart.svg'
-import scale from './img/scale.svg'
-import truck from './img/truck.svg'
-import refresh from './img/refresh.svg'
-import mail from './img/mail.svg'
-import write from './img/annotation.svg'
+import arr from "../assets/img/Arr.svg"
+import arrRight from "../assets/img/Arr_right.svg"
+import sizeGuide from '../assets/img/size-guide.png'
+import heart from '../assets/img/heart.svg'
+import scale from '../assets/img/scale.svg'
+import truck from '../assets/img/truck.svg'
+import refresh from '../assets/img/refresh.svg'
+import mail from '../assets/img/mail.svg'
+import write from '../assets/img/annotation.svg'
 
-import aes from './img/AES256.svg'
-import americanExp from './img/american-express.svg'
-import discover from './img/discover.svg'
-import mastercard from './img/mastercard.svg'
-import visa from './img/visa.svg'
-import stripe from './img/Stripe.svg'
-import paypal from './img/paypal.svg'
+import aes from '../assets/img/AES-color.svg'
+import americanExp from '../assets/img/american-express-color.svg'
+import discover from '../assets/img/discover-color.svg'
+import mastercard from '../assets/img/mastercard-color.svg'
+import visa from '../assets/img/visa-color.svg'
+import stripe from '../assets/img/Stripe-color.svg'
+import paypal from '../assets/img/paypal-color.svg'
 
 import BtnSmall from '../button-small/BtnSmall'
 import Rating from '../rating/Rating'
@@ -191,15 +191,15 @@ export const ProductCard = ({product: {category, id, images, material, price, na
                         <div className="support_wrapper">
                             <div className='support'>
                                 <Link to='/#'>
-                                    <img src={truck} alt=''/>
+                                    <img width={28} src={truck} alt=''/>
                                     <span>Shipping &amp; Delivery</span>
                                 </Link>
                                 <Link to='/#'>
-                                    <img src={refresh} alt=''/>
+                                    <img width={28} src={refresh} alt=''/>
                                     <span>Returns &amp; Exchanges</span>
                                 </Link>
                                 <Link to='/#'>
-                                    <img src={mail} alt=''/>
+                                    <img width={28} src={mail} alt=''/>
                                     <span>Ask a question</span>
                                 </Link>
                             </div>

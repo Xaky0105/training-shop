@@ -1,6 +1,6 @@
-import Truck from "./img/truck.svg"
-import Refresh from "./img/refresh.svg"
-import Support from "./img/support.svg"
+import Truck from "../assets/img/truck.svg"
+import Refresh from "../assets/img/refresh.svg"
+import Support from "../assets/img/support.svg"
 
 function Advantage() {
     return (

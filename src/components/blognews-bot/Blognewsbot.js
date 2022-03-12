@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import News1 from './img/blognews1.jpg'
-import News2 from './img/blognews2.jpg'
-import News3 from './img/blognews3.jpg'
+import News1 from "../assets/img/blognews1.jpg"
+import News2 from "../assets/img/blognews2.jpg"
+import News3 from "../assets/img/blognews3.jpg"
 
 
 function Blognewsbot() {

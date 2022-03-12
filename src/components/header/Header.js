@@ -7,22 +7,27 @@ import classNames from "classnames";
 import { menu } from "../../constants/constant";
 
 import Social from "../social/Social";
-import Phone from "./img/phone.svg"
-import Location from "./img/location.svg"
-import Clock from "./img/clock.svg"
-import Search from "./img/search.svg"
-import Globe from "./img/globe.svg"
-import User from "./img/user.svg"
-import Shop from "./img/shop-bag.svg"
-import CLShop from './img/CleverShop.png'
+
+import Phone from "../assets/img/phone-header.svg"
+import Location from "../assets/img/location-header.svg"
+import Clock from "../assets/img/clock-header.svg"
+import Search from "../assets/img/search.svg"
+import Globe from "../assets/img/globe.svg"
+import User from "../assets/img/user.svg"
+import Shop from "../assets/img/shop-bag.svg"
+import CLShop from "../assets/img/CleverShop.png"
+import { RightSide } from "../right-side/RightSide";
 
 
 
 function Header() {
     const [isMobileMenuOpen, setMobileMenu] = useState(false)
-    const[isMenuOpen, toggleMenu] = useState(false);
-    
-    
+    const [isMenuOpen, toggleMenu] = useState(false);
+    const [isRightSideOpen, setIsRightSideOpen] = useState(false)
+
+   function onClickBasket() {
+       setIsRightSideOpen(!isRightSideOpen)
+   }
     
     function onClickCross() {
         toggleMenu(!isMenuOpen)
@@ -80,7 +85,6 @@ function Header() {
                             onClick={onClickCross}
                         >
 
-
                         </div>
                         <div className='nav_right'>
                             <Link to='/#' className='nav_right_item'>
@@ -92,10 +96,10 @@ function Header() {
                             <Link to='/#' className='nav_right_item'>
                                 <img src={User} alt=''/>
                             </Link>
-                            <Link to='/#' className='nav_right_item'>
+                            <span onClick={onClickBasket} className='nav_right_item'>
                                 <img src={Shop} alt=''/>
                                 <span className="number_goods">0</span>
-                            </Link>
+                            </span>
                             <div className="nav_right_item">
                                 <button 
                                     className={classNames('burger', {visible: isMenuOpen})}
@@ -110,6 +114,7 @@ function Header() {
                     </div>
                 </div>
             </nav>
+            {isRightSideOpen ? <RightSide onClick = {onClickBasket}/> : null}
         </header>
     )
 }

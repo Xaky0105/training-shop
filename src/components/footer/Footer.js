@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom";
 
 import Social from '../social/Social'
-import Stripe from './img/Stripe.svg'
-import Aes from './img/AES.svg'
-import Paypal from './img/paypal.svg'
-import Visa from './img/visa.svg'
-import Mastercard from './img/mastercard.svg'
-import Discover from './img/discover.svg'
-import Aexpress from './img/american-express.svg'
-import Location from './img/location-marker.svg'
-import Phone from './img/phone.svg'
-import Clock from './img/clock.svg'
-import Mail from './img/mail.svg'
+
+import Stripe from "../assets/img/Stripe.svg"
+import Aes from "../assets/img/AES.svg"
+import Paypal from "../assets/img/paypal.svg"
+import Visa from "../assets/img/visa.svg"
+import Mastercard from "../assets/img/mastercard.svg"
+import Discover from "../assets/img/discover.svg"
+import Aexpress from "../assets/img/american-express.svg"
+import Location from "../assets/img/location-marker.svg"
+import Phone from "../assets/img/phone.svg"
+import Clock from "../assets/img/clock.svg"
+import Mail from "../assets/img/mail.svg"
 
 const categories = [
     {id: 1, path: 'men', name: 'Men'},

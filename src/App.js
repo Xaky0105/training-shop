@@ -21,7 +21,6 @@ function App() {
             <Route index element={<Home />} />;
             <Route path=':productType' element={<Products />} />;
             <Route path=':productType/:id' element={<Product />} />
-          
         </Route>
       </Routes>
     </div>
