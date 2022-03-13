@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/training-shop/static/css/main.d93055d4.css",
-    "main.js": "/training-shop/static/js/main.90d4b900.js",
+    "main.css": "/training-shop/static/css/main.26fab429.css",
+    "main.js": "/training-shop/static/js/main.7d572f64.js",
     "static/media/banner.png": "/training-shop/static/media/banner.c59a67a48a101ef83f4a.png",
     "static/media/Daco.png": "/training-shop/static/media/Daco.dbfafdbfe2b215a3150f.png",
     "static/media/Accessories.png": "/training-shop/static/media/Accessories.4692b52fccd7d4dde009.png",
@@ -14,7 +14,6 @@
     "static/media/women.png": "/training-shop/static/media/women.cbee119685e91c164d5b.png",
     "static/media/leftsidenews.jpg": "/training-shop/static/media/leftsidenews.50c6caf0e00920727596.jpg",
     "static/media/Square-Loading.svg": "/training-shop/static/media/Square-Loading.8927129cf0faa565796a6316ba148a0f.svg",
-    "static/media/Rectangle.png": "/training-shop/static/media/Rectangle.fbf3b1f251ef75465c82.png",
     "static/media/discover.svg": "/training-shop/static/media/discover.70c3e0cf63e294bc2a65c5763dfe2586.svg",
     "static/media/american-express.svg": "/training-shop/static/media/american-express.bd5433de16588c8e3fb533a97ea5877a.svg",
     "static/media/american-express-color.svg": "/training-shop/static/media/american-express-color.6d8a63c946f81915d75bb8febe8b3f33.svg",
@@ -57,11 +56,11 @@
     "static/media/view-list.svg": "/training-shop/static/media/view-list.f1d242843fc15f61cc5abf04d2079f81.svg",
     "static/media/cross.svg": "/training-shop/static/media/cross.928999a434a99e6ae368d81d91921344.svg",
     "static/media/arrow1.svg": "/training-shop/static/media/arrow1.9f4dd338b481a943c89e0ee673f34fe5.svg",
-    "main.d93055d4.css.map": "/training-shop/static/css/main.d93055d4.css.map",
-    "main.90d4b900.js.map": "/training-shop/static/js/main.90d4b900.js.map"
+    "main.26fab429.css.map": "/training-shop/static/css/main.26fab429.css.map",
+    "main.7d572f64.js.map": "/training-shop/static/js/main.7d572f64.js.map"
   },
   "entrypoints": [
-    "static/css/main.d93055d4.css",
-    "static/js/main.90d4b900.js"
+    "static/css/main.26fab429.css",
+    "static/js/main.7d572f64.js"
   ]
 }
