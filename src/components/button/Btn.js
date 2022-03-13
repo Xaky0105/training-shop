@@ -1,7 +1,7 @@
 
 function Btn(props) {
     return (
-        <input className="btn" type='submit' value={props.title}></input>
+        <input onClick={props.onClick} className="btn" type='submit' value={props.title}></input>
     )
 }
 

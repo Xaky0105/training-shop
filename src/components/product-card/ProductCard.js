@@ -33,13 +33,13 @@ import Rating from '../rating/Rating'
 
 
 const safeLinks = [
-    {id: 1, path: '#', img: stripe},
-    {id: 2, path: '#', img: aes},
-    {id: 3, path: '#', img: paypal},
-    {id: 4, path: '#', img: visa},
-    {id: 5, path: '#', img: mastercard},
-    {id: 6, path: '#', img: discover},
-    {id: 7, path: '#', img: americanExp},
+    {id: 100, path: '#', img: stripe},
+    {id: 101, path: '#', img: aes},
+    {id: 102, path: '#', img: paypal},
+    {id: 103, path: '#', img: visa},
+    {id: 104, path: '#', img: mastercard},
+    {id: 105, path: '#', img: discover},
+    {id: 106, path: '#', img: americanExp},
 ]
 
 export const ProductCard = ({product: {category, id, images, material, price, name, rating, sizes, reviews}}) => {
@@ -74,12 +74,13 @@ export const ProductCard = ({product: {category, id, images, material, price, na
       }
     };
 
-    const [isActiveImg, setIsActiveImg] = useState(images[0].color);
-    function addActiveImg(color) {
+    const [isActiveColor, setIsActiveColor] = useState(images[0]);
+    function addActiveColor(color) {
         let newColor = [...images].filter( item => item.color === color) 
-        setIsActiveImg(newColor[0].color)  
+        setIsActiveColor(newColor[0])  
     }
-    console.log(isActiveImg)
+    const activeColor = isActiveColor.color
+    const url = isActiveColor.url
 
     const [isActiveSize, setIsActiveSize] = useState(sizes[0]);
     function addActiveSize(size) {
@@ -89,7 +90,7 @@ export const ProductCard = ({product: {category, id, images, material, price, na
     console.log(isActiveSize)
     useEffect(() => {
         console.log('render')
-        setIsActiveImg(images[0].color)
+        setIsActiveColor(images[0])
         setIsActiveSize(sizes[0])
         
         // eslint-disable-next-line
@@ -99,6 +100,7 @@ export const ProductCard = ({product: {category, id, images, material, price, na
         <>
            
             <div className="container">
+                
                 <div className="product_card">
                     <div className="slider_card" data-test-id='product-slider'>
                         <div className='slider_left'>
@@ -113,6 +115,7 @@ export const ProductCard = ({product: {category, id, images, material, price, na
                                 {...thumbnailSwiperParams}
                             >
                                 {images.map((obj, index) => (
+                                    
                                     <SwiperSlide>
                                         <img 
                                             key={obj[index]}
@@ -145,14 +148,14 @@ export const ProductCard = ({product: {category, id, images, material, price, na
                         <div className='change_color'>
                             <div className='color_title'>
                                 <h4>Color:</h4>
-                                <span>{isActiveImg}</span>
+                                <span>{isActiveColor.color}</span>
                             </div>
                             <div className='color_img'>
-                                {getUniqueImg(images).map((item, index) => (
+                                {getUniqueImg(images).map((item) => (
                                     <span 
-                                        key={item[index]} 
-                                        onClick={() => addActiveImg(item.color)} 
-                                        className={classNames('color_img_wrap', {active: item.color === isActiveImg})}
+                                        key={item.color} 
+                                        onClick={() => addActiveColor(item.color)} 
+                                        className={classNames('color_img_wrap', {active: item.color === isActiveColor.color})}
                                     >
                                         <img  src={`https://training.cleverland.by/shop${item?.url}`} alt='' />
                                     </span>
@@ -166,10 +169,10 @@ export const ProductCard = ({product: {category, id, images, material, price, na
                                 <span>{isActiveSize}</span>
                             </div>
                             <div className='size_link'>
-                                {sizes.map((item, index) => (
+                                {sizes.map((item) => (
                                     <span 
                                         className={classNames('size_item', {active: item === isActiveSize})} 
-                                        key={index}
+                                        key={item}
                                         onClick={() => addActiveSize(item)} 
                                     >
                                         {item}
@@ -183,7 +186,7 @@ export const ProductCard = ({product: {category, id, images, material, price, na
                         <div className='buy'>
                             <span className='price'>{Math.round(price)} BYN</span>
                             <BtnSmall 
-                                title = 'Add to card'
+                                product = {{activeColor, url , id, price, name, isActiveSize}}
                             />
                             <Link to='/#'><img src={heart} alt=''/></Link>
                             <Link to='/#'><img src={scale} alt=''/></Link>
@@ -250,20 +253,19 @@ export const ProductCard = ({product: {category, id, images, material, price, na
                                 </Link>
                             </div>
                             <div className="comment">
-                                {reviews.map((item, id) => (
-                                    <>
+                                {reviews.map((item) => (
+                                    <div key={item.id}>
                                         <div className="comment_header">
                                             <div className='comment_name'>{item.name}</div>
                                             <div className="wrap_pub_date">
                                                 <time className='pub_date'>3 months ago</time>
                                                 <Rating 
-                                                    key={id}
                                                     rating={item.rating}
                                                 />
                                             </div>
                                         </div>
                                         <div className='comment_text'>{item.text}</div>
-                                    </>
+                                    </div>
                                 ))}
                                 
                                 
