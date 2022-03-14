@@ -12,7 +12,7 @@ function BtnSmall({product: {activeColor, url, id, price, name, isActiveSize}}) 
         if (isItemsInCart) {
             dispatch(deleteItemFromCart({activeColor, url, id, price, name, isActiveSize}))
         } else {
-            dispatch(setItemInCart({activeColor, url, id, price, name, isActiveSize}))
+            dispatch(setItemInCart({activeColor, url, id, price, name, isActiveSize, quantity: 1}))
         }
         
     }
@@ -20,6 +20,7 @@ function BtnSmall({product: {activeColor, url, id, price, name, isActiveSize}}) 
         <button 
         className="btn-sm"
         onClick={handleClick}
+        data-test-id='add-cart-button'
         >
          { isItemsInCart ? 'Remove to card' : 'Add to card'}
         </button>

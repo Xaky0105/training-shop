@@ -36,8 +36,6 @@ function Header() {
     }
     const items = useSelector(state => state.cart.itemsInCart)
     const totalItems = items.length
-    const images = items.images
-    console.log(images)
     return (
         <header className='header' data-test-id='header'>
             <div className='top_bar'>
@@ -105,7 +103,7 @@ function Header() {
                                 <img src={Shop} alt=''/>
                                 {totalItems > 0 ? <span className="number_goods">{totalItems}</span> : null}
                             </span>
-                            <div className="nav_right_item">
+                            <div className="nav_right_item" data-test-id='cart-button'>
                                 <button 
                                     className={classNames('burger', {visible: isMenuOpen})}
                                     type="button"
