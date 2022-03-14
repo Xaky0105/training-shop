@@ -9,16 +9,10 @@ import {deleteItemFromCart, plusQuantity, minusQuantity} from '../../redux/baske
 export const RightSide = ({onClick, classNameRS, isRightSideOpen}) => {
     const dispatch = useDispatch();
     const items = useSelector(state => state.cart.itemsInCart);
-    
-    
-    console.log(items.map(item => item.quantity))
-    const totalPrice = items.reduce((acc, price) => acc += Math.round(price.price) , 0)
-    // const totalPrice = items.reduce( => item * price)
-
+    const totalPrice = items.reduce((acc, item) => acc += item.quantity * Math.round(item.price) , 0)
     const onClearBasket = (url, isActiveSize) => {
         dispatch(deleteItemFromCart({url, isActiveSize}))
     }
-   
     return (
         <>
 
