@@ -99,11 +99,11 @@ function Header() {
                             <Link to='/#' className='nav_right_item'>
                                 <img src={User} alt=''/>
                             </Link>
-                            <span onClick={onClickBasket} className='nav_right_item'>
+                            <span onClick={onClickBasket} className='nav_right_item' data-test-id='cart-button'>
                                 <img src={Shop} alt=''/>
                                 {totalItems > 0 ? <span className="number_goods">{totalItems}</span> : null}
                             </span>
-                            <div className="nav_right_item" data-test-id='cart-button'>
+                            <div className="nav_right_item">
                                 <button 
                                     className={classNames('burger', {visible: isMenuOpen})}
                                     type="button"
