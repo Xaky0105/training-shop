@@ -25,9 +25,11 @@ function Header() {
     const [isMobileMenuOpen, setMobileMenu] = useState(false)
     const [isMenuOpen, toggleMenu] = useState(false);
     const [isRightSideOpen, setIsRightSideOpen] = useState(false)
+    isRightSideOpen || isMobileMenuOpen ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto'
 
    function onClickBasket() {
        setIsRightSideOpen(!isRightSideOpen)
+    //    document.body.style.overflow = 'hidden'
    }
     
     function onClickCross() {

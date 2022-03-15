@@ -11,6 +11,9 @@
   color: rgb(251, 251, 251);
   transform: translateX(100%);
   transition: 0.2s ease-in-out;
+  @media (max-width: 470px) {
+    width: 100%;
+  }
   .basket_header {
     background-color: #121212;
     display: flex;

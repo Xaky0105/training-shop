@@ -22,19 +22,20 @@ export const RightSide = ({onClick, classNameRS, isRightSideOpen}) => {
                         <img onClick={onClick} className="close" src={cross} alt=""></img>
                     </div>
                     <div className="basket_center">
-                        <div className="basket_nav">
-                            <span>Item in cart</span>
-                            <span>Delivery Info</span>
-                            <span>Payment</span>
-                        </div>
-                        <div className="items">
-                            
+                        {items.length > 0 ? 
+                            <div className="basket_nav">
+                                <span>Item in cart</span>
+                                <span>Delivery Info</span>
+                                <span>Payment</span>
+                            </div> :
+                            null
+                        }
+                        <div className="items"> 
                             {(items.length > 0) ? 
                                 items.map((item, id) => (
                                     <div key={id} className="item" data-test-id='cart-card'> 
                                     <img width={85} src={`https://training.cleverland.by/shop${item?.url}`} alt=''></img>
-                                        <div className="about_cart">
-                                            
+                                        <div className="about_cart">    
                                             <div className="about_cart_top">
                                                 <h4 className="title">{item.name}</h4>
                                                 <span className="color">{item.activeColor}</span>,
@@ -60,10 +61,13 @@ export const RightSide = ({onClick, classNameRS, isRightSideOpen}) => {
                         </div>    
                     </div>
                     <div className="basket_footer">
-                        <div className="total_price">
-                            <p>Total</p>
-                            <span>{totalPrice} BYN</span>
-                        </div>
+                        {items.length > 0 ? 
+                            <div className="total_price">
+                                <p>Total</p>
+                                <span>{totalPrice} BYN</span>
+                            </div> : 
+                            null
+                        }
                         {items.length > 0 ? 
                         <div><Btn title = {'Further'}/><Btn onClick={onClick} title = {'View cart'}/> </div> : 
                         <Btn onClick={onClick} title={'Back to shopping'}/>}
