@@ -21,8 +21,7 @@ export const RightSide = ({onClick, classNameRS, isRightSideOpen}) => {
                         <h3 className="basket_title">Shopping Card</h3>
                         <img onClick={onClick} className="close" src={cross} alt=""></img>
                     </div>
-                    <div className="basket_center">
-                        {items.length > 0 ? 
+                    {items.length > 0 ? 
                             <div className="basket_nav">
                                 <span>Item in cart</span>
                                 <span>Delivery Info</span>
@@ -30,6 +29,8 @@ export const RightSide = ({onClick, classNameRS, isRightSideOpen}) => {
                             </div> :
                             null
                         }
+                    <div className="basket_center">
+                        
                         <div className="items"> 
                             {(items.length > 0) ? 
                                 items.map((item, id) => (

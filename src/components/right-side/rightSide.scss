@@ -32,24 +32,25 @@
       cursor: pointer;
     }
   }
+  .basket_nav {
+    color: #121212;
+    padding: 24px;
+    span {
+      font-size: 15px;
+      font-weight: 400;
+    }
+    span:after {
+      content: '/';
+      margin: 0 10px;
+    }
+    span:last-child::after {
+      content: '';
+    }
+  }
   .basket_center {
     flex: 1;
     overflow: auto;
-    .basket_nav {
-      color: #121212;
-      padding: 24px;
-      span {
-        font-size: 15px;
-        font-weight: 400;
-      }
-      span:after {
-        content: '/';
-        margin: 0 10px;
-      }
-      span:last-child::after {
-        content: '';
-      }
-    }
+
     .items {
       padding: 0 24px;
       .empty_cart {
