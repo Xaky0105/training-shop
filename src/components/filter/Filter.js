@@ -7,29 +7,31 @@ function Filter({productType, productsType, className, handleCheckSize, handleCh
             <div className="filter_col" >
                 <h3 className="filter_col_title">Color</h3>
                 <ul className="filter_col_list" data-test-id='filters-color'>
-                    {uniqueColor.map((item, index) => (
-                        <li key={item[index]}>
+                    {uniqueColor.map(function(item, index) {
+                        return (
+                        <li key={index}>
                             <label className="checkbox">
                                 <input data-test-id={`filter-color-${item}`} onChange={(e) => handleCheckColor(item, e)} className="checkbox_input" type='checkbox' name="size" />
                                 <div className="checkbox_box"></div>
                                 {item}
                             </label>
-                        </li>
-                    ))}
+                        </li> )
+                    })}
                 </ul>
             </div>
             <div className="filter_col" >
                 <h3 className="filter_col_title">Size</h3>
                 <ul className="filter_col_list" data-test-id='filters-size'>
-                    {uniqSize.filter(item => item !== '').map((item) => (
-                        <li key={item}>
+                    {uniqSize.filter(item => item !== '').map(function(item, index) {
+                        return (
+                        <li key={index}>
                             <label className="checkbox">
                                 <input data-test-id={`filter-size-${item}`} onChange={(e) => handleCheckSize(item, e)} className="checkbox_input" type='checkbox' name="size" />
                                 <div className="checkbox_box"></div>
                                 {item}
                             </label>
-                        </li>
-                    ))}
+                        </li> )
+                    })}
                 </ul>
             </div>
             <div className="filter_col" >

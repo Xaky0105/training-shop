@@ -16,7 +16,7 @@ export const ProductHeader = ({product: {category, name, rating, reviews}}) => {
                     <div className="path">
                         <Link to='/' className='home'>Home</Link>
                         <img width={14} src={arr} alt=''></img>
-                        <Link to={`/${category}`} className='home'>{category}</Link>
+                        <Link to={`/${category}`} className='home product_type'>{category}</Link>
                         <img width={14} src={arr} alt=''></img>
                         <Link to='#'>{name}</Link>
                     </div>

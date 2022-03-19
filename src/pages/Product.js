@@ -7,6 +7,7 @@ import ProductCard from '../components/product-card/ProductCard'
 
 import {useParams} from 'react-router-dom'
 import { PRODUCTS } from "../constants/constant"
+import ScrollToTop from "../components/ScrollToTop"
 
 
 function Product() {
@@ -28,8 +29,9 @@ function Product() {
     console.log(targetProduct)
    
     return (
+        
         <div className="page-product" data-test-id={`product-page-${productType}`}>  
-            
+            <ScrollToTop />
             <ProductHeader 
                 
                 product = {targetProduct}

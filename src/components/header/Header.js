@@ -29,7 +29,6 @@ function Header() {
 
    function onClickBasket() {
        setIsRightSideOpen(!isRightSideOpen)
-    //    document.body.style.overflow = 'hidden'
    }
     
     function onClickCross() {
@@ -38,6 +37,7 @@ function Header() {
     }
     const items = useSelector(state => state.cart.itemsInCart)
     const totalItems = items.length
+    
     return (
         <header className='header' data-test-id='header'>
             <div className='top_bar'>
@@ -77,7 +77,7 @@ function Header() {
                                         to={`/${path}`}
                                         className='menu-item'
                                         data-test-id={`menu-link-${path}`}
-                                        onClick={onClickCross}
+                                        
                                     >
                                         <span>{name}</span>
                                     </Link>
@@ -108,7 +108,6 @@ function Header() {
                             <div className="nav_right_item">
                                 <button 
                                     className={classNames('burger', {visible: isMenuOpen})}
-                                    type="button"
                                     onClick={onClickCross}
                                     data-test-id='burger-menu-btn'
                                 >

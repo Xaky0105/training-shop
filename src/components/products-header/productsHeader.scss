@@ -18,6 +18,9 @@
       img {
         margin: 0 8px;
       }
+      .product_type:first-letter {
+        text-transform: uppercase;
+      }
     }
     .share {
       display: flex;

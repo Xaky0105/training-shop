@@ -24,7 +24,7 @@ function ProductsHeader({productType, productsType, uniqueColor, uniqSize, getUn
                     <div className="path">
                         <Link to='/' className='home'>Home</Link>
                         <img width={14} src={arrow} alt=''></img>
-                        <Link to={`/${productType}`}>{productType}</Link>
+                        <Link className='product_type' to={`/${productType}`}>{productType}</Link>
                     </div>
                     <Link to='/#' className="share">
                         <img src={share} alt=''></img>
@@ -52,7 +52,7 @@ function ProductsHeader({productType, productsType, uniqueColor, uniqSize, getUn
         </div>
         <div className='container'>
             <Filter 
-                className = {classNames('filter', {visible: filterOpen})}
+                className = {classNames('filter', {visible: filterOpen} )}
                 productType = {productType}
                 productsType = {productsType}
                 uniqueColor = {uniqueColor}

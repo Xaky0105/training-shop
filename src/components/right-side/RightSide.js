@@ -1,5 +1,5 @@
 import Btn from "../button/Btn"
-import cross from '../assets/img/cross.svg'
+import vector from '../assets/img/Vector.svg'
 import trash from '../assets/img/trash.svg'
 import { useSelector, useDispatch } from "react-redux"
 
@@ -19,7 +19,7 @@ export const RightSide = ({onClick, classNameRS, isRightSideOpen}) => {
                 <div className={classNameRS} data-test-id='cart'>
                     <div className="basket_header">
                         <h3 className="basket_title">Shopping Card</h3>
-                        <img onClick={onClick} className="close" src={cross} alt=""></img>
+                        <img onClick={onClick} className="close"  src={vector} alt=""></img>
                     </div>
                     {items.length > 0 ? 
                             <div className="basket_nav">
@@ -31,15 +31,15 @@ export const RightSide = ({onClick, classNameRS, isRightSideOpen}) => {
                         }
                     <div className="basket_center">
                         
-                        <div className="items"> 
+                        <ul className="items"> 
                             {(items.length > 0) ? 
                                 items.map((item, id) => (
-                                    <div key={id} className="item" data-test-id='cart-card'> 
+                                    <li key={id} className="item" data-test-id='cart-card'> 
                                     <img width={85} src={`https://training.cleverland.by/shop${item?.url}`} alt=''></img>
                                         <div className="about_cart">    
                                             <div className="about_cart_top">
                                                 <h4 className="title">{item.name}</h4>
-                                                <span className="color">{item.activeColor}</span>,
+                                                <span className="color">{item.activeColor},</span>
                                                 <span className="size">{item.isActiveSize}</span>
                                             </div>
                                             <div className="about_cart_bot">
@@ -57,9 +57,9 @@ export const RightSide = ({onClick, classNameRS, isRightSideOpen}) => {
                                         <div className="trash">
                                             <img onClick={() => onClearBasket(item.url, item.isActiveSize)} src={trash} alt="" data-test-id='remove-product'/>
                                         </div>
-                                    </div>
+                                    </li>
                             )) : <span className="empty_cart">Sorry, your cart is empty</span>}
-                        </div>    
+                        </ul>    
                     </div>
                     <div className="basket_footer">
                         {items.length > 0 ? 
@@ -70,10 +70,13 @@ export const RightSide = ({onClick, classNameRS, isRightSideOpen}) => {
                             null
                         }
                         {items.length > 0 ? 
-                        <div><Btn title = {'Further'}/><Btn onClick={onClick} title = {'View cart'}/> </div> : 
-                        <Btn onClick={onClick} title={'Back to shopping'}/>}
-                        
-                        
+                        <div className="btn_group">
+                            <Btn title = {'Further'}/>
+                            <Btn onClick={onClick} title = {'View cart'}/> 
+                        </div> : 
+                        <div className="btn_group">
+                            <Btn onClick={onClick} title={'Back to shopping'}/>
+                        </div> }
                     </div>
                 </div>
                 <div onClick={onClick} className={classNames("overlay", {visible: isRightSideOpen})}></div>
