@@ -36,8 +36,7 @@ function Header() {
         setMobileMenu(!isMenuOpen) 
     }
     const items = useSelector(state => state.cart.itemsInCart)
-    const isLoading = useSelector(state => state.products.isLoading)
-    const isError = useSelector(state => state.products.isError)
+    const {isLoading, isError} = useSelector(state => state.products)
     const totalItems = items.length
     
     return (
