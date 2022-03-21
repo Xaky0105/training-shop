@@ -36,10 +36,21 @@ function Header() {
         setMobileMenu(!isMenuOpen) 
     }
     const items = useSelector(state => state.cart.itemsInCart)
+    const isLoading = useSelector(state => state.products.isLoading)
+    const isError = useSelector(state => state.products.isError)
     const totalItems = items.length
     
     return (
         <header className='header' data-test-id='header'>
+            {isLoading && 
+                <div className='loader' data-test-id='loader'>
+                    <div className="lds-ellipsis">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>}
             <div className='top_bar'>
                 <div className='container'>
                     <div className='inner_top_bar'>
@@ -118,6 +129,8 @@ function Header() {
                     </div>
                 </div>
             </nav>
+            {isError && <span className='error' data-test-id='error'>{isError}</span>}
+            
             <RightSide 
             classNameRS={classNames('basket', {visible: isRightSideOpen})} 
             onClick = {onClickBasket}

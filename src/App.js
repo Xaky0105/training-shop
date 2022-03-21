@@ -1,16 +1,24 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom'
-import { Provider } from 'react-redux';
-import { store } from './redux';
 
 import Home from './pages/Home';
 import Layout from './components/layout/layout';
 import Products from './pages/Products';
 import Product from './pages/Product';
 
+
+import {fetchProducts} from './redux/store/products'
+import { useDispatch } from "react-redux"
+
+
 function App() {
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(fetchProducts())
+    // eslint-disable-next-line
+    }, []) 
   return (
-    <Provider store={store}>
+    
       <div className='app' data-test-id='app'>
         <Routes>
           <Route path='/' element={<Layout />}>          
@@ -20,7 +28,6 @@ function App() {
           </Route>
         </Routes>
       </div>
-    </Provider>
   );
 }
 

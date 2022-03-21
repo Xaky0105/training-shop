@@ -4,7 +4,7 @@ export const ProductsCards = ({ filteredProducts}) => {
     
     return (
         <ul className="carts">
-            {filteredProducts.map((item) => (
+            {filteredProducts && filteredProducts.map((item) => (
                 <Cart
                     card={item}
                     productType={item.category}

@@ -6,8 +6,9 @@ import Clothers from '../components/clothes/Clothers';
 import Subscribe from '../components/subscribe/Subscribe';
 
 
+
+
 function Home() {
-    
     return (
         <>
             <Slider/>

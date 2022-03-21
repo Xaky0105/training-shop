@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import {setItemInCart, deleteItemFromCart} from '../../redux/basket/reducer'
+import {setItemInCart, deleteItemFromCart} from '../../redux/store/cartReducer'
 
 
 function BtnSmall({product: {activeColor, url, id, price, name, isActiveSize}}) {

@@ -2,45 +2,45 @@ import ProductsCards from '../components/products-cards/ProductsCards'
 import ProductsHeader from "../components/products-header/ProductsHeader"
 
 import loading from '../components/products-header/img/Square-Loading.svg'
-import { PRODUCTS } from '../constants/constant'
-
-
+// import { PRODUCTS } from '../constants/constant'
+import { useSelector } from "react-redux"
 import {useParams} from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
-
 function Products() {
     const {productType} = useParams();
-   
-    const productsType = PRODUCTS[productType]
-    const sizesArr = productsType.map(item => item.sizes)
-    const imagesArr = productsType.map(item => item.images).flat(Infinity)
-
+    const PRODUCTS = useSelector(state => state.products.products)
+    const productsType = PRODUCTS && PRODUCTS[productType]
+    const sizesArr = productsType !== undefined && productsType.map(item => item.sizes)
+    const imagesArr = productsType && productsType.map(item => item.images).flat(Infinity)
     const [filterOpen, setFilterOpen] = useState(false);
     function onClickCross() {
         setFilterOpen(!filterOpen)
     }
     
     //size
+    
     function getSize(arr) {
         let size = []
         for (let i = 0; i < arr.length; i++) {
             size += `,${arr[i].concat(arr[i + 1])}`
         }
-        return size.split(',')
+        return productsType && size.split(',') 
     }
     
     const uniqSize = [...new Set(getSize(sizesArr))]
     //colors
-    const colors = imagesArr.map((obj) => {
+    const colors = productsType && imagesArr.map((obj) => {
         return obj.color
     })
    
-    const uniqueColor = [...new Set(colors)]
+    const uniqueColor = productsType && [...new Set(colors)]
     //brand
     function getUniqueBrand(arr) {
         let uniq = {}
-        return arr.filter(obj => !uniq[obj.brand] && (uniq[obj.brand] = true))  
+        return productsType && arr.filter(obj => !uniq[obj.brand] && (uniq[obj.brand] = true))  
+        
+        
     }
 
     let priceRanges = [
@@ -99,7 +99,7 @@ function Products() {
     useEffect(() => {
         console.log('render')
         setFilteredProducts(() => {
-            let filteredProduct = [...productsType];
+            let filteredProduct = productsType && [...productsType];
 
             const getPrice = (productsType) => {
                 return priceArr.some((item) => {
@@ -130,8 +130,8 @@ function Products() {
                 }
                 return true;
             };
-            filteredProduct = productsType.filter(filterAll);
-            return [...filteredProduct];
+            filteredProduct = productsType && productsType.filter(filterAll);
+            return productsType && [...filteredProduct];
         });
         // eslint-disable-next-line
     }, [sizeArr, brandArr, colorArr, priceArr])
@@ -139,7 +139,6 @@ function Products() {
     useEffect(() => {
         document.querySelectorAll('input[type="checkbox"]').forEach(e => e.checked = false)
         setFilterOpen(false)
-
         setSizeArr([])
         setColorArr([])
         setBrandArr([])
@@ -153,7 +152,8 @@ function Products() {
 
     return (
         <div className="products-page" data-test-id={`products-page-${productType}`}>
-            <ProductsHeader 
+            <ProductsHeader
+                PRODUCTS = {PRODUCTS} 
                 productType = {productType}
                 productsType = {productsType}
                 uniqueColor = {uniqueColor}
@@ -172,21 +172,10 @@ function Products() {
                 priceRanges = {priceRanges}
                 onClickCross = {onClickCross}
                 filterOpen = {filterOpen}
-
             />
             <div className="container">
                 <ProductsCards
-                    productsType = {productsType}
-                    uniqueColor = {uniqueColor}
-                    uniqSize = {uniqSize}
-                    getUniqueBrand = {getUniqueBrand}
-                    colorArr = {colorArr}
-                    sizeArr = {sizeArr}
-                    brandArr = {brandArr}
-                    setFilteredProducts = {setFilteredProducts}
                     filteredProducts = {filteredProducts}
-                   
-                    
                 />
             </div>
             <img className="loading" src={loading} alt=''></img>  

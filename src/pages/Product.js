@@ -6,40 +6,33 @@ import ProductCard from '../components/product-card/ProductCard'
 
 
 import {useParams} from 'react-router-dom'
-import { PRODUCTS } from "../constants/constant"
+// import { PRODUCTS } from "../constants/constant"
 import ScrollToTop from "../components/ScrollToTop"
+import { useSelector } from "react-redux"
+
 
 
 function Product() {
     const {id, productType} = useParams();
-    console.log(productType)
-    console.log(id)
+    const PRODUCTS = useSelector(state => state.products.products)
+    const productsType = PRODUCTS && PRODUCTS[productType]
+    console.log(productsType)
+    console.log(PRODUCTS)
 
-    let targetProduct
-    if(productType === "men") {
-
-        targetProduct = PRODUCTS.men.find(obj => obj.id === id)
-        
-
-    } else if(productType === "women") {
-
-        targetProduct = PRODUCTS.women.find(obj => obj.id === id)
-
-    }
-    console.log(targetProduct)
+    let product = productsType ? productsType.find(obj => obj.id === id) : null
    
     return (
         
         <div className="page-product" data-test-id={`product-page-${productType}`}>  
             <ScrollToTop />
-            <ProductHeader 
+            { productsType && <ProductHeader 
                 
-                product = {targetProduct}
-            />
-            <ProductCard 
-                product = {targetProduct}
+                product = { product}
+            />}
+            { productsType && <ProductCard 
+                product = { product}
                 
-            />
+            />}
             <RelatedProducts 
                 
             />

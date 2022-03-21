@@ -1,13 +1,13 @@
 import classNames from "classnames"
 
-function Filter({productType, productsType, className, handleCheckSize, handleCheckColor, handleCheckBrand, handleCheckPrice, uniqueColor, uniqSize, getUniqueBrand, priceRanges}) {
+function Filter({productType, productsType, className, handleCheckSize, handleCheckColor, handleCheckBrand, handleCheckPrice, uniqueColor, uniqSize, getUniqueBrand, priceRanges, PRODUCTS}) {
     return (
         <>
         <div className={classNames(className)} data-test-id={`filters-${productType}`}>
             <div className="filter_col" >
                 <h3 className="filter_col_title">Color</h3>
                 <ul className="filter_col_list" data-test-id='filters-color'>
-                    {uniqueColor.map(function(item, index) {
+                    {uniqueColor && uniqueColor.map(function(item, index) {
                         return (
                         <li key={index}>
                             <label className="checkbox">
@@ -37,7 +37,7 @@ function Filter({productType, productsType, className, handleCheckSize, handleCh
             <div className="filter_col" >
                 <h3 className="filter_col_title">Brand</h3>
                 <ul className="filter_col_list" data-test-id='filters-brand'>
-                    {getUniqueBrand(productsType).map((item) => (
+                    {productsType && getUniqueBrand(productsType).map((item) => (
                         <li key={item.brand}>
                             <label className="checkbox">
                                 <input data-test-id={`filter-brand-${item.brand}`} onChange={(e) => handleCheckBrand(item.brand, e)} className="checkbox_input" type='checkbox' name="size" />

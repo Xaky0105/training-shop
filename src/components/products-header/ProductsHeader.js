@@ -14,7 +14,7 @@ import classNames from 'classnames'
 
 
 
-function ProductsHeader({productType, productsType, uniqueColor, uniqSize, getUniqueBrand, handleCheckSize, handleCheckColor, handleCheckBrand, handleCheckPrice, colorArr, sizeArr, brandArr, priceArr, filteredProducts, checkLength, priceRanges,onClickCross,filterOpen}) {
+function ProductsHeader({productType, productsType, uniqueColor, uniqSize, getUniqueBrand, handleCheckSize, handleCheckColor, handleCheckBrand, handleCheckPrice, colorArr, sizeArr, brandArr, priceArr, filteredProducts, checkLength, priceRanges,onClickCross,filterOpen, PRODUCTS}) {
    
     return (
         <>
@@ -53,6 +53,7 @@ function ProductsHeader({productType, productsType, uniqueColor, uniqSize, getUn
         <div className='container'>
             <Filter 
                 className = {classNames('filter', {visible: filterOpen} )}
+                PRODUCTS = {PRODUCTS}
                 productType = {productType}
                 productsType = {productsType}
                 uniqueColor = {uniqueColor}

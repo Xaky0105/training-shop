@@ -7,29 +7,28 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 
 import Cart from '../cart/Cart'
-import { PRODUCTS } from '../../constants/constant'
+// import { PRODUCTS } from '../../constants/constant'
 
 import {useParams} from 'react-router-dom'
+import { useSelector} from "react-redux"
 
 
 
 
-function RelatedProducts(props) {
-    console.log(props)
+function RelatedProducts() {
+    const PRODUCTS = useSelector(state => state.products.products)
     const {productType} = useParams();
 
     let targetProduct
     
-    if(productType === "men") {
+    if(productType === "men" && PRODUCTS !== undefined) {
 
         targetProduct = PRODUCTS.men
 
-    } else if (productType === "women") {
+    } else if (productType === "women" && PRODUCTS !== undefined) {
 
         targetProduct = PRODUCTS.women
 
-    } else {
-        targetProduct = PRODUCTS.men.concat(PRODUCTS.women)
     }
 
     const params = {
@@ -69,7 +68,8 @@ function RelatedProducts(props) {
                         modules={[Navigation]}
                         {...params}
                     >
-                        {targetProduct.map((item, index) => (
+                        
+                        {targetProduct !== undefined && targetProduct.map((item, index) => (
                             <SwiperSlide>
                                 <Cart
                                     sale={String(item.discount).replace(/\D/g, '')}
