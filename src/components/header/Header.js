@@ -87,7 +87,7 @@ function Header() {
                                         to={`/${path}`}
                                         className='menu-item'
                                         data-test-id={`menu-link-${path}`}
-                                        onClick={onClickCross}
+                                       
                                         
                                     >
                                         <span>{name}</span>
