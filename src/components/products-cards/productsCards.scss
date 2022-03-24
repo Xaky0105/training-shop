@@ -3,12 +3,18 @@
   flex-wrap: wrap;
   margin: 0 -15px;
   margin-bottom: 50px;
+  @media (max-width: 660px) {
+    margin-bottom: 0px;
+  }
 }
 .carts_related {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -15px;
   margin-bottom: 50px;
+  @media (max-width: 660px) {
+    margin-bottom: 0px;
+  }
   .cards-item {
     width: 100%;
   }

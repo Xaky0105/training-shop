@@ -5,6 +5,9 @@
   @media (max-width: 800px) {
     flex-direction: column;
   }
+  @media (max-width: 660px) {
+    margin: 35px 0;
+  }
   .blog_news_top-item {
     position: relative;
     width: 50%;
