@@ -4,11 +4,6 @@
   .rating_item {
     font-size: 14px;
     color: #e5e5e5;
-    cursor: pointer;
-    &:hover,
-    &:hover ~ .rating_item {
-      color: #f0cc84;
-    }
   }
 }
 .rating[data-total-value='1'] .rating_item:nth-child(n + 5),
