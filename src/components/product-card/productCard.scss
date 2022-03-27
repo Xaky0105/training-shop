@@ -316,6 +316,7 @@
         .comments_top_right {
           display: flex;
           align-items: center;
+          cursor: pointer;
           span {
             opacity: 0.6;
             margin-left: 5px;

@@ -28,6 +28,7 @@ import paypal from '../assets/img/paypal-color.svg'
 
 import BtnSmall from '../button-small/BtnSmall'
 import Rating from '../rating/Rating'
+import ReviewForm from '../review-form-modal/ReviewForm'
 
 
 
@@ -74,6 +75,12 @@ export const ProductCard = ({product: {category, id, images, material, price, na
       }
     };
 
+    const [showReviewForm, setShowReviewForm] = useState(false)
+    function handleReviewForm() {
+        setShowReviewForm(!showReviewForm)
+    }
+    showReviewForm ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto'
+
     const [isActiveColor, setIsActiveColor] = useState(images[0]);
     function addActiveColor(color) {
         let newColor = [...images].filter( item => item.color === color) 
@@ -100,7 +107,11 @@ export const ProductCard = ({product: {category, id, images, material, price, na
         <>
            
             <div className="container">
-                
+                <ReviewForm 
+                    showReviewForm={showReviewForm}
+                    handleReviewForm={handleReviewForm}
+                    id={id}
+                />
                 <div className="product_card">
                     <div className="slider_card" data-test-id='product-slider'>
                         <div className='slider_left'>
@@ -247,10 +258,13 @@ export const ProductCard = ({product: {category, id, images, material, price, na
                                     />
                                     <span>{reviews.length} Rewiews</span>
                                 </div>
-                                <Link to='/#' className="comments_top_right">
+                                <span 
+                                    className="comments_top_right"
+                                    onClick={handleReviewForm}
+                                >
                                     <img src={write} alt='' />
                                     <span>Write a review</span>
-                                </Link>
+                                </span>
                             </div>
                             <div className="comment">
                                 {reviews.map((item) => (
