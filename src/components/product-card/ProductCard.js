@@ -278,7 +278,7 @@ export const ProductCard = ({product: {category, id, images, material, price, na
                                                 />
                                             </div>
                                         </div>
-                                        <div className='comment_text'>{item.text}</div>
+                                        <p className='comment_text'>{item.text}</p>
                                     </div>
                                 ))}
                                 

@@ -13,6 +13,11 @@ import Location from "../assets/img/location-marker.svg"
 import Phone from "../assets/img/phone.svg"
 import Clock from "../assets/img/clock.svg"
 import Mail from "../assets/img/mail.svg"
+import { Formik } from "formik";
+import * as yup from 'yup'
+import { useDispatch } from "react-redux"
+import { fetchEmail } from "../../redux/store/email";
+import { useSelector } from "react-redux";
 
 const categories = [
     {id: 1, path: 'men', name: 'Men'},
@@ -50,8 +55,18 @@ const payLinks = [
 
 ]
 
-
 function Footer() {
+    const dispatch = useDispatch();
+    const {isLoading} = useSelector(state => state.email)
+    const validationsSchema = yup.object().shape({
+        email: yup.string().email('Введите верный email')
+    })
+    const submit = (values, { setSubmitting }) => {
+        dispatch(fetchEmail(values))
+        setSubmitting(false);
+        
+        console.log(values) 
+    }
     return (
         <footer className="footer" data-test-id='footer'>
             <div className="footer_top">
@@ -61,12 +76,40 @@ function Footer() {
                             BE IN TOUCH WITH US:
                         </h3>
                         <div className="join_us">
-                            <form action="/" method="post">
-                                <label>
-                                    <input className="footer_mail" type={'email'} name="user_mail" placeholder="Enter your email"/>
-                                </label>
-                                <input className="footer_btn" type={'submit'} value='JOIN US'/>
-                            </form>
+                            <Formik 
+                                initialValues={{
+                                    email: '',
+                                }}
+                                validateOnMount
+                                onSubmit={submit}
+                                validationSchema={validationsSchema}
+                            >
+                            {({ values, handleChange, handleBlur, isValid, handleSubmit, dirty}) => (
+                                <form>
+                                    <label>
+                                        <input 
+                                            className="footer_mail" 
+                                            type={'email'} 
+                                            name="email" 
+                                            placeholder="Enter your email"
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
+                                            value={values.email}
+                                        />
+                                    </label>
+                                    <button 
+                                        className="footer_btn" 
+                                        type={'submit'} 
+                                        value='JOIN US'
+                                        disabled={!isValid || !dirty || isLoading}
+                                        onClick={handleSubmit}
+                                    >
+                                        Join us
+                                    </button>
+                                </form>    
+                            )}  
+                            </Formik>
+                            
                         </div>
                         <Social></Social>
                     </div>

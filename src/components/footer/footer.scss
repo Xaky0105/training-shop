@@ -50,6 +50,8 @@
             }
           }
           .footer_btn {
+            font-family: inherit;
+            text-transform: uppercase;
             max-width: 108px;
             font-size: 12px;
             font-weight: 600;
@@ -60,6 +62,11 @@
             padding: 8px 20px;
             transition: 0.2s linear;
             height: 32px;
+            &:disabled {
+              background-color: #353535;
+              cursor: auto;
+              border: 1px solid transparent;
+            }
             cursor: pointer;
             &:focus {
               box-shadow: 0px 0px 10px 1px rgb(255, 255, 255);
