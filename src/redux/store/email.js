@@ -20,19 +20,23 @@ const emailSlice = createSlice({
     name: 'email',
     initialState: {
         isLoading: false,
-        isError: null,   
+        isError: null, 
+        isSent: false  
     },
     extraReducers: {
         [fetchEmail.pending]: (state) => {
             state.isLoading = true;
             state.isError = false;
+            state.isSent = false;
         },
         [fetchEmail.fulfilled]: (state) => {
             state.isLoading = false;
             state.isError = false;
+            state.isSent = true;
         },
         [fetchEmail.rejected]: (state, action) => {
             state.isLoading = false;
+            state.isSent = false;
             state.isError = action.payload
         },
     }

@@ -9,6 +9,14 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: 0.1s linear;
+  &:disabled {
+    background-color: #9c9c9c;
+    cursor: auto;
+    &:hover {
+      background-color: #9c9c9c;
+      color: #fff;
+    }
+  }
 
   &:hover {
     background-color: #e5e5e5;
