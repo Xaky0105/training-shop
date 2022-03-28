@@ -75,6 +75,7 @@ function RelatedProducts(props) {
                                     sale={String(item.discount).replace(/\D/g, '')}
                                     card={item}
                                     productType={item.category}
+                                    key={item.id}
                                     
                                 />
                             </SwiperSlide>

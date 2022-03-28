@@ -3,14 +3,14 @@ import axios from "axios";
 
 export const fetchReview = createAsyncThunk(
     'review/fetchReview',
-    async function(values, {rejectWithValue}) {
+    async function(review, {rejectWithValue}) {
         try {
             await axios
             .post('https://training.cleverland.by/shop/product/review', {
-                id: values.id,
-                name: values.name,
-                text: values.comment,
-                rating: Number(values.ratingForm),
+                id: review.id,
+                name: review.name,
+                text: review.comment,
+                rating: Number(review.ratingForm)
             })
         } catch (error) {
             return rejectWithValue(error.message)
@@ -33,7 +33,7 @@ const reviewSlice = createSlice({
         [fetchReview.fulfilled]: (state) => {
             state.isLoading = false;
             state.isError = false;
-            // window.location.reload()
+            window.location.reload()
         },
         [fetchReview.rejected]: (state, action) => {
             state.isLoading = false;

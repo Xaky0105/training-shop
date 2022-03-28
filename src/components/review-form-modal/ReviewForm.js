@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import { fetchReview } from "../../redux/store/reviewForm";
 import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
 
 
 const ReviewForm = ({showReviewForm, handleReviewForm, id}) => {
@@ -17,16 +16,21 @@ const ReviewForm = ({showReviewForm, handleReviewForm, id}) => {
         name: yup.string().trim().required('Введите ваше имя'),
         comment: yup.string().trim().required('Напишите комментарий'),
     })
+
+    
     const submit = (values, { setSubmitting }) => {
-        dispatch(fetchReview(values))
+        const review = {
+            id: id,
+            name: values.name,
+            comment: values.comment,
+            ratingForm: values.ratingForm
+        }
+        dispatch(fetchReview(review))
         setSubmitting(false);
-        console.log(values) 
+        console.log(review)
+        console.log(id) 
         
     }
-    useEffect(() => {
-        <ReviewForm />
-       console.log('render')
-    }, [id])
 
     return (
         <>
@@ -36,7 +40,6 @@ const ReviewForm = ({showReviewForm, handleReviewForm, id}) => {
             </div>
             <Formik
                 initialValues={{
-                    id: id,
                     name: '',
                     comment: '',
                     ratingForm: '1',
