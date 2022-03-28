@@ -78,6 +78,7 @@ export const ProductCard = ({product: {category, id, images, material, price, na
     const [showReviewForm, setShowReviewForm] = useState(false)
     function handleReviewForm() {
         setShowReviewForm(!showReviewForm)
+        console.log(id)
     }
     showReviewForm ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto'
 
@@ -99,7 +100,6 @@ export const ProductCard = ({product: {category, id, images, material, price, na
         console.log('render')
         setIsActiveColor(images[0])
         setIsActiveSize(sizes[0])
-        
         // eslint-disable-next-line
     }, [id])
     
@@ -125,11 +125,11 @@ export const ProductCard = ({product: {category, id, images, material, price, na
                                 onSwiper={setThumbsSwiper}
                                 {...thumbnailSwiperParams}
                             >
-                                {images.map((obj, index) => (
+                                {images.map((obj) => (
                                     
-                                    <SwiperSlide>
+                                    <SwiperSlide key={obj.id}>
                                         <img 
-                                            key={obj[index]}
+                                            
                                             className='mini_img' 
                                             src={`https://training.cleverland.by/shop${obj?.url}`} 
                                             
@@ -148,8 +148,8 @@ export const ProductCard = ({product: {category, id, images, material, price, na
                                     <img className='slider_right_arr_left' src={arr} alt=''/>
                                     <img className='slider_right_arr_right' src={arrRight} alt=''/>
                                     {images.map((obj) => (
-                                        <SwiperSlide>
-                                            <img key={obj.id} className='main_slider' src={`https://training.cleverland.by/shop${obj?.url}`} alt='' />
+                                        <SwiperSlide key={obj.id}>
+                                            <img className='main_slider' src={`https://training.cleverland.by/shop${obj?.url}`} alt='' />
                                         </SwiperSlide>
                                     ))}
                                 </Swiper>
@@ -239,8 +239,8 @@ export const ProductCard = ({product: {category, id, images, material, price, na
                             </div>
                             <div className="additional_info_item">
                                 <h4 className='info_subtitle'>Size:</h4>
-                                {sizes.map((item, index) => (
-                                    <span key={item[index]}>{item},</span>
+                                {sizes.map((item) => (
+                                    <span key={item}>{item},</span>
                                 ))}
                                 
                             </div>
@@ -258,7 +258,8 @@ export const ProductCard = ({product: {category, id, images, material, price, na
                                     />
                                     <span>{reviews.length} Rewiews</span>
                                 </div>
-                                <span 
+                                <span
+                                    data-test-id='review-button' 
                                     className="comments_top_right"
                                     onClick={handleReviewForm}
                                 >

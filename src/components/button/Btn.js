@@ -6,6 +6,7 @@ function Btn(props) {
             className="btn"
             type="submit"
             disabled={props.disabled}
+            data-test-id={props.data}
         >
             {props.title}
         </button>

@@ -4,11 +4,11 @@ export const ProductsCards = ({ filteredProducts}) => {
     
     return (
         <ul className="carts">
-            {filteredProducts && filteredProducts.map((item) => (
+            {filteredProducts && filteredProducts.map((item, index) => (
                 <Cart
                     card={item}
                     productType={item.category}
-                    key={item.id}
+                    key={index}
                     sale={String(item.discount).replace(/\D/g, '')}
                     
                 />

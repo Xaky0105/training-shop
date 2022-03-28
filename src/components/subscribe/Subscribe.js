@@ -38,6 +38,7 @@ function Subscribe() {
                 {({ values, handleChange, handleBlur, isValid, handleSubmit, dirty}) => (
                     <>
                         <input 
+                            data-test-id="main-subscribe-mail-field"
                             name="email"
                             className="mail" 
                             type={'email'} 
@@ -52,6 +53,7 @@ function Subscribe() {
                             {isError && <span className="error">Ошибка запроса</span>}
                             {isSent && <span className="sent">Отправлено</span>}
                             <Btn
+                                data="main-subscribe-mail-button"
                                 disabled={!isValid || !dirty || isLoading}
                                 onClick={handleSubmit}
                                 title = 'Subscribe'

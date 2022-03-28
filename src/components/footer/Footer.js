@@ -87,7 +87,8 @@ function Footer() {
                             {({ values, handleChange, handleBlur, isValid, handleSubmit, dirty}) => (
                                 <form>
                                     <label>
-                                        <input 
+                                        <input
+                                            data-test-id="footer-mail-field"
                                             className="footer_mail" 
                                             type={'email'} 
                                             name="email" 
@@ -98,6 +99,7 @@ function Footer() {
                                         />
                                     </label>
                                     <button 
+                                        data-test-id="footer-subscribe-mail-button"
                                         className="footer_btn" 
                                         type={'submit'} 
                                         value='JOIN US'

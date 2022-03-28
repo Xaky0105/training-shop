@@ -34,7 +34,7 @@ function Product() {
                 
             />}
             <RelatedProducts 
-                
+                id={id}
             />
             
         </div>

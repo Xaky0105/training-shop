@@ -15,7 +15,7 @@ import { useSelector} from "react-redux"
 
 
 
-function RelatedProducts() {
+function RelatedProducts(props) {
     const PRODUCTS = useSelector(state => state.products.products)
     const {productType} = useParams();
 
@@ -69,13 +69,13 @@ function RelatedProducts() {
                         {...params}
                     >
                         
-                        {targetProduct !== undefined && targetProduct.map((item, index) => (
-                            <SwiperSlide>
+                        {targetProduct !== undefined && targetProduct.filter(item => item.id === props.id ? false : true).map((item) => (
+                            <SwiperSlide key={item.id}>
                                 <Cart
                                     sale={String(item.discount).replace(/\D/g, '')}
                                     card={item}
                                     productType={item.category}
-                                    key={index}
+                                    
                                 />
                             </SwiperSlide>
                         ))}

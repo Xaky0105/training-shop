@@ -33,7 +33,7 @@ const reviewSlice = createSlice({
         [fetchReview.fulfilled]: (state) => {
             state.isLoading = false;
             state.isError = false;
-            window.location.reload()
+            // window.location.reload()
         },
         [fetchReview.rejected]: (state, action) => {
             state.isLoading = false;
