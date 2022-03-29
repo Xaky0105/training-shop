@@ -61,9 +61,10 @@ function Footer() {
     const validationsSchema = yup.object().shape({
         email: yup.string().email('Введите верный email')
     })
-    const submit = (values, { setSubmitting }) => {
+    const submit = (values, { setSubmitting, resetForm}) => {
         dispatch(fetchEmail(values))
         setSubmitting(false);
+        resetForm({values: ''})
         
         console.log(values) 
     }

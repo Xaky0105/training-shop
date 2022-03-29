@@ -10,13 +10,14 @@ import * as yup from 'yup'
 function Subscribe() {
     const dispatch = useDispatch();
     const {isLoading, isError, isSent} = useSelector(state => state.email)
-    
     const validationsSchema = yup.object().shape({
         email: yup.string().email('Введите верный email')
     })
-    const submit = (values, { setSubmitting }) => {
+    const submit = (values, { setSubmitting, resetForm }) => {
         dispatch(fetchEmail(values))
         setSubmitting(false);
+        resetForm({values: ''})
+        console.log(values)
     }
 
     return (
@@ -29,7 +30,7 @@ function Subscribe() {
                 <h2 className="subtitle">And <span>Get 10% Off</span></h2>
                 <Formik
                     initialValues={{
-                        email: ''
+                        email: '',
                     }}
                     validateOnMount
                     onSubmit={submit}
@@ -50,7 +51,7 @@ function Subscribe() {
                         />
                         
                         <div className="sub_wrap">
-                            {isError && <span className="error">Ошибка запроса</span>}
+                            {isError && <span className="error">Ошибка</span>}
                             {isSent && <span className="sent">Отправлено</span>}
                             <Btn
                                 data="main-subscribe-mail-button"
@@ -58,7 +59,7 @@ function Subscribe() {
                                 onClick={handleSubmit}
                                 title = 'Subscribe'
                             />
-                            {isLoading && <div class="lds-ring"><div></div><div></div><div></div><div></div></div>}
+                            {isLoading  && <div className="lds-ring"><div></div><div></div><div></div><div></div></div>}
                         </div>
                         
                     </>

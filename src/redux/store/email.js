@@ -5,9 +5,8 @@ export const fetchEmail = createAsyncThunk(
     'email/fetchEmail',
     async function(values, {rejectWithValue}) {
         try {
-            await axios
-            .post('https://training.cleverland.by/shop/email', {
-                email: values.email
+            await axios.post('https://training.cleverland.by/shop/email', {
+                email: values.email,   
             })
         } catch (error) {
             return rejectWithValue(error.message)
@@ -19,9 +18,9 @@ export const fetchEmail = createAsyncThunk(
 const emailSlice = createSlice({
     name: 'email',
     initialState: {
-        isLoading: false,
+        isLoading: null,
         isError: null, 
-        isSent: false  
+        isSent: null, 
     },
     extraReducers: {
         [fetchEmail.pending]: (state) => {
@@ -29,15 +28,15 @@ const emailSlice = createSlice({
             state.isError = false;
             state.isSent = false;
         },
-        [fetchEmail.fulfilled]: (state) => {
+        [fetchEmail.fulfilled]: (state, action) => {
             state.isLoading = false;
             state.isError = false;
             state.isSent = true;
         },
-        [fetchEmail.rejected]: (state, action) => {
+        [fetchEmail.rejected]: (state) => {
             state.isLoading = false;
             state.isSent = false;
-            state.isError = action.payload
+            state.isError = true
         },
     }
 })
