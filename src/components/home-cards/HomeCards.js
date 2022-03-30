@@ -7,18 +7,13 @@ import { useSelector} from "react-redux"
 
 
 export const HomeCards = ({filtered: {particularName}, productType}) => {
-
     const PRODUCTS = useSelector(state => state.products.products)
-    console.log(PRODUCTS)
     let targetProduct
     if(productType === "men" && PRODUCTS !== undefined) {
         targetProduct = PRODUCTS.men
     } else if (productType === "women" && PRODUCTS !== undefined) {
         targetProduct = PRODUCTS.women
     }
-    console.log(targetProduct)
-    console.log(particularName)
-    console.log(PRODUCTS)
     return (
         <ul className="carts">
             {targetProduct !== undefined && targetProduct.filter((obj) => obj.particulars[particularName]).map((item) => (

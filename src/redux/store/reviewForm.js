@@ -24,7 +24,7 @@ const reviewSlice = createSlice({
     initialState: {
         isLoading: null,
         isError: null,
-        num: null
+        num: null,
     },
     extraReducers: {
         [fetchReview.pending]: (state) => {
@@ -35,7 +35,7 @@ const reviewSlice = createSlice({
         [fetchReview.fulfilled]: (state) => {
             state.num = true
             state.isLoading = false;
-            state.isError = false; 
+            state.isError = false;
         },
         [fetchReview.rejected]: (state) => {
             state.isLoading = false;

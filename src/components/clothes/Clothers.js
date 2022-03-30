@@ -38,7 +38,6 @@ function Clothers(props) {
         let newClothesParticular = [...MAIN_CLOTHES_BLOCK_MENU].filter( item => item.particularName === particularName)
         setFiltered(newClothesParticular[0])
     }
-    console.log(filtered)
     return (
             <div className="container">
                 <div className="clothers">

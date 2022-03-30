@@ -22,6 +22,12 @@ const emailSlice = createSlice({
         isError: null, 
         isSent: null, 
     },
+    reducers: {
+        clear: (state) => {
+            state.isSent = null;
+            state.isError = null;
+        },
+    },
     extraReducers: {
         [fetchEmail.pending]: (state, action) => {
             state.isLoading = action.meta.arg.id;
@@ -41,6 +47,6 @@ const emailSlice = createSlice({
     }
 })
 
-export const {setIndex} = emailSlice.actions;
+export const {clear} = emailSlice.actions;
 
 export default emailSlice.reducer;

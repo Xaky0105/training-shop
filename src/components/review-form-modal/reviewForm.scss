@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.5s ease-in-out;
   .mask_review {
     position: fixed;
     display: none;
@@ -15,13 +14,12 @@
   }
   .form_review_wrap {
     position: fixed;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     top: 50%;
-    left: -50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    transition: all 0.5s ease-in-out;
     z-index: 100;
     .form_review {
       background-color: rgb(255, 255, 255);
@@ -106,9 +104,7 @@
     display: flex;
   }
   .form_review_wrap.active {
-    transition: all 0.4s ease-in-out;
-    top: 50%;
-    left: 50%;
+    display: flex;
   }
 
   .rating_form {

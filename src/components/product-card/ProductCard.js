@@ -29,6 +29,8 @@ import paypal from '../assets/img/paypal-color.svg'
 import BtnSmall from '../button-small/BtnSmall'
 import Rating from '../rating/Rating'
 import ReviewForm from '../review-form-modal/ReviewForm'
+import { fetchProduct } from "../../redux/store/getProduct";
+import { useDispatch ,useSelector } from "react-redux"
 
 
 
@@ -44,14 +46,11 @@ const safeLinks = [
 ]
 
 export const ProductCard = ({product: {category, id, images, material, price, name, rating, sizes, reviews}}) => {
-    
+    const dispatch = useDispatch();
     const colors = images.map((obj) => {
         return obj.color
     })
-    // Сортирую цвета по уникальности
     const uniqueColor = [...new Set(colors)]
-    console.log(images)
-    // Сортирую изображения по цветовой уникальности
     function getUniqueImg(arr) {
         let uniq = {}
         return arr.filter(obj => !uniq[obj.color] && (uniq[obj.color] = true))
@@ -78,7 +77,6 @@ export const ProductCard = ({product: {category, id, images, material, price, na
     const [showReviewForm, setShowReviewForm] = useState(false)
     function handleReviewForm() {
         setShowReviewForm(!showReviewForm)
-        console.log(id)
     }
     showReviewForm ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto'
 
@@ -95,13 +93,25 @@ export const ProductCard = ({product: {category, id, images, material, price, na
         let newSize = [...sizes].filter( item => item === size)
         setIsActiveSize(newSize[0])  
     }
-    console.log(isActiveSize)
     useEffect(() => {
-        console.log('render')
         setIsActiveColor(images[0])
         setIsActiveSize(sizes[0])
         // eslint-disable-next-line
     }, [id])
+
+    const {isLoading, isError, num} = useSelector(state => state.reviews)
+    const updateProduct = useSelector(state => state.product.product)
+    const reviewsUpdate = updateProduct.reviews
+    if (reviewsUpdate !== undefined && updateProduct.id === id) {
+        reviews = reviewsUpdate
+    }
+    useEffect(() => {
+        if (isLoading === false && isError === false) {
+            dispatch(fetchProduct(id))
+            handleReviewForm()
+        }
+        // eslint-disable-next-line
+    }, [num])
     
     return (
         <>
@@ -268,7 +278,7 @@ export const ProductCard = ({product: {category, id, images, material, price, na
                                 </span>
                             </div>
                             <div className="comment">
-                                {reviews.map((item) => (
+                                {reviews && reviews.map((item) => (
                                     <div key={item.id}>
                                         <div className="comment_header">
                                             <div className='comment_name'>{item.name}</div>

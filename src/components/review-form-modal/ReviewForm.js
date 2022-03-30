@@ -3,17 +3,16 @@ import { Formik } from "formik";
 import * as yup from 'yup'
 import classNames from 'classnames';
 import { fetchReview } from "../../redux/store/reviewForm";
-import { fetchProducts } from "../../redux/store/products";
-import { useDispatch ,useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 const ReviewForm = ({showReviewForm, handleReviewForm, id}) => {
     const dispatch = useDispatch();
-    const {isLoading, isError, num} = useSelector(state => state.reviews)
+    const {isLoading, isError} = useSelector(state => state.reviews)
     const validationsSchema = yup.object().shape({
         name: yup.string().trim().required('Введите ваше имя'),
         comment: yup.string().trim().required('Напишите комментарий'),
     })    
-    const submit = (values, { setSubmitting }) => {
+    const submit = (values, { setSubmitting, resetForm }) => {
         const review = {
             id: id,
             name: values.name,
@@ -22,16 +21,9 @@ const ReviewForm = ({showReviewForm, handleReviewForm, id}) => {
             num: values.num
         }
         dispatch(fetchReview(review))
+        resetForm({values: ''})
         setSubmitting(false);
     }
-    React.useEffect(() => {
-        if (isLoading === false && isError === false) {
-            dispatch(fetchProducts())
-            handleReviewForm()
-        }
-        // eslint-disable-next-line
-    }, [num])
-
     return (
         <div className="wrapper_modal_review">
             <div className={classNames('mask_review', {active: showReviewForm})}

@@ -17,9 +17,6 @@ function Products() {
     function onClickCross() {
         setFilterOpen(!filterOpen)
     }
-    
-    //size
-    
     function getSize(arr) {
         let size = []
         for (let i = 0; i < arr.length; i++) {
@@ -27,22 +24,15 @@ function Products() {
         }
         return productsType && size.split(',') 
     }
-    
     const uniqSize = [...new Set(getSize(sizesArr))]
-    //colors
     const colors = productsType && imagesArr.map((obj) => {
         return obj.color
     })
-   
     const uniqueColor = productsType && [...new Set(colors)]
-    //brand
     function getUniqueBrand(arr) {
         let uniq = {}
-        return productsType && arr.filter(obj => !uniq[obj.brand] && (uniq[obj.brand] = true))  
-        
-        
+        return productsType && arr.filter(obj => !uniq[obj.brand] && (uniq[obj.brand] = true))    
     }
-
     let priceRanges = [
         '0 BYN - 49 BYN',
         '50 BYN - 99 BYN',
@@ -50,15 +40,11 @@ function Products() {
         '150 BYN - 199 BYN',
         '200 BYN - 299 BYN',
     ]
-    
-    
     let [sizeArr, setSizeArr] = useState([])
     let [colorArr, setColorArr] = useState([])
     let [brandArr, setBrandArr] = useState([])
     let [priceArr, setPriceArr] = useState([])
     let [filteredProducts, setFilteredProducts] = useState([])
-
-    console.log(filteredProducts)
     function handleCheckSize(item, e) {
         if (e.target.checked) {
             sizeArr = [...sizeArr, item]
@@ -95,12 +81,9 @@ function Products() {
             setPriceArr(newPrice)
         }
     }
-    
     useEffect(() => {
-        console.log('render')
         setFilteredProducts(() => {
             let filteredProduct = productsType && [...productsType];
-
             const getPrice = (productsType) => {
                 return priceArr.some((item) => {
                     let price = productsType.price
@@ -113,8 +96,6 @@ function Products() {
                   }
                 });
               };
-              
-        
             const filterAll = (productsType) => {
                 if (colorArr.length !== 0 && !productsType.images.some((image) => colorArr.includes(image.color))) {
                     return false;
@@ -135,21 +116,17 @@ function Products() {
         });
         // eslint-disable-next-line
     }, [sizeArr, brandArr, colorArr, priceArr])
-
     useEffect(() => {
         document.querySelectorAll('input[type="checkbox"]').forEach(e => e.checked = false)
         setFilterOpen(false)
         setSizeArr([])
         setColorArr([])
         setBrandArr([])
-        setPriceArr([])
-       
+        setPriceArr([]) 
     }, [productsType])
-
     const checkLength = () => {
         return colorArr.length !== 0 || sizeArr.length !== 0 || brandArr.length !== 0 || priceArr.length !== 0
     }
-
     return (
         <div className="products-page" data-test-id={`products-page-${productType}`}>
             <ProductsHeader
@@ -178,8 +155,7 @@ function Products() {
                     filteredProducts = {filteredProducts}
                 />
             </div>
-            <img className="loading" src={loading} alt=''></img>  
-                
+            <img className="loading" src={loading} alt=''></img>      
         </div>
     )
 }

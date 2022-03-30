@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation} from "react-router-dom";
 
 import Social from '../social/Social'
 
@@ -17,6 +17,8 @@ import { Field, Formik } from "formik";
 import { useDispatch } from "react-redux"
 import { fetchEmail } from "../../redux/store/email";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { clear } from "../../redux/store/email";
 
 const categories = [
     {id: 1, path: 'men', name: 'Men'},
@@ -56,6 +58,7 @@ const payLinks = [
 
 function Footer() {
     const dispatch = useDispatch();
+    const location = useLocation();
     const {isLoading, isError, isSent} = useSelector(state => state.email)
     function validateEmail(value) {
         let error;
@@ -65,14 +68,19 @@ function Footer() {
           error = 'Invalid email address';
         }
         return error;
-      }
-    const submit = (values, { setSubmitting, resetForm}) => {
+    }
+    useEffect(() => {
+        dispatch(clear())
+        // eslint-disable-next-line
+    }, [location]);
+    const submit = async (values, actions) => {
         dispatch(fetchEmail(values));
-        setSubmitting(false);
-        resetForm({values: ''})
+        actions.setSubmitting(false);
+        actions.resetForm({values: ''})
         
         console.log(values) 
     }
+    
     return (
         <footer className="footer" data-test-id='footer'>
             <div className="footer_top">
@@ -105,7 +113,7 @@ function Footer() {
                                     />
                                     {isError  === '2' && <span className="error">Ошибка</span>}
                                     {isSent  === '2' && <span className="sent">Отправлено</span>}
-                                    <button 
+                                    <button
                                         data-test-id="footer-subscribe-mail-button"
                                         className="footer_btn"
                                         type={'submit'} 

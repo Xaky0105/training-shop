@@ -16,20 +16,14 @@ function Product() {
     const {id, productType} = useParams();
     const PRODUCTS = useSelector(state => state.products.products)
     const productsType = PRODUCTS && PRODUCTS[productType]
-    console.log(productsType)
-    console.log(PRODUCTS)
-
     let product = productsType ? productsType.find(obj => obj.id === id) : null
-   
     return (
-        
         <div className="page-product" data-test-id={`product-page-${productType}`}>  
             <ScrollToTop />
-            { productsType && <ProductHeader 
-                
+            {productsType && <ProductHeader 
                 product = { product }
             />}
-            { productsType && <ProductCard 
+            {productsType && <ProductCard 
                 product = { product }
             />}
             <RelatedProducts 
