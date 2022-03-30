@@ -33,7 +33,7 @@ const ReviewForm = ({showReviewForm, handleReviewForm, id}) => {
     }, [num])
 
     return (
-        <div className="wrapper">
+        <div className="wrapper_modal_review">
             <div className={classNames('mask_review', {active: showReviewForm})}
                 onClick={handleReviewForm}
             >
@@ -51,7 +51,7 @@ const ReviewForm = ({showReviewForm, handleReviewForm, id}) => {
             >
             {({ values, errors, touched, handleChange, handleBlur, isValid, handleSubmit, dirty}) => (
                 <>  
-                    <div data-test-id="review-modal" className={classNames('form_review_wrap animate__animated animate__fadeInUp', {active: showReviewForm})}>
+                    <div data-test-id="review-modal" className={classNames('form_review_wrap', {active: showReviewForm})}>
                         <form className="form_review">
                             <span className="header_form">Write a review</span>
                             <div className="rating_form">
