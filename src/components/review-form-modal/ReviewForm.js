@@ -51,8 +51,8 @@ const ReviewForm = ({showReviewForm, handleReviewForm, id}) => {
             >
             {({ values, errors, touched, handleChange, handleBlur, isValid, handleSubmit, dirty}) => (
                 <>  
-                    <div data-test-id="review-modal" className={classNames('form_review_wrap', {active: showReviewForm})}>
-                        <form className="form_review">
+                    <div  className={classNames('form_review_wrap', {active: showReviewForm})}>
+                        <form className="form_review" data-test-id="review-modal">
                             <span className="header_form">Write a review</span>
                             <div className="rating_form">
                                 <div className="rating_form_items">
