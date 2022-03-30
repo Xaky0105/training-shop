@@ -13,7 +13,7 @@ export const fetchReview = createAsyncThunk(
                 rating: Number(review.ratingForm)
             })
         } catch (error) {
-            return rejectWithValue(error.message)
+            return rejectWithValue(error.message) 
         }
         
     }
@@ -22,26 +22,28 @@ export const fetchReview = createAsyncThunk(
 const reviewSlice = createSlice({
     name: 'review',
     initialState: {
-        isLoading: false,
-        isError: null,   
+        isLoading: null,
+        isError: null,
+        num: null
     },
     extraReducers: {
         [fetchReview.pending]: (state) => {
+            state.num = null
             state.isLoading = true;
-            state.isError = false;
+            state.isError = false; 
         },
         [fetchReview.fulfilled]: (state) => {
+            state.num = true
             state.isLoading = false;
-            state.isError = false;
-            window.location.reload()
+            state.isError = false; 
         },
-        [fetchReview.rejected]: (state, action) => {
+        [fetchReview.rejected]: (state) => {
             state.isLoading = false;
-            state.isError = action.payload
+            state.isError = true
         },
     }
 })
 
-export const {setReview} = reviewSlice.actions;
+// export const {setReview} = reviewSlice.actions;
 
 export default reviewSlice.reducer;

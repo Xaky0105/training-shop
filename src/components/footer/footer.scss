@@ -24,31 +24,43 @@
         padding: 10px 0;
         form {
           display: flex;
-
+          position: relative;
           justify-content: center;
           @media (max-width: 450px) {
             flex-direction: column;
             align-items: center;
           }
-          label {
-            .footer_mail {
-              height: 32px;
-              background-color: #ffffff38;
-              color: #fff;
-              padding: 5px 20px;
-              margin: 0 12px;
-              transition: 0.2s linear;
-              width: 400px;
 
-              @media (max-width: 600px) {
-                margin-bottom: 20px;
-                width: 270px;
-              }
-              &:focus {
-                box-shadow: 0px 0px 10px 1px rgb(255, 255, 255);
-              }
+          .error,
+          .sent {
+            position: absolute;
+            top: 45px;
+            left: 20px;
+          }
+          .sent {
+            color: rgb(7, 109, 75);
+          }
+          .error {
+            color: #e91e63;
+          }
+          .footer_mail {
+            height: 32px;
+            background-color: #ffffff38;
+            color: #fff;
+            padding: 5px 20px;
+            margin: 0 12px;
+            transition: 0.2s linear;
+            width: 400px;
+
+            @media (max-width: 600px) {
+              margin-bottom: 20px;
+              width: 270px;
+            }
+            &:focus {
+              box-shadow: 0px 0px 10px 1px rgb(255, 255, 255);
             }
           }
+
           .footer_btn {
             font-family: inherit;
             text-transform: uppercase;
@@ -62,6 +74,7 @@
             padding: 8px 20px;
             transition: 0.2s linear;
             height: 32px;
+            position: relative;
             &:disabled {
               background-color: #353535;
               cursor: auto;
@@ -70,6 +83,11 @@
             cursor: pointer;
             &:focus {
               box-shadow: 0px 0px 10px 1px rgb(255, 255, 255);
+            }
+            .lds-ring {
+              position: absolute;
+              top: -6px;
+              left: 105px;
             }
           }
         }

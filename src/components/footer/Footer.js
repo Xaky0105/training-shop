@@ -13,8 +13,7 @@ import Location from "../assets/img/location-marker.svg"
 import Phone from "../assets/img/phone.svg"
 import Clock from "../assets/img/clock.svg"
 import Mail from "../assets/img/mail.svg"
-import { Formik } from "formik";
-import * as yup from 'yup'
+import { Field, Formik } from "formik";
 import { useDispatch } from "react-redux"
 import { fetchEmail } from "../../redux/store/email";
 import { useSelector } from "react-redux";
@@ -57,12 +56,18 @@ const payLinks = [
 
 function Footer() {
     const dispatch = useDispatch();
-    const {isLoading} = useSelector(state => state.email)
-    const validationsSchema = yup.object().shape({
-        email: yup.string().email('Введите верный email')
-    })
+    const {isLoading, isError, isSent} = useSelector(state => state.email)
+    function validateEmail(value) {
+        let error;
+        if (!value) {
+          error = 'Required';
+        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+          error = 'Invalid email address';
+        }
+        return error;
+      }
     const submit = (values, { setSubmitting, resetForm}) => {
-        dispatch(fetchEmail(values))
+        dispatch(fetchEmail(values));
         setSubmitting(false);
         resetForm({values: ''})
         
@@ -80,35 +85,38 @@ function Footer() {
                             <Formik 
                                 initialValues={{
                                     email: '',
+                                    id: '2'
                                 }}
                                 validateOnMount
                                 onSubmit={submit}
-                                validationSchema={validationsSchema}
                             >
                             {({ values, handleChange, handleBlur, isValid, handleSubmit, dirty}) => (
                                 <form>
-                                    <label>
-                                        <input
-                                            data-test-id="footer-mail-field"
-                                            className="footer_mail" 
-                                            type={'email'} 
-                                            name="email" 
-                                            placeholder="Enter your email"
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            value={values.email}
-                                        />
-                                    </label>
+                                    
+                                    <Field
+                                        data-test-id="footer-mail-field"
+                                        className="footer_mail" 
+                                        name="email" 
+                                        placeholder="Enter your email"
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        value={values.email}
+                                        validate={validateEmail}
+                                    />
+                                    {isError  === '2' && <span className="error">Ошибка</span>}
+                                    {isSent  === '2' && <span className="sent">Отправлено</span>}
                                     <button 
                                         data-test-id="footer-subscribe-mail-button"
-                                        className="footer_btn" 
+                                        className="footer_btn"
                                         type={'submit'} 
                                         value='JOIN US'
                                         disabled={!isValid || !dirty || isLoading}
                                         onClick={handleSubmit}
                                     >
+                                        {isLoading  === '2' && <div className="lds-ring"><div></div><div></div><div></div><div></div></div>}
                                         Join us
                                     </button>
+                                    
                                 </form>    
                             )}  
                             </Formik>

@@ -1,200 +1,205 @@
-.mask_review {
-  position: fixed;
-  display: none;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  background-color: #12121266;
-}
-.form_review_wrap {
-  position: fixed;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-  .form_review {
-    background-color: rgb(255, 255, 255);
-    position: relative;
-    width: 500px;
-    height: 500px;
-    // border-radius: 20px;
-    border: 2px solid #8b8b8b;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    // justify-content: space-between;
-    padding: 40px;
-    z-index: 110;
-    @media (max-width: 530px) {
-      width: 100vw;
-      padding: 30px 15px;
-    }
-    .header_form {
-      font-size: 18px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-    .wrapper {
-      width: 100%;
-      margin-bottom: 30px;
-      position: relative;
-      input,
-      textarea {
-        width: 100%;
-        padding: 15px;
-        font-size: 16px;
-        font-family: inherit;
-        // border-radius: 10px;
-        border: 1px solid #8b8b8b;
-      }
-      textarea {
-        resize: none;
-        min-height: 150px;
-      }
-      input:focus,
-      textarea:focus {
-        border: 1px solid #f0cc84;
-        outline: none;
-      }
-      .error {
-        color: red;
-        font-size: 13px;
-        position: absolute;
-        bottom: -20px;
-        left: 5px;
-      }
-    }
-
-    button {
-      padding: 15px;
-      background-color: black;
-      color: #fff;
-      width: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      position: relative;
-      margin-bottom: 15px;
-      cursor: pointer;
-      &:disabled {
-        background-color: #8b8b8b;
-        cursor: auto;
-      }
-    }
-    .error {
-      color: red;
-      font-size: 13px;
-      // text-align: start;
-      // position: absolute;
-      // bottom: -20px;
-      // left: 5px;
-    }
-  }
-  .active {
-    display: flex;
-  }
-}
-
-.active {
+.wrapper {
   display: flex;
-}
-
-.rating_form {
-  position: relative;
-  font-size: 30px;
-  display: inline-block;
-  margin-bottom: 15px;
-  &::before {
-    content: '★★★★★';
-    display: block;
-  }
-  .rating_form_items {
-    position: absolute;
+  justify-content: center;
+  .mask_review {
+    position: fixed;
+    display: none;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: row-reverse;
-    overflow: hidden;
-    .rating_form_label {
-      flex: 0 0 20%;
-      height: 100%;
-      cursor: pointer;
-      color: #e5e5e5;
-      &:last-child {
-        color: #f0cc84;
+    z-index: 100;
+    background-color: #12121266;
+  }
+  .form_review_wrap {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    z-index: 100;
+    .form_review {
+      background-color: rgb(255, 255, 255);
+      position: relative;
+      width: 500px;
+      height: 500px;
+      border: 2px solid #8b8b8b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+      z-index: 110;
+      @media (max-width: 530px) {
+        width: 100vw;
+        padding: 30px 15px;
       }
-      &::before {
-        content: '★';
-        display: block;
-        transition: color 0.3s ease 0s;
+      .header_form {
+        font-size: 18px;
+        font-weight: 800;
+        margin-bottom: 10px;
       }
-      &:hover,
-      &:hover ~ .rating_form_label,
-      &:checked ~ .rating_form_label:hover {
-        color: #f0cc84;
+      .wrapper {
+        width: 100%;
+        margin-bottom: 30px;
+        position: relative;
+        input,
+        textarea {
+          width: 100%;
+          padding: 15px;
+          font-size: 16px;
+          font-family: inherit;
+          // border-radius: 10px;
+          border: 1px solid #8b8b8b;
+        }
+        textarea {
+          resize: none;
+          min-height: 150px;
+        }
+        input:focus,
+        textarea:focus {
+          border: 1px solid #f0cc84;
+          outline: none;
+        }
+        .error {
+          color: red;
+          font-size: 13px;
+          position: absolute;
+          bottom: -20px;
+          left: 5px;
+        }
+      }
+
+      button {
+        padding: 15px;
+        background-color: black;
+        color: #fff;
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        position: relative;
+        margin-bottom: 15px;
+        cursor: pointer;
+        &:disabled {
+          background-color: #8b8b8b;
+          cursor: auto;
+        }
+      }
+      .error {
+        color: red;
+        font-size: 13px;
+        // text-align: start;
+        // position: absolute;
+        // bottom: -20px;
+        // left: 5px;
       }
     }
-    .rating_form_item {
+    .active {
+      display: flex;
+    }
+  }
+
+  .mask_review.active {
+    display: flex;
+  }
+  .form_review_wrap.active {
+    display: flex;
+  }
+
+  .rating_form {
+    position: relative;
+    font-size: 30px;
+    display: inline-block;
+    margin-bottom: 15px;
+    &::before {
+      content: '★★★★★';
+      display: block;
+    }
+    .rating_form_items {
       position: absolute;
       top: 0;
       left: 0;
-      width: 0%;
-      height: 0%;
-      opacity: 0;
-      visibility: hidden;
-      // &:checked,
-      // &:checked ~ .rating_form_label {
-      //   color: #f0cc84;
-      // }
-    }
-    .rating_form_item:checked,
-    .rating_form_item:checked ~ .rating_form_label {
-      color: #f0cc84;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+      overflow: hidden;
+      .rating_form_label {
+        flex: 0 0 20%;
+        height: 100%;
+        cursor: pointer;
+        color: #e5e5e5;
+        &:last-child {
+          color: #f0cc84;
+        }
+        &::before {
+          content: '★';
+          display: block;
+          transition: color 0.3s ease 0s;
+        }
+        &:hover,
+        &:hover ~ .rating_form_label,
+        &:checked ~ .rating_form_label:hover {
+          color: #f0cc84;
+        }
+      }
+      .rating_form_item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 0%;
+        opacity: 0;
+        visibility: hidden;
+        // &:checked,
+        // &:checked ~ .rating_form_label {
+        //   color: #f0cc84;
+        // }
+      }
+      .rating_form_item:checked,
+      .rating_form_item:checked ~ .rating_form_label {
+        color: #f0cc84;
+      }
     }
   }
-}
 
-//LOADER
-.lds-ring {
-  display: inline-block;
-  position: absolute;
-  left: 0;
-  top: 5px;
-}
-.lds-ring div {
-  box-sizing: border-box;
-  display: block;
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  margin: 8px;
-  border: 3px solid rgb(255, 255, 255);
-  border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: rgb(255, 255, 255) transparent transparent transparent;
-}
-.lds-ring div:nth-child(1) {
-  animation-delay: -0.45s;
-}
-.lds-ring div:nth-child(2) {
-  animation-delay: -0.3s;
-}
-.lds-ring div:nth-child(3) {
-  animation-delay: -0.15s;
-}
-@keyframes lds-ring {
-  0% {
-    transform: rotate(0deg);
+  //LOADER
+  .lds-ring {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 5px;
   }
-  100% {
-    transform: rotate(360deg);
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    margin: 8px;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: rgb(255, 255, 255) transparent transparent transparent;
+  }
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 }

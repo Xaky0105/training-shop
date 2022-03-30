@@ -27,11 +27,10 @@ function Product() {
             <ScrollToTop />
             { productsType && <ProductHeader 
                 
-                product = { product}
+                product = { product }
             />}
             { productsType && <ProductCard 
-                product = { product}
-                
+                product = { product }
             />}
             <RelatedProducts 
                 id={id} 

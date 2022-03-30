@@ -23,24 +23,24 @@ const emailSlice = createSlice({
         isSent: null, 
     },
     extraReducers: {
-        [fetchEmail.pending]: (state) => {
-            state.isLoading = true;
+        [fetchEmail.pending]: (state, action) => {
+            state.isLoading = action.meta.arg.id;
             state.isError = false;
             state.isSent = false;
         },
         [fetchEmail.fulfilled]: (state, action) => {
             state.isLoading = false;
             state.isError = false;
-            state.isSent = true;
+            state.isSent = action.meta.arg.id;
         },
-        [fetchEmail.rejected]: (state) => {
+        [fetchEmail.rejected]: (state , action) => {
             state.isLoading = false;
             state.isSent = false;
-            state.isError = true
+            state.isError = action.meta.arg.id
         },
     }
 })
 
-export const {setEmail} = emailSlice.actions;
+export const {setIndex} = emailSlice.actions;
 
 export default emailSlice.reducer;

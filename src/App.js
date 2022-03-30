@@ -9,10 +9,12 @@ import Product from './pages/Product';
 
 import {fetchProducts} from './redux/store/products'
 import { useDispatch } from "react-redux"
+// import { useSelector } from "react-redux";
 
 
 function App() {
   const dispatch = useDispatch();
+  // const {num} = useSelector(state => state.reviews)
   React.useEffect(() => {
     dispatch(fetchProducts())
     // eslint-disable-next-line

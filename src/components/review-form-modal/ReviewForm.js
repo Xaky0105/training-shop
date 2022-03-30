@@ -1,39 +1,39 @@
+import React from "react";
 import { Formik } from "formik";
 import * as yup from 'yup'
 import classNames from 'classnames';
 import { fetchReview } from "../../redux/store/reviewForm";
-import { useDispatch } from "react-redux"
-import { useSelector } from "react-redux";
-
+import { fetchProducts } from "../../redux/store/products";
+import { useDispatch ,useSelector } from "react-redux"
 
 const ReviewForm = ({showReviewForm, handleReviewForm, id}) => {
     const dispatch = useDispatch();
-    const {isLoading, isError} = useSelector(state => state.reviews)
-    console.log(isLoading)
-    console.log(id)
-    
+    const {isLoading, isError, num} = useSelector(state => state.reviews)
     const validationsSchema = yup.object().shape({
         name: yup.string().trim().required('Введите ваше имя'),
         comment: yup.string().trim().required('Напишите комментарий'),
-    })
-
-    
+    })    
     const submit = (values, { setSubmitting }) => {
         const review = {
             id: id,
             name: values.name,
             comment: values.comment,
-            ratingForm: values.ratingForm
+            ratingForm: values.ratingForm,
+            num: values.num
         }
         dispatch(fetchReview(review))
         setSubmitting(false);
-        console.log(review)
-        console.log(id) 
-        
     }
+    React.useEffect(() => {
+        if (isLoading === false && isError === false) {
+            dispatch(fetchProducts())
+            handleReviewForm()
+        }
+        // eslint-disable-next-line
+    }, [num])
 
     return (
-        <>
+        <div className="wrapper">
             <div className={classNames('mask_review', {active: showReviewForm})}
                 onClick={handleReviewForm}
             >
@@ -43,6 +43,7 @@ const ReviewForm = ({showReviewForm, handleReviewForm, id}) => {
                     name: '',
                     comment: '',
                     ratingForm: '1',
+                    num: null
                 }}
                 validateOnMount
                 onSubmit={submit}
@@ -50,7 +51,7 @@ const ReviewForm = ({showReviewForm, handleReviewForm, id}) => {
             >
             {({ values, errors, touched, handleChange, handleBlur, isValid, handleSubmit, dirty}) => (
                 <>  
-                    <div data-test-id="review-modal" className={classNames('form_review_wrap', {active: showReviewForm})}>
+                    <div data-test-id="review-modal" className={classNames('form_review_wrap animate__animated animate__fadeInUp', {active: showReviewForm})}>
                         <form className="form_review">
                             <span className="header_form">Write a review</span>
                             <div className="rating_form">
@@ -105,7 +106,7 @@ const ReviewForm = ({showReviewForm, handleReviewForm, id}) => {
                 </> 
             )}
             </Formik>
-        </>
+        </div>
     )
 }
 

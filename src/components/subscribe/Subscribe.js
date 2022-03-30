@@ -1,18 +1,24 @@
 import Btn from "../button/Btn"
 import Daco from "./img/Daco.png"
 import Man from "./img/man.png"
-import { Formik } from "formik";
+import { Field, Formik } from "formik";
 import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux";
 import {fetchEmail} from '../../redux/store/email'
-import * as yup from 'yup'
+
 
 function Subscribe() {
     const dispatch = useDispatch();
     const {isLoading, isError, isSent} = useSelector(state => state.email)
-    const validationsSchema = yup.object().shape({
-        email: yup.string().email('Введите верный email')
-    })
+    function validateEmail(value) {
+        let error;
+        if (!value) {
+          error = 'Required';
+        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+          error = 'Invalid email address';
+        }
+        return error;
+      }
     const submit = (values, { setSubmitting, resetForm }) => {
         dispatch(fetchEmail(values))
         setSubmitting(false);
@@ -31,35 +37,35 @@ function Subscribe() {
                 <Formik
                     initialValues={{
                         email: '',
+                        id: '1'
                     }}
                     validateOnMount
                     onSubmit={submit}
-                    validationSchema={validationsSchema}
                 >
                 {({ values, handleChange, handleBlur, isValid, handleSubmit, dirty}) => (
                     <>
-                        <input 
+                        <Field
                             data-test-id="main-subscribe-mail-field"
                             name="email"
                             className="mail" 
-                            type={'email'} 
                             placeholder="Enter your email"
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.email}
+                            validate={validateEmail}
                             
                         />
                         
                         <div className="sub_wrap">
-                            {isError && <span className="error">Ошибка</span>}
-                            {isSent && <span className="sent">Отправлено</span>}
+                            {isError === '1' && <span className="error">Ошибка</span>}
+                            {isSent === '1' &&  <span className="sent">Отправлено</span>}
                             <Btn
                                 data="main-subscribe-mail-button"
                                 disabled={!isValid || !dirty || isLoading}
                                 onClick={handleSubmit}
                                 title = 'Subscribe'
                             />
-                            {isLoading  && <div className="lds-ring"><div></div><div></div><div></div><div></div></div>}
+                            {isLoading === '1' && <div className="lds-ring"><div></div><div></div><div></div><div></div></div>}
                         </div>
                         
                     </>
