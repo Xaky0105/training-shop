@@ -6,7 +6,7 @@ export const fetchReview = createAsyncThunk(
     async function(review, {rejectWithValue}) {
         try {
             await axios
-            .post('https://training.cleverland.by/shop/product/rreview', {
+            .post('https://training.cleverland.by/shop/product/review', {
                 id: review.id,
                 name: review.name,
                 text: review.comment,

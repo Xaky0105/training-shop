@@ -117,7 +117,7 @@ export const ProductCard = ({product: {category, id, images, material, price, na
         <>
            
             <div className="container">
-                {showReviewForm && <ReviewForm 
+                { <ReviewForm 
                     showReviewForm={showReviewForm}
                     handleReviewForm={handleReviewForm}
                     id={id}
