@@ -20,7 +20,8 @@ const ReviewForm = ({showReviewForm, handleReviewForm, id}) => {
             name: values.name,
             comment: values.comment,
             ratingForm: values.ratingForm,
-            resetForm: resetForm
+            resetForm: resetForm,
+            handleReviewForm: handleReviewForm
         }
         dispatch(fetchReview(review))
         setSubmitting(false);

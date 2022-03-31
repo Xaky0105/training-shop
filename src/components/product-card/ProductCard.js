@@ -45,7 +45,7 @@ const safeLinks = [
     {id: 106, path: '#', img: americanExp},
 ]
 
-export const ProductCard = ({product: {category, id, images, material, price, name, rating, sizes, reviews}}) => {
+export const ProductCard = ({product: {id, images, material, price, name, rating, sizes, reviews}}) => {
     const dispatch = useDispatch();
     const colors = images.map((obj) => {
         return obj.color
@@ -108,7 +108,6 @@ export const ProductCard = ({product: {category, id, images, material, price, na
     useEffect(() => {
         if (isLoading === false && isError === false && num === true) {
             dispatch(fetchProduct(id))
-            handleReviewForm()
         }
         // eslint-disable-next-line
     }, [num])
