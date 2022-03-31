@@ -1,19 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-
-export const fetchEmail = createAsyncThunk(
-    'email/fetchEmail',
-    async function(values, {rejectWithValue}) {
-        try {
-            await axios.post('https://training.cleverland.by/shop/email', {
-                email: values.email,   
-            })
-        } catch (error) {
-            return rejectWithValue(error.message)
-        }
-        
-    }
-)
+import { createSlice } from "@reduxjs/toolkit";
+import { fetchEmail } from "./email.thunk";
 
 const emailSlice = createSlice({
     name: 'email',

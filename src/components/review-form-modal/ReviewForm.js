@@ -2,26 +2,27 @@ import React from "react";
 import { Formik } from "formik";
 import * as yup from 'yup'
 import classNames from 'classnames';
-import { fetchReview } from "../../redux/store/reviewForm";
+import { fetchReview } from "../../redux/review/review.thunk";
 import { useDispatch, useSelector } from "react-redux"
 
 const ReviewForm = ({showReviewForm, handleReviewForm, id}) => {
     const dispatch = useDispatch();
-    const {isLoading, isError} = useSelector(state => state.reviews)
+    const {isLoading, isError } = useSelector(state => state.reviews)
     const validationsSchema = yup.object().shape({
         name: yup.string().trim().required('Введите ваше имя'),
         comment: yup.string().trim().required('Напишите комментарий'),
-    })    
+    }) 
+    
     const submit = (values, { setSubmitting, resetForm }) => {
         const review = {
             id: id,
             name: values.name,
             comment: values.comment,
             ratingForm: values.ratingForm,
-            num: values.num
+            num: values.num,
+            resetForm: resetForm
         }
         dispatch(fetchReview(review))
-        resetForm({values: ''})
         setSubmitting(false);
     }
     return (

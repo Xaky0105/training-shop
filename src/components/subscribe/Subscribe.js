@@ -4,7 +4,7 @@ import Man from "./img/man.png"
 import { Field, Formik } from "formik";
 import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux";
-import {fetchEmail} from '../../redux/store/email'
+import {fetchEmail} from '../../redux/email/email.thunk'
 
 
 function Subscribe() {
@@ -20,9 +20,13 @@ function Subscribe() {
         return error;
       }
     const submit = (values, { setSubmitting, resetForm }) => {
-        dispatch(fetchEmail(values))
+        const sub = {
+            email: values.email,
+            id: '1',
+            resetForm: resetForm
+        }
+        dispatch(fetchEmail(sub))
         setSubmitting(false);
-        resetForm({values: ''})
         console.log(values)
     }
 
@@ -37,7 +41,6 @@ function Subscribe() {
                 <Formik
                     initialValues={{
                         email: '',
-                        id: '1'
                     }}
                     validateOnMount
                     onSubmit={submit}

@@ -15,10 +15,10 @@ import Clock from "../assets/img/clock.svg"
 import Mail from "../assets/img/mail.svg"
 import { Field, Formik } from "formik";
 import { useDispatch } from "react-redux"
-import { fetchEmail } from "../../redux/store/email";
+import { fetchEmail } from "../../redux/email/email.thunk";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
-import { clear } from "../../redux/store/email";
+import { useEffect, useRef } from "react";
+import { clear } from "../../redux/email/email.reducer";
 
 const categories = [
     {id: 1, path: 'men', name: 'Men'},
@@ -69,15 +69,20 @@ function Footer() {
         }
         return error;
     }
+    const formRef = useRef()
     useEffect(() => {
+        formRef.current.resetForm()
         dispatch(clear())
         // eslint-disable-next-line
     }, [location]);
-    const submit = async (values, actions) => {
-        dispatch(fetchEmail(values));
-        actions.setSubmitting(false);
-        actions.resetForm({values: ''})
-        
+    const submit = async (values, {setSubmitting, resetForm}) => {
+        const sub = {
+            email: values.email,
+            id: '2',
+            resetForm: resetForm
+        }
+        dispatch(fetchEmail(sub));
+        setSubmitting(false);
         console.log(values) 
     }
     
@@ -93,10 +98,10 @@ function Footer() {
                             <Formik 
                                 initialValues={{
                                     email: '',
-                                    id: '2'
                                 }}
                                 validateOnMount
                                 onSubmit={submit}
+                                innerRef={formRef}
                             >
                             {({ values, handleChange, handleBlur, isValid, handleSubmit, dirty}) => (
                                 <form>

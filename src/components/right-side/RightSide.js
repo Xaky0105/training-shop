@@ -4,7 +4,7 @@ import trash from '../assets/img/trash.svg'
 import { useSelector, useDispatch } from "react-redux"
 
 import classNames from "classnames"
-import {deleteItemFromCart, plusQuantity, minusQuantity} from '../../redux/store/cartReducer'
+import {deleteItemFromCart, plusQuantity, minusQuantity} from '../../redux/cart/cart.reducer'
 
 export const RightSide = ({onClick, classNameRS, isRightSideOpen}) => {
     const dispatch = useDispatch();

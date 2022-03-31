@@ -29,7 +29,7 @@ import paypal from '../assets/img/paypal-color.svg'
 import BtnSmall from '../button-small/BtnSmall'
 import Rating from '../rating/Rating'
 import ReviewForm from '../review-form-modal/ReviewForm'
-import { fetchProduct } from "../../redux/store/getProduct";
+import { fetchProduct } from "../../redux/product/product.thunk";
 import { useDispatch ,useSelector } from "react-redux"
 
 
@@ -106,7 +106,7 @@ export const ProductCard = ({product: {category, id, images, material, price, na
         reviews = reviewsUpdate
     }
     useEffect(() => {
-        if (isLoading === false && isError === false) {
+        if (isLoading === false && isError === false && num === true) {
             dispatch(fetchProduct(id))
             handleReviewForm()
         }
@@ -117,11 +117,11 @@ export const ProductCard = ({product: {category, id, images, material, price, na
         <>
            
             <div className="container">
-                <ReviewForm 
+                {showReviewForm && <ReviewForm 
                     showReviewForm={showReviewForm}
                     handleReviewForm={handleReviewForm}
                     id={id}
-                />
+                />}
                 <div className="product_card">
                     <div className="slider_card" data-test-id='product-slider'>
                         <div className='slider_left'>

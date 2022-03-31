@@ -7,7 +7,7 @@ import Products from './pages/Products';
 import Product from './pages/Product';
 
 
-import {fetchProducts} from './redux/store/products'
+import {fetchProducts} from './redux/products/products.thunk'
 import { useDispatch } from "react-redux"
 
 function App() {
@@ -17,7 +17,6 @@ function App() {
     // eslint-disable-next-line
     }, []) 
   return (
-    
       <div className='app' data-test-id='app'>
         <Routes>
           <Route path='/' element={<Layout />}>          
