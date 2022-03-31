@@ -19,6 +19,7 @@ import { fetchEmail } from "../../redux/email/email.thunk";
 import { useSelector } from "react-redux";
 import { useEffect, useRef } from "react";
 import { clear } from "../../redux/email/email.reducer";
+import LoaderEmail from "../loader-email/LoaderEmail";
 
 const categories = [
     {id: 1, path: 'men', name: 'Men'},
@@ -79,7 +80,7 @@ function Footer() {
         const sub = {
             email: values.email,
             id: '2',
-            resetForm: resetForm
+            resetForm: resetForm,
         }
         dispatch(fetchEmail(sub));
         setSubmitting(false);
@@ -126,7 +127,7 @@ function Footer() {
                                         disabled={!isValid || !dirty || isLoading}
                                         onClick={handleSubmit}
                                     >
-                                        {isLoading  === '2' && <div className="lds-ring"><div></div><div></div><div></div><div></div></div>}
+                                        {isLoading  === '2' && <LoaderEmail />}
                                         Join us
                                     </button>
                                     

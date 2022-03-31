@@ -5,6 +5,7 @@ import { Field, Formik } from "formik";
 import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux";
 import {fetchEmail} from '../../redux/email/email.thunk'
+import LoaderEmail from "../loader-email/LoaderEmail";
 
 
 function Subscribe() {
@@ -68,7 +69,7 @@ function Subscribe() {
                                 onClick={handleSubmit}
                                 title = 'Subscribe'
                             />
-                            {isLoading === '1' && <div className="lds-ring"><div></div><div></div><div></div><div></div></div>}
+                            {isLoading === '1' && <LoaderEmail />}
                         </div>
                         
                     </>

@@ -5,8 +5,6 @@ import productReducer from "./product/product.reducer";
 import productsReducer from './products/products.reducer';
 import formReducer from "./review/review.reducer";
 
-
-
 const rootReducer = combineReducers( {
     cart: cartReducer,
     products: productsReducer,

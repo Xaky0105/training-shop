@@ -13,6 +13,7 @@ export const fetchReview = createAsyncThunk(
                 rating: Number(review.ratingForm)
             })
             review.resetForm()
+            
         } catch (error) {
             return rejectWithValue(error.message) 
         }

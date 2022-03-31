@@ -8,6 +8,11 @@ const reviewSlice = createSlice({
         isError: false,
         num: '',
     },
+    reducers: {
+        clearReviewError: (state) => {
+            state.isError = null;
+        },
+    },
     extraReducers: {
         [fetchReview.pending]: (state) => {
             state.num = null
@@ -22,11 +27,11 @@ const reviewSlice = createSlice({
         [fetchReview.rejected]: (state) => {
             state.isLoading = false;
             state.isError = true
-            state.num = 0
             
         },
     }
 })
 
+export const {clearReviewError} = reviewSlice.actions;
 
 export default reviewSlice.reducer;

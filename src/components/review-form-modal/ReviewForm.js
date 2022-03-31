@@ -4,6 +4,7 @@ import * as yup from 'yup'
 import classNames from 'classnames';
 import { fetchReview } from "../../redux/review/review.thunk";
 import { useDispatch, useSelector } from "react-redux"
+import {clearReviewError} from "../../redux/review/review.reducer"
 
 const ReviewForm = ({showReviewForm, handleReviewForm, id}) => {
     const dispatch = useDispatch();
@@ -19,12 +20,16 @@ const ReviewForm = ({showReviewForm, handleReviewForm, id}) => {
             name: values.name,
             comment: values.comment,
             ratingForm: values.ratingForm,
-            num: values.num,
             resetForm: resetForm
         }
         dispatch(fetchReview(review))
         setSubmitting(false);
     }
+    React.useEffect(() => {
+        dispatch(clearReviewError())
+        // eslint-disable-next-line
+    }, [showReviewForm]);
+
     return (
         <div className="wrapper_modal_review">
             <div className={classNames('mask_review', {active: showReviewForm})}
@@ -36,7 +41,6 @@ const ReviewForm = ({showReviewForm, handleReviewForm, id}) => {
                     name: '',
                     comment: '',
                     ratingForm: '1',
-                    num: null
                 }}
                 validateOnMount
                 onSubmit={submit}
