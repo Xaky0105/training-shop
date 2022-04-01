@@ -45,8 +45,9 @@ function Product() {
                 reviewsUpdate={reviewsUpdate}
                 updateProduct={updateProduct}
             />}
-            <RelatedProducts 
+            <RelatedProducts
                 id={id} 
+                
             />
             
         </div>
