@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom'
 
 import Rating from '../rating/Rating'
 
-export const ProductHeader = ({product: {category, name, rating, reviews}}) => {
-
+export const ProductHeader = ({product: {category, name, rating, reviews, id}, reviewsUpdate, updateProduct}) => {
+    if (reviewsUpdate !== undefined && updateProduct.id === id) {
+        reviews = reviewsUpdate
+    }
     return (
         <>
         <div className="productHeader-wrapper">

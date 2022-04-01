@@ -29,11 +29,6 @@ import paypal from '../assets/img/paypal-color.svg'
 import BtnSmall from '../button-small/BtnSmall'
 import Rating from '../rating/Rating'
 import ReviewForm from '../review-form-modal/ReviewForm'
-import { fetchProduct } from "../../redux/product/product.thunk";
-import { useDispatch ,useSelector } from "react-redux"
-
-
-
 
 const safeLinks = [
     {id: 100, path: '#', img: stripe},
@@ -45,8 +40,8 @@ const safeLinks = [
     {id: 106, path: '#', img: americanExp},
 ]
 
-export const ProductCard = ({product: {id, images, material, price, name, rating, sizes, reviews}}) => {
-    const dispatch = useDispatch();
+export const ProductCard = ({product: {id, images, material, price, name, rating, sizes, reviews}, reviewsUpdate, updateProduct}) => {
+    
     const colors = images.map((obj) => {
         return obj.color
     })
@@ -99,18 +94,9 @@ export const ProductCard = ({product: {id, images, material, price, name, rating
         // eslint-disable-next-line
     }, [id])
 
-    const {isLoading, isError, num} = useSelector(state => state.reviews)
-    const updateProduct = useSelector(state => state.product.product)
-    const reviewsUpdate = updateProduct.reviews
     if (reviewsUpdate !== undefined && updateProduct.id === id) {
         reviews = reviewsUpdate
     }
-    useEffect(() => {
-        if (isLoading === false && isError === false && num === true) {
-            dispatch(fetchProduct(id))
-        }
-        // eslint-disable-next-line
-    }, [num])
     
     return (
         <>
