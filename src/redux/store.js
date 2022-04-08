@@ -4,6 +4,8 @@ import emailReducer from "./email/email.reducer";
 import productReducer from "./product/product.reducer";
 import productsReducer from './products/products.reducer';
 import formReducer from "./review/review.reducer";
+import orderReducer from "./order/order.reducer";
+import countriesReducer from "./countries/countries.reducer";
 
 const rootReducer = combineReducers( {
     cart: cartReducer,
@@ -11,6 +13,8 @@ const rootReducer = combineReducers( {
     product: productReducer,
     reviews: formReducer,
     email: emailReducer,
+    order: orderReducer,
+    countries: countriesReducer
 })
 
 export const store = configureStore({
