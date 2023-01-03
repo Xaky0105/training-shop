@@ -6,6 +6,7 @@ import productsReducer from './products/products.reducer';
 import formReducer from "./review/review.reducer";
 import orderReducer from "./order/order.reducer";
 import countriesReducer from "./countries/countries.reducer";
+import responseReducer from "./order/response.reducer";
 
 const rootReducer = combineReducers( {
     cart: cartReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers( {
     reviews: formReducer,
     email: emailReducer,
     order: orderReducer,
-    countries: countriesReducer
+    countries: countriesReducer,
+    response: responseReducer,
 })
 
 export const store = configureStore({

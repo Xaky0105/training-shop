@@ -1,39 +1,41 @@
-// import { createAsyncThunk } from "@reduxjs/toolkit";
-// import axios from "axios";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+import { setResponseOrder } from "./response.reducer";
 
-// export const fetchOrder = createAsyncThunk(
-//     'order/fetchOrder',
-//     async function(value, {rejectWithValue}) {
-//         try {
-//             await axios.post('https://training.cleverland.by/shop/product/cart', {
-//                 products: [
-//                     {
-//                         name: "Такая то майка",
-//                         size: "XL",
-//                         color: "Black",
-//                         quantity: 2 
-//                     }
-//                 ],
-//                 deliveryMethod: "Pickup from post offices",
-//                 paymentMethod: "PayPal",
-//                 totalPrice: "320",
-//                 phone: "+375298159396",
-//                 email: "geageagtest@mail.ru",
-//                 country: "Belarus",
-//                 cashEmail: "ttttt@mail.ru",
-//                 city: "Orsha",
-//                 street: "ул. пушкина дом калатушкина",
-//                 house: "15",
-//                 apartment: "2",
-//                 postcode: "252222",
-//                 storeAddress: "store address",
-//                 card: "7825 5258 8588 0000 5255",
-//                 cardDate: "25/24",
-//                 cardCVV: "242"
+export const fetchOrder = createAsyncThunk(
+    'order/fetchOrder',
+    async function({order, values}, {dispatch}) {
+        try {
+            await axios.post('https://training.cleverland.by/shop/cart', {
+                products: [
+                    {
+                        name: order.products[0].name,
+                        size: order.products[0].size,
+                        color: order.products[0].color,
+                        quantity: order.products[0].quantity 
+                    }
+                ],
+                deliveryMethod: order.deliveryMethod,
+                paymentMethod: values.paymentMethod,
+                totalPrice: order.totalPrice,
+                phone: order.phone,
+                email: order.email,
+                country: order.country,
+                cashEmail: values.cashEmail,
+                city: order.city,
+                street: order.street,
+                house: order.house,
+                apartment: order.apartment,
+                postcode: order.postcode,
+                storeAddress: order.storeAddress,
+                card: values.card,
+                cardDate: values.cardDate,
+                cardCVV: values.cardCVV
                
-//             })
-//         } catch (error) {
-//             return rejectWithValue(error.message)
-//         }
-//     }
-// )
+            })
+            .then(response => dispatch(setResponseOrder(response.data.message)))
+        } catch (error) {
+            return dispatch(setResponseOrder(error.response.data.message)) 
+        }
+    }
+)

@@ -43,7 +43,7 @@ export const Payment = ({submitPayment, step, totalPrice, changeOrderStepLeft}) 
                                         name='paymentMethod'
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        value={'card'}
+                                        value={'visa'}
                                     />
                                     <img src={visa} alt="" />
                                 </label>
@@ -53,7 +53,7 @@ export const Payment = ({submitPayment, step, totalPrice, changeOrderStepLeft}) 
                                         name='paymentMethod'
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        value={'card'}
+                                        value={'mastercard'}
                                     />
                                     <img src={mastercard} alt="" />
                                 </label>
@@ -68,7 +68,7 @@ export const Payment = ({submitPayment, step, totalPrice, changeOrderStepLeft}) 
                                     Cash
                                 </label>
                             </div>
-                            {values.paymentMethod === 'card' && <>
+                            {(values.paymentMethod === 'visa' || values.paymentMethod === 'mastercard') && <>
                                 <div className="group">
                                 <span>Card</span>
                                 <label className="error_order" >
