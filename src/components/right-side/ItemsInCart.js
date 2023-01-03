@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux'
 import trash from '../assets/img/trash.svg'
 import Btn from '../button/Btn';
 
-export const ItemsInCart = ({items, minusQuantity, plusQuantity, onClearBasket, totalPrice, changeOrderStepRight, onClick}) => {
+export const ItemsInCart = ({items, minusQuantity, plusQuantity, onClearBasket, totalPrice, submitItemsInCart, onClick, step}) => {
     const dispatch = useDispatch();
     return (
         <div className="items_in_cart">
@@ -45,9 +45,9 @@ export const ItemsInCart = ({items, minusQuantity, plusQuantity, onClearBasket, 
                     null
                 }
                 </div>
-                {items.length > 0 ?
+                {items.length > 0 && step === 0 ?
                 <div className="btn_group">
-                    <Btn title = {'Further'} onClick={changeOrderStepRight}/>
+                    <Btn title = {'Further'} onClick={submitItemsInCart}/>
                 </div> :
                 <div className="btn_group">
                     <Btn onClick={onClick} title={'Back to shopping'}/>

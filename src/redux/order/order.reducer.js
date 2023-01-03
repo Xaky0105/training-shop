@@ -7,22 +7,22 @@ const orderSlice = createSlice({
         products: [
             
         ],
-        deliveryMethod: "Pickup from post offices",
-        paymentMethod: "PayPal",
-        totalPrice: "320",
-        phone: "+375298159396",
-        email: "geageagtest@mail.ru",
-        country: "Belarus",
-        cashEmail: "ttttt@mail.ru",
-        city: "Orsha",
-        street: "ул. пушкина дом калатушкина",
-        house: "15",
-        apartment: "2",
-        postcode: "252222",
-        storeAddress: "store address",
-        card: "7825 5258 8588 0000 5255",
-        cardDate: "25/24",
-        cardCVV: "242"
+        deliveryMethod: "",
+        paymentMethod: "",
+        totalPrice: "",
+        phone: "",
+        email: "",
+        country: "",
+        cashEmail: "",
+        city: "",
+        street: "",
+        house: "",
+        apartment: "",
+        postcode: "",
+        storeAddress: "",
+        card: "",
+        cardDate: "",
+        cardCVV: ""
     },
     reducers: {
         setProductsOrder: (state, action) => {
@@ -37,34 +37,42 @@ const orderSlice = createSlice({
         clearProductsOrder: (state) => {
             state.products = []
         },
+        setTotalPrice: (state, action) => {
+            state.totalPrice = action.payload
+        },
         orderStepPlus: (state) => {
             state.step = state.step + 1
         },
         orderStepMinus: (state) => {
             state.step = state.step - 1
         },
-        setDeliveryInfo: (state, action) => {
-            state.deliveryMethod = action.payload.deliveryMethod
-            state.phone = action.payload.phone
-            state.email = action.payload.email
-            state.country = action.payload.country
-            state.city = action.payload.city
-            state.street = action.payload.street
-            state.house = action.payload.house
-            state.apartment = action.payload.apartment
-            state.storeAddress = action.payload.storeAddress
-            state.postcode = action.payload.postcode
+        stepOnItemsInCart: (state) => {
+            state.step = 0
         },
-        setPaymentInfo: (state, action) => {
-            state.paymentMethod = action.payload.paymentMethod
-            state.card = action.payload.card
-            state.cardCVV = action.payload.cardCVV
-            state.cardDate = action.payload.cardDate
-            state.cashEmail = action.payload.cashEmail
-        }
+        setDeliveryInfo: (state, action) => {
+            state.deliveryMethod = action.payload.values.deliveryMethod
+            state.phone = action.payload.values.phone
+            state.email = action.payload.values.email
+            action.payload.values.country ? state.country = action.payload.values.country : state.country = action.payload.selectCountry
+            state.city = action.payload.values.city
+            state.street = action.payload.values.street
+            state.house = action.payload.values.house
+            state.apartment = action.payload.values.apartment
+            state.storeAddress = action.payload.storeAddress
+            state.postcode = action.payload.values.postcode
+        },
     },
 })
 
-export const {setProductsOrder, clearProductsOrder, orderStepPlus, orderStepMinus, setDeliveryInfo, setPaymentInfo} = orderSlice.actions;
+export const {
+    setProductsOrder, 
+    clearProductsOrder, 
+    orderStepPlus, 
+    orderStepMinus, 
+    setDeliveryInfo, 
+    setPaymentInfo, 
+    setTotalPrice, 
+    stepOnItemsInCart,
+} = orderSlice.actions;
 
 export default orderSlice.reducer;

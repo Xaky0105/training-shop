@@ -7,7 +7,7 @@ export const fetchAddress = createAsyncThunk(
     async function(value, {rejectWithValue, dispatch}) {
         try {
             await axios.post('https://training.cleverland.by/shop/search/cities', {
-                city: value.storyAddress,
+                city: value.storeAddress,
                 country: value.selectCountry,   
             })
             .then((response) => {
